@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Sidebar() {
     return (
-      <div className="3xl:w-36 h-full bg-white flex flex-col items-center justify-start fixed left-0 px-[20px] pt-[67px]">
+      <div className="3xl:w-36 h-full bg-white flex flex-col items-center justify-start fixed left-0 px-[20px] pt-[67px] z-10">
         <p className="text-[#588FEF] font-inter text-xl italic font-black leading-[150%]">Intellect.ai</p>
         
         <Link href="/">
