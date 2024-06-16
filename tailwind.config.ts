@@ -20,6 +20,8 @@ const config: Config = {
         'inter': ['var(--font-inter)'],
       }, screens: {
         '3xl': '1920px',
+      }, colors: {
+        'primary': '#588FEF',
       },
     },
   },
