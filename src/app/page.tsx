@@ -67,6 +67,34 @@ export default function Home() {
           </div>
           
         </div>
+
+        <div className="flex flex-col h-[100vh] justify-center pl-36">
+          <Image
+              src="/images/ellipse-35.png"
+              alt="background"
+              className="absolute right-0 z-0"
+              width={1391.834} height={1059.03}
+            />
+            
+          <div className="z-10 flex flex-col items-start ml-[98px]">
+            <p className="w-[505px] text-black font-montserrat text-[53px] font-normal leading-[50px]">Real-Time Responses</p>
+            <p className="w-[606px] h-[184px] shrink-0  font-inter text-[25px] font-bold leading-[150%] text-black mt-[50px]">Record your valuating metrics and get immediate, <span className="text-[#538DFF]">AI-driven evaluations.</span> We measure you with traditional and AI integrated metrics, offering targeted feedback that helps you polish your financial decisions with clarity and authenticity.</p>
+          </div>
+
+          <Image
+              src="/images/image-28.png"
+              alt="chat"
+              className="absolute right-[286px] z-0"
+              width={674} height={708}
+            />
+            <Image
+              src="/images/image-29.png"
+              alt="chat"
+              className="absolute right-[170px] z-0"
+              width={351} height={223}
+            />
+          
+        </div>
       </div>
     </div>
   );
