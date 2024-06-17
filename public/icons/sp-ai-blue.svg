@@ -1,7 +1,5 @@
 <svg width="115" height="125" viewBox="0 0 115 125" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect y="0.000488281" width="115" height="125" fill="url(#pattern0_194_1000)"/>
-<rect y="0.000488281" width="115" height="125" stroke="black"/>
-<rect y="0.000488281" width="115" height="125" stroke="black" stroke-opacity="0.2"/>
+<rect id="sp-removebg-preview 5" y="0.000488281" width="115" height="125" fill="url(#pattern0_194_1000)"/>
 <defs>
 <pattern id="pattern0_194_1000" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_194_1000" transform="matrix(0.00282326 0 0 0.0025974 -0.147939 0)"/>
