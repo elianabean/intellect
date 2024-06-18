@@ -40,7 +40,7 @@ export default function Chat() {
           </div>
         </div>
 
-        <div className="mt-[300px] w-[75%]">
+        <div className="absolute bottom-16 w-[75%]">
         <Textarea minRows={1} maxRows={3}
       placeholder="Start typing..."
       classNames={{
