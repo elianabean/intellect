@@ -2,6 +2,7 @@ import Sidebar from "../components/Sidebar";
 import Image from "next/image";
 import {User} from "@nextui-org/react";
 import {Textarea} from "@nextui-org/react";
+import {Button} from "@nextui-org/react";
 
 export default function Chat() {
   return (
@@ -40,8 +41,8 @@ export default function Chat() {
           </div>
         </div>
 
-        <div className="absolute bottom-16 w-[75%]">
-        <Textarea minRows={1} maxRows={3}
+        <div className="absolute bottom-16 w-[75%] flex flex-row justify-center gap-4">
+          <Textarea minRows={1} maxRows={3}
       placeholder="Start typing..."
       classNames={{
         inputWrapper: "border-1 border-primary bg-white hover:white focus:white active:white z-50 group-data-[focus=true]:bg-white group-data-[hover=true]:bg-white",
@@ -50,6 +51,15 @@ export default function Chat() {
         base: "hover:white focus:white active:white"
       }} color="primary" fullWidth={true} radius="full" 
     />
+        <Button isIconOnly color="primary">
+          <Image
+                  src="/icons/sp-ai.svg"
+                  alt="Intellect.ai logo"
+                  className="dark:invert fill-white"
+                  width={115}
+                  height={125}
+                />
+        </Button>
         </div>
         
       </div>
