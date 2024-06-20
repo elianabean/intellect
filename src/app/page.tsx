@@ -140,12 +140,13 @@ export default function Home() {
             <p className="w-[600px] text-black font-inter text-[22px] font-semibold leading-[150%] mb-[32px]">Intellect.ai <span className="text-[#538DFF]">transcends</span> conventional financial advice. It provides an personalized analysis encompassing your account's strengths, areas for improvement, tailored investment strategies, budgeting tactics, and more.</p>
             <p className="w-[600px] text-black font-inter text-[22px] font-bold leading-[150%]">Empower Your Finances: Not Just Managing, but Mastering</p>
 
-            <Button variant="shadow" radius="full" color="primary" className="font-inter px-[20px] py-[24px] [background:linear-gradient(5deg,#588FEF_26.3%,#8FD7FF_86.4%)] mt-[32px]" endContent={<Image
+            <Link href="/chat"><Button variant="shadow" radius="full" color="primary" className="font-inter px-[20px] py-[24px] [background:linear-gradient(5deg,#588FEF_26.3%,#8FD7FF_86.4%)] mt-[32px]" endContent={<Image
               src="/icons/lightning-bolt.svg"
               alt="background"
               className="fill-white"
               width={20} height={20}
-            />}>Continue Generation</Button>
+            />}>Continue Generation</Button></Link>
+            
           </div>
 
           <div className="absolute top-1/2 translate-y-[-50%] right-[147px] ">

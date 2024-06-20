@@ -18,6 +18,7 @@ const config: Config = {
         'raleway': ['var(--font-raleway)'],
         'montserrat': ['var(--font-montserrat)'],
         'inter': ['var(--font-inter)'],
+        'lato': ['var(--font-lato)'],
       }, screens: {
         '3xl': '1920px',
       }, colors: {

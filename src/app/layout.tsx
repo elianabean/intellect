@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Raleway, Montserrat} from "next/font/google";
+import { Inter, Raleway, Montserrat, Lato} from "next/font/google";
 import "./globals.css";
 
 
@@ -26,6 +26,9 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const lato = Lato({ weight: ['100', '300', '400', '700', '900'], style: ['italic','normal'], subsets: ["latin"] ,display: 'swap', variable: '--font-lato'});
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} ${montserrat.variable} ${inter.variable}`}>
+      <body className={`${raleway.variable} ${montserrat.variable} ${inter.variable} ${lato.variable}`}>
         {children}
         </body>
     </html>

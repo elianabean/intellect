@@ -1,5 +1,4 @@
 import Sidebar from "../../components/Sidebar";
-import Image from "next/image";
 import {User} from "@nextui-org/react";
 import {Textarea} from "@nextui-org/react";
 
