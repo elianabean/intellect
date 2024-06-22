@@ -30,8 +30,8 @@ export default function Sidebar() {
               src={currentPath === "/chat" ? "/icons/sp-ai-blue.svg" : "/icons/sp-ai.svg"}
               alt="Chat"
               className="dark:invert mt-[40px] border-0"
-              width={currentPath === "/chat" ? 59 : 63}
-              height={currentPath === "/chat" ? 36 : 43}
+              width={currentPath === "/chat" ? 59 : 59}
+              height={currentPath === "/chat" ? 36 : 36}
             />
         </Link>
         <Link href="/settings">

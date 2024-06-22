@@ -2,11 +2,17 @@ import Sidebar from "./components/Sidebar";
 import Image from "next/image";
 import Link from 'next/link'
 import {Button} from "@nextui-org/react"
+import Model from "./components/3dModel/Scene";
 
 export default function Home() {
   return (
     <div className="relative">
       <Sidebar></Sidebar>
+
+      <div className="absolute right-0 top-0 h-[100vh] flex flex-col justify-start z-50">
+        <Model></Model>
+      </div>
+
       <div className="bg-white flex flex-col z-10">
         <div className="flex flex-row justify-between items-center z-10 pl-36 absolute w-[100vw]" >
           <div className="ml-[102px] flex flex-row items-center">
@@ -29,7 +35,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col h-[100vh] justify-center ">
+        <div className="flex flex-col h-[100vh] justify-center relative">
           <Image
               src="/images/ellipse-33.png"
               alt="background"
@@ -44,23 +50,23 @@ export default function Home() {
             />
             
           <div className="z-10">
-          <div className="flex flex-col ml-[306px]">
-            <p className="w-[629px] shrink-0 text-[#588FEF] font-raleway text-[90px] font-bold leading-[70px]">
-              AI-driven
-            </p>
-            <Image
-              src="/images/vector.png"
-              alt="Home"
-              className="dark:invert"
-              width={471}
-              height={14}
-            />
-            <p className="w-[629px] shrink-0 text-black fpnt-raleway text-[85px] font-bold leading-[70px] capitalize">
-            Financial
-            Management
-            </p>
-          </div>   
-          <div className="w-full flex flex-row justify-center mt-[150px]">
+            <div className="absolute flex flex-col ml-[20%]  top-[30%] translate-y-[-30%]">
+              <p className="w-[629px] shrink-0 text-[#588FEF] font-raleway text-[90px] font-bold leading-[70px]">
+                AI-driven
+              </p>
+              <Image
+                src="/images/vector.png"
+                alt="Home"
+                className="dark:invert"
+                width={471}
+                height={14}
+              />
+              <p className="w-[629px] shrink-0 text-black fpnt-raleway text-[85px] font-bold leading-[70px] capitalize">
+              Financial
+              Management
+              </p>
+            </div>   
+            <div className="w-full flex flex-row justify-center mt-[20%]">
             <p className="w-[50%] shrink-0 text-black text-center font-montserrat text-2xl font-medium leading-[150%] ">Elevate your wealth management with our dynamic AI reinforcement. Receive instant feedback on payment strategies and maintain precise risk control with income management.
             Never face uncertainty with our instant financial guidance.</p>
           </div>
