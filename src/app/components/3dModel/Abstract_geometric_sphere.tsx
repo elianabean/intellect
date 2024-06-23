@@ -37,7 +37,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh geometry={nodes.Material2.geometry} material={materials.material} rotation={[-1.026, -0.281, 1.118]} scale={0.006} />
+      <mesh geometry={nodes.Material2.geometry} material={materials.material} rotation={[-1.026, -0.281, 1.118]} scale={0.006} material-color="#588FEF"/>
     </group>
   )
 }

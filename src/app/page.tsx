@@ -9,7 +9,7 @@ export default function Home() {
     <div className="relative">
       <Sidebar></Sidebar>
 
-      <div className="absolute right-0 top-0 h-[100vh] flex flex-col justify-start z-50">
+      <div className="absolute right-0 top-0 h-[100vh] flex flex-col justify-start z-20">
         <Model></Model>
       </div>
 
@@ -47,6 +47,12 @@ export default function Home() {
               alt="background"
               className="absolute top-0 right-0 z-0"
               width={1424.004} height={732.656}
+            />
+            <Image
+              src="/images/ellipse-36.png"
+              alt="background"
+              className="absolute top-[75px] right-[164px] z-10"
+              width={799.8} height={720.34}
             />
             
           <div className="z-10">
