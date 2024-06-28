@@ -14,7 +14,7 @@ export default function Home() {
       </div>
 
       <div className="bg-white flex flex-col z-10">
-        <div className="flex flex-row justify-between items-center z-10 pl-36 absolute w-[100vw]" >
+        <div className="flex flex-row justify-between items-center z-50 pl-36 absolute w-[100vw] py-10" >
           <div className="ml-[102px] flex flex-row items-center">
             <Image
                 src="/icons/sp-ai-blue.svg"
@@ -26,10 +26,10 @@ export default function Home() {
               <p className="text-[#588FEF] font-inter text-[50px] italic font-black leading-[150%]">Intellect.ai</p>
           </div>
           <div className="flex flex-row mr-[48px] justify-between space-x-[34px]">
-            <Button as={Link} color="primary" href="#" variant="ghost" radius="full" className="px-[32px] py-[9px]">
+            <Button color="primary" href="#" variant="ghost" radius="full" className="px-[32px] py-[9px]">
             Log in
             </Button>
-            <Button as={Link} color="primary" href="#" variant="solid" radius="full" className="px-[32px] py-[12px]">
+            <Button color="primary" href="#" variant="solid" radius="full" className="px-[32px] py-[12px]">
             Sign up
             </Button>
           </div>
@@ -51,8 +51,8 @@ export default function Home() {
             <Image
               src="/images/ellipse-36.png"
               alt="background"
-              className="absolute top-[75px] right-[164px] z-10"
-              width={799.8} height={720.34}
+              className="absolute top-[163.22px] right-[164px] z-10"
+              width={703.99} height={629.56}
             />
             
           <div className="z-10">
@@ -109,10 +109,10 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col h-[100vh] justify-start pl-36 relative w-[100vw] items-end ">
-          <div className="absolute bottom-[504px] w-[calc(100%-144px)] h-[238px]">
+          <div className="absolute bottom-[700px] w-[calc(100%-144px)] h-[238px] ">
               <Image src="/images/rectangle-3174.svg" alt="background" fill style={{objectFit: "cover"}}/>
           </div>
-          <div className="absolute bottom-0 w-[calc(100%-144px)] h-[504px] ">
+          <div className="absolute bottom-[200px] w-[calc(100%-144px)] h-[504px] ">
               <Image src="/images/rectangle-3175.svg" alt="background" fill style={{objectFit: "cover"}} />
           </div>
             

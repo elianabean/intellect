@@ -21,7 +21,7 @@ export default function Loading() {
       <div className="h-[100vh] w-[100vw] pl-36 bg-[#FCFBFF] [background:linear-gradient(0deg,rgba(88,143,239,0.20)_0%,rgba(255,255,255)_30%)] flex flex-col justify-center items-center ">
         <div className="flex flex-col items-center ">
             <p className="w-[400px] text-[#588FEF] font-semibold text-center text-xl">Sit back, relax, and let Intellect work its wonders! Your wallet is in capable hands.</p>
-            <Spinner color="primary" size="lg" className="mt-[20px]"/>
+            <Spinner color="primary" size="lg" className="mt-[20px]" classNames={{wrapper: "w-20 h-20"}}/>
             
         </div>
 
