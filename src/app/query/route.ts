@@ -4,7 +4,7 @@ import OpenAI from "openai";
 export async function POST(request: NextRequest) {
   // I'll hide this in an env later
   const openai = new OpenAI({
-    apiKey: "sk-proj-M2yBHlzoaOUXkFhixlwAT3BlbkFJLLqOfrx1WzV7h2udCPtb",
+    apiKey: process.env.OPENAI_API_KEY,
   });
 
   const assistant = await openai.beta.assistants.retrieve(
