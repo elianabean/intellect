@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} ${montserrat.variable} ${inter.variable} ${lato.variable}`}>
+      <body className={`${raleway.variable} ${montserrat.variable} ${inter.variable} ${lato.variable} bg-[#C4D8C4] bg-none`}>
         {children}
         </body>
     </html>

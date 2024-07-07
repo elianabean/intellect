@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.16.0",
+    "@mui/x-charts": "^7.9.0",
     "@nextui-org/react": "^2.4.2",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
     "framer-motion": "^11.2.10",
     "next": "14.2.4",
-    "openai": "^4.52.1",
+    "openai": "^4.52.3",
     "react": "^18",
     "react-dom": "^18",
     "react-router-dom": "^6.23.1",

@@ -1,7 +1,6 @@
 'use client'
 
 import Image from "next/image";
-import { NavLink } from "react-router-dom";
 import Link from 'next/link'
 import { usePathname } from "next/navigation";
 
@@ -10,14 +9,14 @@ export default function Sidebar() {
   const currentPath = usePathname();
 
     return (
-      <div className="3xl:w-36 h-full bg-white flex flex-col items-center justify-start fixed left-0 px-[20px] pt-[67px] z-50">
+      <div className="3xl:w-36 h-full bg-[#516958] flex flex-col items-center justify-start fixed left-0 px-[20px] pt-[67px] z-50">
         <Link href="/">
-        <p className="text-[#588FEF] font-inter text-xl italic font-black leading-[150%]">Intellect.ai</p>
+        <p className="text-[#C4D8C4] font-inter text-xl italic font-black leading-[150%]">Intellect.ai</p>
         </Link>
 
         <Link href="/" >
         <Image
-              src={currentPath === "/" ? "/icons/iconly-bold-home-blue.svg" : "/icons/iconly-bold-home.svg"}
+              src={currentPath === "/" || currentPath === "/homepage2" ? "/icons/iconly-bold-home-color.svg" : "/icons/iconly-bold-home.svg"}
               alt="Home"
               className="dark:invert mt-[108px] "
               width={20}
@@ -36,7 +35,7 @@ export default function Sidebar() {
         </Link>
         <Link href="/settings">
         <Image
-              src={currentPath === "/settings" ? "/icons/iconly-bold-setting-blue.svg" : "/icons/iconly-bold-setting.svg"}
+              src={currentPath === "/settings" ? "/icons/iconly-bold-setting-color.svg" : "/icons/iconly-bold-setting.svg"}
               alt="Settings"
               className="dark:invert mt-[40px]"
               width={24}
