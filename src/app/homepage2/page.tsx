@@ -25,7 +25,7 @@ export default function Chat() {
 
       <Profile></Profile>
 
-      <div className="h-full min-h-[100vh] w-[100vw] pl-36 flex flex-row justify-center items-center pt-[116px] gap-[92px]">
+      <div className="h-full min-h-[100vh] w-[100vw] pl-36 flex flex-row flex-wrap justify-center items-center pt-[116px] gap-[92px]">
         <div className="flex flex-col gap-8">
             {/* 1 */}
             <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[28px] py-[12px]">
@@ -64,16 +64,16 @@ export default function Chat() {
             </div>
 
             {/* 3 */}
-            <div className="[background:#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid flex flex-col py-[24px] pl-[40px] items-center justify-center gap-[6px]">
+            <div className="[background:#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid flex flex-col py-[24px] px-[40px] items-center justify-center gap-[6px]">
                 <p className="flex-col justify-center text-black font-raleway text-[40px] font-bold leading-[150%]">Debt Tracker</p>
-                <div className="border [background:#C4D8C4] rounded-[10px] border-solid border-[#516958] flex flex-col justify-center items-center py-[28px] px-[86px] w-fit">
+                <div className="border [background:#C4D8C4] rounded-[10px] border-solid border-[#516958] flex flex-col justify-center items-center py-[28px] px-[86px] w-[641px]">
                     <p className="text-[rgba(193,29,29,0.80)] text-center font-inter text-[70px] font-semibold leading-[150%]  p-0 m-0">$12,409</p>
-                    <p className="text-black text-center font-inter text-2xl font-semibold leading-[150%] w-[55%] p-0 m-0">You are projected to pay this off in <span className="text-[rgba(193,29,29,0.80)]">2038</span> (in <span className="text-[rgba(193,29,29,0.80)]">4 years</span>). Here’s how we can <span className="underline">help</span>.</p>
+                    <p className="text-black text-center font-inter text-2xl font-semibold leading-[150%]  p-0 m-0">You are projected to pay this off in <span className="text-[rgba(193,29,29,0.80)]">2038</span> (in <span className="text-[rgba(193,29,29,0.80)]">4 years</span>). Here’s how we can <span className="underline">help</span>.</p>
                 </div>
             </div>
 
             {/* 4 */}
-            <div className="[background:#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid flex flex-col py-[40px] items-center justify-center gap-[6px]">
+            <div className="[background:#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid flex flex-col py-[40px] items-center justify-center gap-[40px]">
                 <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Total Monthly Expenses</p>
                 <PieChart data={dataPie}></PieChart>
             </div>
@@ -83,7 +83,7 @@ export default function Chat() {
         {/*Column 2 */}
         <div className="flex flex-col gap-8">
             {/* 1 */}
-            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[28px] py-[12px]">
+            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[28px] pt-[12px] pb-[46px] flex flex-col items-center justify-center">
                 <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Educational Optimization</p>
                 <BarChart data={dataBar}></BarChart>
                 
@@ -94,22 +94,22 @@ export default function Chat() {
             </div>
 
             {/* 2 */}
-            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[50px] py-[12px]">
-                <p className=" text-black font-raleway text-[40px] font-bold leading-[150%]">Personal Optimization</p>
+            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[50px] pt-[12px] pb-[46px] flex flex-col items-center justify-center">
+                <p className=" text-black font-raleway text-[40px] font-bold leading-[150%] text-start w-full">Personal Optimization</p>
                 <PersonalOp></PersonalOp>
                 
-                <div className="border-1 border-[#D3D7EF] w-[95%] -ml-[50px] self-center"></div>
-                <div className="self-end mt-10 mr-[25px]">
+                <div className="border-1 border-[#D3D7EF] w-full self-center mt-8"></div>
+                <div className="self-end mt-10 ">
                     <FullInsight></FullInsight>
                 </div>
             </div>
 
             {/* 3 */}
-            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[90px] py-[24px] flex flex-col justify-center items-center">
+            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[90px] py-[24px] flex flex-col justify-center items-center gap-4">
                 <p className=" text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Optimize and Improve with AI</p>
-                <Button className="bg-[#516958] px-[12px] py-[24px]" >
+                <Button className="bg-[#516958] px-[20px] py-[24px]" >
                     <div className="flex flex-row items-center gap-[6px] ">
-                        <p className="font-inter text-base font-medium leading-[150%] text-white">Full Insight</p>
+                        <p className="font-inter text-base font-medium leading-[150%] text-white">Explore More</p>
                         <Image src="/icons/chevron-right.svg" alt="expand icon" width={16} height={16}></Image>
                     </div>
                 </Button>

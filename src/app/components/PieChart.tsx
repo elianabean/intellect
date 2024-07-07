@@ -12,6 +12,8 @@ export default function PieChartExport({ data }: PieChartProps)  {
             innerRadius: 130,
            outerRadius: 300,
            arcLabel: 'label',
+           cx: 295,
+           cy: 295,
          },
        ]}
        sx={{
@@ -20,8 +22,8 @@ export default function PieChartExport({ data }: PieChartProps)  {
            width: 139,
          },
        }}
-       width={700}
-       height={700}
+       width={600}
+       height={600}
        slotProps={{ legend: { hidden: true }}}
      />
     );
