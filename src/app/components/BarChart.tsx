@@ -2,26 +2,42 @@
 
 import { BarChart } from '@mui/x-charts/BarChart';
 
-const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+interface BarChartProps {
+    data: number[];
+  }
+
 const xLabels = [
-  'Page A',
-  'Page B',
-  'Page C',
-  'Page D',
-  'Page E',
-  'Page F',
-  'Page G',
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat',
 ];
 
-export default function BarChartExport() {
+export default function BarChartExport({ data }: BarChartProps) {
   return (
     <BarChart
       width={500}
       height={300}
+      slotProps={{ legend: { hidden: true }}}
       series={[
-        { data: pData, label: 'pv', id: 'pvId' },
+        { data: data, label: 'pv', id: 'pvId' },
       ]}
-      xAxis={[{ data: xLabels, scaleType: 'band' }]}
+      xAxis={[{ data: xLabels, scaleType: 'band', id: 'xAxisId'}]}
+      leftAxis={null}
+      yAxis={[
+        {
+          colorMap: {
+              type: 'piecewise',
+              thresholds: [0],
+              colors: ['rgba(193,29,29,0.80)', 'rgba(61,112,75,0.70)'],
+            },
+            min: -5000,
+            max: 5000
+        },
+      ]}
     />
   );
 }

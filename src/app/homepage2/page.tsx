@@ -4,9 +4,11 @@ import FullInsight from "../components/FullInsight";
 import Image from "next/image";
 import BarChart from '../components/BarChart';
 import PieChart from "../components/PieChart";
+import PersonalOp from "../components/PersonalOp";
+import {Button} from "@nextui-org/react";
 
 export default function Chat() {
-    const data = [
+    const dataPie = [
         { id: 0, value: 25, label: 'Food', color: '#73937C'},
         { id: 1, value: 10, label: 'Dining and Entertainment', color: '#3A4F38' },
         { id: 2, value: 5, label: 'Savings', color: '#515251' },
@@ -15,13 +17,15 @@ export default function Chat() {
         { id: 5, value: 35, label: 'Housing', color: '#C4D8C4' },
     ];
 
+    const dataBar = [-1000, 2000, 2398, 2800, -3008, -4000, 1000];
+
   return (
     <div className="relative">
       <Sidebar></Sidebar>
 
       <Profile></Profile>
 
-      <div className="h-full min-h-[100vh] w-[100vw] pl-36 flex flex-row justify-center items-center pt-[116px]">
+      <div className="h-full min-h-[100vh] w-[100vw] pl-36 flex flex-row justify-center items-center pt-[116px] gap-[92px]">
         <div className="flex flex-col gap-8">
             {/* 1 */}
             <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[28px] py-[12px]">
@@ -71,17 +75,44 @@ export default function Chat() {
             {/* 4 */}
             <div className="[background:#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid flex flex-col py-[40px] items-center justify-center gap-[6px]">
                 <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Total Monthly Expenses</p>
-                <PieChart data={data}></PieChart>
+                <PieChart data={dataPie}></PieChart>
             </div>
 
         </div>
 
         {/*Column 2 */}
-        <div>
-             {/* 1 */}
-             <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[28px] py-[12px]">
-                <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Total Monthly Expenses</p>
-                <BarChart></BarChart>
+        <div className="flex flex-col gap-8">
+            {/* 1 */}
+            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[28px] py-[12px]">
+                <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Educational Optimization</p>
+                <BarChart data={dataBar}></BarChart>
+                
+                <div className="border-1 border-[#D3D7EF] w-[95%] -ml-[28px] self-center"></div>
+                <div className="self-end mt-10 mr-[25px]">
+                    <FullInsight></FullInsight>
+                </div>
+            </div>
+
+            {/* 2 */}
+            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[50px] py-[12px]">
+                <p className=" text-black font-raleway text-[40px] font-bold leading-[150%]">Personal Optimization</p>
+                <PersonalOp></PersonalOp>
+                
+                <div className="border-1 border-[#D3D7EF] w-[95%] -ml-[50px] self-center"></div>
+                <div className="self-end mt-10 mr-[25px]">
+                    <FullInsight></FullInsight>
+                </div>
+            </div>
+
+            {/* 3 */}
+            <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[90px] py-[24px] flex flex-col justify-center items-center">
+                <p className=" text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Optimize and Improve with AI</p>
+                <Button className="bg-[#516958] px-[12px] py-[24px]" >
+                    <div className="flex flex-row items-center gap-[6px] ">
+                        <p className="font-inter text-base font-medium leading-[150%] text-white">Full Insight</p>
+                        <Image src="/icons/chevron-right.svg" alt="expand icon" width={16} height={16}></Image>
+                    </div>
+                </Button>
             </div>
         </div>
       </div>
