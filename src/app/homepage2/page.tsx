@@ -17,7 +17,7 @@ export default function Chat() {
         { id: 5, value: 35, label: 'Housing', color: '#C4D8C4' },
     ];
 
-    const dataBar = [-1000, 2000, 2398, 2800, -3008, -4000, 1000];
+    const dataBar = [-1000, 2000, 2398, 2800, -3008, -4000, 1000, 500, -2500, -1500, 800, 3000, 2500, 3000];
 
   return (
     <div className="relative">
@@ -59,7 +59,7 @@ export default function Chat() {
                 <div className="border-1 border-[#D3D7EF] w-[95%] -ml-[40px] self-center"></div>
 
                 <div className="self-end mt-4 mr-[25px]">
-                    <FullInsight></FullInsight>
+                    <FullInsight link={"/homepage2"}></FullInsight>
                 </div>
             </div>
 
@@ -87,9 +87,9 @@ export default function Chat() {
                 <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Educational Optimization</p>
                 <BarChart data={dataBar}></BarChart>
                 
-                <div className="border-1 border-[#D3D7EF] w-[95%] -ml-[28px] self-center"></div>
+                <div className="border-1 border-[#D3D7EF] w-full self-center"></div>
                 <div className="self-end mt-10 mr-[25px]">
-                    <FullInsight></FullInsight>
+                    <FullInsight link={"/homepage2/educationalOptimization"}></FullInsight>
                 </div>
             </div>
 
@@ -100,7 +100,7 @@ export default function Chat() {
                 
                 <div className="border-1 border-[#D3D7EF] w-full self-center mt-8"></div>
                 <div className="self-end mt-10 ">
-                    <FullInsight></FullInsight>
+                    <FullInsight link={"/homepage2"}></FullInsight>
                 </div>
             </div>
 

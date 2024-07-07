@@ -7,19 +7,26 @@ interface BarChartProps {
   }
 
 const xLabels = [
-  'Sun',
-  'Mon',
-  'Tue',
-  'Wed',
-  'Thu',
-  'Fri',
-  'Sat',
+  '6/1',
+  '6/2',
+  '6/3',
+  '6/4',
+  '6/5',
+  '6/6',
+  '6/7',
+  '6/8',
+  '6/9',
+  '6/10',
+  '6/11',
+  '6/12',
+  '6/13',
+  '6/14',
 ];
 
 export default function BarChartExport({ data }: BarChartProps) {
   return (
     <BarChart
-      width={500}
+      width={700}
       height={300}
       slotProps={{ legend: { hidden: true }}}
       series={[
