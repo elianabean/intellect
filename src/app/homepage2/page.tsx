@@ -6,7 +6,6 @@ import BarChart from '../components/BarChart';
 import PieChart from "../components/PieChart";
 import PersonalOp from "../components/PersonalOp";
 import {Button} from "@nextui-org/react";
-import LineChart2 from "../components/LineChart2";
 
 export default function Homepage2() {
     const dataPie = [
@@ -116,8 +115,6 @@ export default function Homepage2() {
                 </Button>
             </div>
         </div>
-
-        <LineChart2></LineChart2>
       </div>
     </div>
   );

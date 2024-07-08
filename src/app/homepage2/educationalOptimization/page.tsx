@@ -15,6 +15,10 @@ export default function EducationalOptimization() {
 
       <div className="h-full min-h-[100vh] w-[100vw] pl-[204px] pr-[60px] flex flex-col flex-wrap justify-center items-center gap-12">
         <div className="flex flex-row flex-wrap w-full justify-between items-center">
+          <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-col justify-center items-center py-12 w-[15%] h-[231px] ">
+            <p className="text-[#516958] text-center font-inter text-[25px] font-extrabold leading-[150%]">Total Expense</p>
+            <p className="text-[#516958] text-center font-inter text-[45px] font-extrabold leading-[150%]">$60.2K</p>
+        </div>
             <EdOpCard title="Meal Plan" number={3.2} percent={5.32}></EdOpCard>
             <EdOpCard title="Course Material" number={2} percent={3.32}></EdOpCard>
             <EdOpCard title="Health Insurance" number={16} percent={26.58}></EdOpCard>

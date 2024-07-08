@@ -2,21 +2,28 @@ import React from "react";
 import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownItem, Button} from "@nextui-org/react";
 import Image from "next/image";
 
+type DropdownExportProps = {
+  selectedKey: string;
+  onSelectionChange: (key: string) => void;
+};
 
-export default function DropdownExport() {
-    const [selectedKeys, setSelectedKeys] = React.useState<Set<string>>(new Set(["Technology"]));
+export default function DropdownExport({ selectedKey, onSelectionChange }: DropdownExportProps) {
+    const selectedKeys = new Set([selectedKey]);
 
     const selectedValue = React.useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys]
+      () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+      [selectedKeys]
     );
 
     const handleSelectionChange = (keys: any) => {
-        if (keys instanceof Set) {
-        setSelectedKeys(keys as Set<string>);
-        } else {
-        setSelectedKeys(new Set([keys]));
+      if (keys instanceof Set) {
+        const keyArray = Array.from(keys) as string[];
+        if (keyArray.length > 0) {
+          onSelectionChange(keyArray[0]);
         }
+      } else {
+        onSelectionChange(keys);
+      }
     };
 
     return (
@@ -37,11 +44,11 @@ export default function DropdownExport() {
         selectedKeys={selectedKeys}
         onSelectionChange={handleSelectionChange}
       >
-        <DropdownItem key="technology">Technology</DropdownItem>
-        <DropdownItem key="number">Number</DropdownItem>
-        <DropdownItem key="date">Date</DropdownItem>
-        <DropdownItem key="single_date">Single Date</DropdownItem>
-        <DropdownItem key="iteration">Iteration</DropdownItem>
+        <DropdownItem key="Meal Plan">Meal Plan</DropdownItem>
+        <DropdownItem key="Course Material">Course Material</DropdownItem>
+        <DropdownItem key="Health Insurance">Health Insurance</DropdownItem>
+        <DropdownItem key="Student Loan">Student Loan</DropdownItem>
+        <DropdownItem key="Technology">Technology</DropdownItem>
       </DropdownMenu>
     </Dropdown>
     );
