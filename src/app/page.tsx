@@ -133,7 +133,7 @@ export default function Home() {
             <p className="w-[571.359px] shrink-0 text-black font-montserrat text-5xl font-normal leading-[50px] capitalize"><span className="text-[#538DFF] font-semibold">AI Credit valuations</span> That Leaves No Room for Guesswork
             </p>
 
-            <p className="w-[529px] text-black font-inter text-[23px] font-medium leading-[150%] mt-[50px]">Our generative AI doesn't just answer questions — Intellect.ai analyses user inefficiencies to evaluate trends and inform users on opportunities they may overlook. This reduces asymmetric information and allows users to make efficient and informed decisions.</p>
+            <p className="w-[529px] text-black font-inter text-[23px] font-medium leading-[150%] mt-[50px]">Our generative AI doesn&apos;t just answer questions — Intellect.ai analyses user inefficiencies to evaluate trends and inform users on opportunities they may overlook. This reduces asymmetric information and allows users to make efficient and informed decisions.</p>
             
           </div>          
         </div>
@@ -149,7 +149,7 @@ export default function Home() {
             
           <div className="z-10 flex flex-col items-start">
             <p className="w-[600px] text-black font-inter text-[22px] font-semibold leading-[150%] mb-[32px] mt-[50px]">While individuals may keep their finances afloat, building lasting wealth demands a deeper level of insight.</p>
-            <p className="w-[600px] text-black font-inter text-[22px] font-semibold leading-[150%] mb-[32px]">Intellect.ai <span className="text-[#538DFF]">transcends</span> conventional financial advice. It provides an personalized analysis encompassing your account's strengths, areas for improvement, tailored investment strategies, budgeting tactics, and more.</p>
+            <p className="w-[600px] text-black font-inter text-[22px] font-semibold leading-[150%] mb-[32px]">Intellect.ai <span className="text-[#538DFF]">transcends</span> conventional financial advice. It provides an personalized analysis encompassing your account&apos;s strengths, areas for improvement, tailored investment strategies, budgeting tactics, and more.</p>
             <p className="w-[600px] text-black font-inter text-[22px] font-bold leading-[150%]">Empower Your Finances: Not Just Managing, but Mastering</p>
 
             <Link href="/chat"><Button variant="shadow" radius="full" color="primary" className="font-inter px-[20px] py-[24px] [background:linear-gradient(5deg,#588FEF_26.3%,#8FD7FF_86.4%)] mt-[32px]" endContent={<Image

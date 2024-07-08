@@ -6,8 +6,9 @@ import BarChart from '../components/BarChart';
 import PieChart from "../components/PieChart";
 import PersonalOp from "../components/PersonalOp";
 import {Button} from "@nextui-org/react";
+import LineChart2 from "../components/LineChart2";
 
-export default function Chat() {
+export default function Homepage2() {
     const dataPie = [
         { id: 0, value: 25, label: 'Food', color: '#73937C'},
         { id: 1, value: 10, label: 'Dining and Entertainment', color: '#3A4F38' },
@@ -42,7 +43,7 @@ export default function Chat() {
                 <div className="flex flex-row flex-wrap gap-28 self-start">
                     <div className="flex flex-col">
                         <div className="flex flex-row items-center gap-[8px]">
-                        <p className="text-black font-raleway text-2xl font-bold leading-[150%]">Today's Change</p>
+                        <p className="text-black font-raleway text-2xl font-bold leading-[150%]">Today&apos;s Change</p>
                         <Image src="/images/handCaution.png" alt="hand caution icon" width={17} height={17} className="object-contain"/>
                         </div>
                         <p className="text-[rgba(1,135,33,0.70)] font-inter text-[50px] font-semibold leading-[150%]">+$142.29</p>
@@ -115,6 +116,8 @@ export default function Chat() {
                 </Button>
             </div>
         </div>
+
+        <LineChart2></LineChart2>
       </div>
     </div>
   );

@@ -16,6 +16,7 @@
     "@nextui-org/react": "^2.4.2",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
+    "chart.js": "^4.4.3",
     "framer-motion": "^11.2.10",
     "next": "14.2.4",
     "openai": "^4.52.3",

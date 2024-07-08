@@ -4,6 +4,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { axisClasses } from '@mui/x-charts/ChartsAxis';
 import Dropdown from "./Dropdown";
 import * as React from 'react';
+import LineChart2 from "../components/LineChart2";
 
 export default function MonthlyBudgetTracking() {
     return (
@@ -13,6 +14,8 @@ export default function MonthlyBudgetTracking() {
                 <Dropdown></Dropdown>
             </div>
 
+            <LineChart2></LineChart2>
+            
             <LineChart
             className="z-50"
         height={300}
