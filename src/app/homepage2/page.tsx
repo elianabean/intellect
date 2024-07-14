@@ -84,12 +84,12 @@ export default function Homepage2() {
         <div className="flex flex-col gap-8">
             {/* 1 */}
             <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[28px] pt-[12px] pb-[46px] flex flex-col items-center justify-center">
-                <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Educational Optimization</p>
+                <p className="text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Optimization</p>
                 <BarChart data={dataBar}></BarChart>
                 
                 <div className="border-1 border-[#D3D7EF] w-full self-center"></div>
                 <div className="self-end mt-10 mr-[25px]">
-                    <FullInsight link={"/homepage2/educationalOptimization"}></FullInsight>
+                    <FullInsight link={"/homepage2/Optimization"}></FullInsight>
                 </div>
             </div>
 
