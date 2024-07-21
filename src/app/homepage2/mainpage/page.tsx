@@ -21,8 +21,8 @@ export default function Homepage2() {
 
  return (
    <div className="relative">
-     </Sidebar>
-     </Profile>
+     <Sidebar></Sidebar>
+     
      <div className="h-full min-h-[100vh] w-[100vw] pl-36 flex flex-col items-center justify-center">
        <div className="flex flex-row flex-wrap justify-center items-stretch gap-[50px] h-[80%]">
          <div className="flex flex-row mt-[50px]">
