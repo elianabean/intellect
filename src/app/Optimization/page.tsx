@@ -1,8 +1,8 @@
-import Sidebar from "../../components/Sidebar";
-import Profile from "../../components/Profile";
-import EdOpCard from "../../components/OptimizationCard";
-import MonthlyBudgetTracking from "../../components/MonthlyBudgetTracking";
-import OptimizationOverview from "../../components/OptimizationOverview"
+import Sidebar from "../components/Sidebar";
+import Profile from "../components/Profile";
+import EdOpCard from "../components/OptimizationCard";
+import MonthlyBudgetTracking from "../components/MonthlyBudgetTracking";
+import OptimizationOverview from "../components/OptimizationOverview"
 import Image from 'next/image';
 
 export default function EducationalOptimization() {

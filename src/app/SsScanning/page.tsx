@@ -1,11 +1,11 @@
 "use client"
-import Sidebar from "../../components/Sidebar";
-import Profile from "../../components/Profile";
-import FileUpload from "../../components/FileUpload";
+import Sidebar from "../components/Sidebar";
+import Profile from "../components/Profile";
+import FileUpload from "../components/FileUpload";
 import {Textarea} from "@nextui-org/react";
 import React, { useState } from 'react';
 
-export default function Homepage2() {
+export default function SsScanning() {
   const [text, setText] = useState<string>('');
 
   const handleTextChange = (event: 	React.ChangeEvent <HTMLInputElement>) => {

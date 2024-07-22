@@ -13,8 +13,7 @@ import Slider from "../../components/Slider";
 import IncomeCard from "../../components/IncomeCard";
 import MoneyCard from "../../components/MoneyCard";
 import BudgetingCard from "../../components/BudgetingCard";
-
-
+import SSCard from "../../components/SSCard";
 
 
 export default function Homepage2() {
@@ -74,7 +73,8 @@ export default function Homepage2() {
          <Slider components={[
            <MoneyCard key="moneyCard" />,
            <IncomeCard key="incomeCard" />,
-           <BudgetingCard key="budgetingCard" />
+           <BudgetingCard key="budgetingCard" />,
+           <SSCard key = "ssCard" />
          ]} />
        </div>
        <div className="[background:rgba(252,251,255,0.80)] rounded-[30px] border-4 border-solid border-[#2A3A28] flex flex-col justify-start items-center py-[32px] px-[60px] w-[60%] gap-5">

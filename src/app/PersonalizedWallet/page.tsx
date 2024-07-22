@@ -1,6 +1,6 @@
-import Sidebar from "../../components/Sidebar";
-import Profile from "../../components/Profile";
-import PieChart from "../../components/PieChart";
+import Sidebar from "../components/Sidebar";
+import Profile from "../components/Profile";
+import PieChart from "../components/PieChart";
 import Image from "next/image";
 import {Progress} from "@nextui-org/react";
 
