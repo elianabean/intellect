@@ -8,9 +8,9 @@ const VerticalTimeline: React.FC = () => {
     {daysOfWeek.map((day, index) => (
       <div key={day} style={styles.timelineItem}>
         <div style={day === 'Friday' ? { ...styles.point, ...styles.inactivePoint } : { ...styles.point, ...styles.activePoint }}>
-          <span style={styles.dollarSign}>$</span>
+          <span style={day === 'Friday' ? { ...styles.inactiveDollarSign} : { ...styles.activeDollarSign }}>$</span>
         </div>
-        <div style={styles.dayText}>{day}
+        <div className="text-[#2A3A28] font-inter text-[36px] font-medium leading-[150%] ml-[10px]">{day}
         </div>
         {index < daysOfWeek.length - 1 && (
           <div style={day === 'Friday' ? { ...styles.line, ...styles.inactiveLine } : { ...styles.line, ...styles.activeLine }} />
@@ -25,48 +25,62 @@ const styles = {
   timelineContainer: {
     display: 'flex',
     flexDirection: 'column' as 'column',
-    alignItems: 'left',
+    alignItems: 'center',
     paddingTop: '100px',
+    position: 'relative' as 'relative',
   },
   timelineItem: {
     display: 'flex',
     alignItems: 'center',
     marginBottom: '100px',
     position: 'relative' as 'relative',
+    width: '280px',
+    paddingLeft: '0px',
+    zIndex: '50',
   },
   point: {
-    width: '30px',
-    height: '30px',
+    width: '45px',
+    height: '45px',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '20px',
     color: 'white',
+    border: "2px solid black;",
+    zIndex: '50',
   },
   activePoint: {
-    backgroundColor: 'green',
+    backgroundColor: '#e6ff4f',
   },
   inactivePoint: {
-    backgroundColor: 'gray',
+    backgroundColor: '#c4d8c4',
   },
-  dollarSign: {},
-  dayText: {
-    marginLeft: '10px',
-    fontSize: '18px',
+  activeDollarSign: {
+    fontWeight: "900",
+    color: "#2f3411"
+  },
+  inactiveDollarSign: {
+    fontWeight: "900",
+    color: "#626c62"
   },
   line: {
-    width: '5px',
-    height: '100px',
+    width: '20px',
+    height: '150px',
     position: 'absolute' as 'absolute',
     left: '12.5px',
     top: '30px',
+    border: " solid black",
+    borderTop: '2px',
+    borderBottom: '2px',
+    transform: "translateY(-10px)",
+    zIndex: '0',
   },
   activeLine: {
-    backgroundColor: 'green',
+    backgroundColor: '#45e269',
   },
   inactiveLine: {
-    backgroundColor: 'gray',
+    backgroundColor: '#cee1ce',
   },
 };
 
