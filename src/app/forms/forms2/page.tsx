@@ -28,7 +28,7 @@ export default function Forms() {
         setScholarships(value);
         break;
       case 'JobType':
-        setJobtype(value);
+        setJobType(value);
         break;
       case 'ParentalSupport':
         setParentalSupport(value);
