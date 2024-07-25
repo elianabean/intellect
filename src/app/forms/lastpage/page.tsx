@@ -93,8 +93,8 @@ export default function RankingForm() {
         />
         <div className="h-full min-h-[100vh] ml-[250px] mr-[250px] mt-[100px] mb-[100px] flex flex-col flex-wrap justify-center gap-7">
           <div className="flex flex-row mb-4">
-            <p className="text-white font-inter text-[30px]">5 &rarr; Preferences</p>
-            <p className="text-[#C11D1D] font-inter text-[30px]">*</p>
+            <p className="text-white text-3xl font-medium font-['Inter'] leading-[45px]">5 &rarr; Preferences</p>
+            <p className="text-[#c11d1d]/80 text-3xl font-medium font-['Inter'] leading-[45px]">*</p>
           </div>
           <form onSubmit={handleSubmit}>
             <div className="mb-9">
