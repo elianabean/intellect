@@ -33,7 +33,7 @@ export default function SSCard() {
     }
 
   return (
-    <div className="bg-[#FBFBFF] shadow-md p-4 flex flex-row justify-between rounded-lg h-[250px] w-[500px] relative">
+    <div className="bg-[#FBFBFF] shadow-md p-4 flex flex-row justify-between rounded-lg h-[220px] w-[436px] relative">
       <div className="flex flex-col items-center justify-center gap-4">
         <p className="flex flex-col justify-center text-[#3A4F38] text-center font-raleway text-xl font-bold leading-[150%]">Update your purchase history today with only a Screenshot!</p>
         <div className="w-full flex flex-row justify-center items-center">

@@ -82,21 +82,21 @@ export default function RankingForm() {
         <Image
           src="/images/ellipse-4.png"
           alt="background"
-          className="absolute top-0 left-0"
+          className="absolute top-0 left-0 z-0"
           layout="fill"
         />
         <Image
           src="/images/ellipse-5.png"
           alt="background"
-          className="absolute top-0 left-0"
+          className="absolute top-0 left-0 z-0"
           layout="fill"
         />
-        <div className="h-full min-h-[100vh] ml-[250px] mr-[250px] mt-[100px] mb-[100px] flex flex-col flex-wrap justify-center gap-7">
-          <div className="flex flex-row mb-4">
-            <p className="text-white text-3xl font-medium font-['Inter'] leading-[45px]">5 &rarr; Preferences</p>
-            <p className="text-[#c11d1d]/80 text-3xl font-medium font-['Inter'] leading-[45px]">*</p>
-          </div>
-          <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="relative z-10">
+          <div className="h-full min-h-[100vh] ml-[250px] mr-[250px] mt-[100px] mb-[100px] flex flex-col flex-wrap justify-center gap-7">
+            <div className="flex flex-row mb-4">
+              <p className="text-white text-3xl font-medium font-['Inter'] leading-[45px]">5 &rarr; Preferences</p>
+              <p className="text-[#c11d1d]/80 text-3xl font-medium font-['Inter'] leading-[45px]">*</p>
+            </div>
             <div className="mb-9">
               <p className="w-[1118px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px] mb-6">
                 Rank your Expenses based on importance to you (1 is most important, 4 is least important).
@@ -155,8 +155,8 @@ export default function RankingForm() {
                 OK
               </button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );

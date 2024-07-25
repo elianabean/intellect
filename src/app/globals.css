@@ -31,3 +31,69 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes slideToRight {
+  from {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  to {
+    left: -50%;
+    transform: translateX(50%);
+  }
+}
+
+@keyframes slideToLeft {
+  from {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  to {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideFromOutToRight {
+  from {
+    left: -50%;
+    transform: translateX(50%);
+  }
+  to {
+    left: 0%;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideFromOutToLeft {
+  from {
+    left: 150%;
+    transform: translateX(-150%);
+  }
+  to {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+  to {
+    filter: blur(0);
+    opacity: 100;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    filter: blur(0);
+    opacity: 100;
+  }
+  to {
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+}
