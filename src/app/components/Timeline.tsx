@@ -47,7 +47,7 @@ const styles = {
     justifyContent: 'center',
     fontSize: '20px',
     color: 'white',
-    border: "2px solid black;",
+    border: "2px solid black",
     zIndex: '50',
   },
   activePoint: {
