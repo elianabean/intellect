@@ -84,16 +84,16 @@ export default function Forms() {
         <Image
           src="/images/ellipse-4.png"
           alt="background"
-          className="absolute top-0 left-0"
+          className="absolute top-0 left-0 z-0"
           layout="fill"
         />
         <Image
           src="/images/ellipse-5.png"
           alt="background"
-          className="absolute top-0 left-0"
+          className="absolute top-0 left-0 z-0"
           layout="fill"
         />
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="relative z-10">
           <div className="h-full min-h-[100vh] ml-[250px] mr-[250px] mt-[100px] mb-[100px] flex flex-col flex-wrap justify-center gap-7">
             <div className="flex flex-row">
               <p className="text-white text-3xl font-medium font-['Inter'] leading-[45px]">1 &rarr; Your Information</p>
