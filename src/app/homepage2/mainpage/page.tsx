@@ -64,7 +64,7 @@ export default function Homepage2() {
          <BudgetTree/>
          <Timeline/>
        </div>
-       <div className="relative w-[70%] mb-[80px]">
+       <div className="relative w-[95%] mb-[80px]">
          <Slider components={[
            <MoneyCard key="moneyCard" />,
            <IncomeCard key="incomeCard" />,

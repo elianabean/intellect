@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function IncomeCard() {
   return (
-    <div className="bg-[#FBFBFF] shadow-md p-4 flex flex-row justify-between rounded-lg h-[250px] w-[500px] relative">
+    <div className="bg-[#FBFBFF] shadow-md p-4 flex flex-row justify-between rounded-lg h-[220px] w-[436px] relative">
       <div className="flex flex-col items-center justify-center w-full">
         <p className="flex flex-col justify-center text-[#3A4F38] text-center font-raleway text-xl font-bold leading-[150%]">Your Financial Battle: Income VS Expenses</p>  
       </div>
