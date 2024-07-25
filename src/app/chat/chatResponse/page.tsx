@@ -8,8 +8,8 @@ import { useSearchParams } from "next/navigation";
 export default function Chat() {
   const searchParams = useSearchParams();
 
-  const question = searchParams.get("question");
-  const message = searchParams.get("message");
+  const question = searchParams?.get("question");
+  const message = searchParams?.get("message");
 
   return (
     <div className="relative">
