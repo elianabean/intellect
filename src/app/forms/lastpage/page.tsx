@@ -98,7 +98,7 @@ export default function RankingForm() {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="mb-9">
-              <p className="text-white text-[23px] font-medium font-['Inter'] leading-[34.50px] mb-6">
+              <p className="w-[1118px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px] mb-6">
                 Rank your Expenses based on importance to you (1 is most important, 4 is least important).
               </p>
               {expenseRankingAnswers.map((answer) => (
@@ -116,7 +116,7 @@ export default function RankingForm() {
               ))}
             </div>
             <div className="mb-9">
-              <p className="text-white text-[23px] font-medium font-['Inter'] leading-[34.50px] mb-6">
+              <p className="w-[1118px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px] mb-6">
                 Rank your Expenses based on importance to you (1 is most important, 4 is least important).
               </p>
               {secondExpenseRankingAnswers.map((answer) => (
@@ -133,11 +133,11 @@ export default function RankingForm() {
               ))}
             </div>
             <div className="mb-9">
-              <p className="text-white text-[23px] font-medium font-['Inter'] leading-[34.50px] mb-4">
+              <p className="w-[1118px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px] mb-6">
                 How willing are you to change your lifestyle to meet your savings goals?
               </p>
               {lifestyleAnswers.map((answer) => (
-                <div key={answer.id} className="flex items-center mb-2">
+                <div key={answer.id} className="flex items-center mb-3">
                   <input
                     type="radio"
                     name="lifestyle"
