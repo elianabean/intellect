@@ -95,7 +95,7 @@ export default function Forms() {
        />
        <div className="h-full min-h-[100vh] ml-[250px] mr-[250px] mt-[100px] mb-[100px] flex flex-col flex-wrap justify-center gap-7">
          <div className="flex flex-row">
-           <p className="text-white font-inter text-[30px]">1 &rarr; Your Information</p>
+           <p className="text-white font-inter text-[30px]">3 &rarr; Your Expenses</p>
            <p className="text-[#C11D1D] font-inter text-[30px]">*</p>
          </div>
          <form onSubmit={handleSubmit}>
