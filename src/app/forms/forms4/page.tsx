@@ -54,7 +54,6 @@ export default function Forms() {
      SubscriptionExpenses,
      Subscriptions,
      EntertainmentExpenses,
-     Insurance
    };
 
    try {
