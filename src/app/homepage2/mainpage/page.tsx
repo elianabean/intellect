@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link"
+import Image from "next/image";
 
 import Sidebar from "../../components/Sidebar";
 import Profile from "../../components/Profile";
 import PieChart from "../../components/PieChart";
-import Image from "next/image";
 import FullInsight from "../../components/FullInsight";
 import PersonalOp from "../../components/PersonalOp";
 import BudgetTree from "../../components/BudgetTree";
@@ -78,7 +79,8 @@ export default function Homepage2() {
          <p className=" text-black text-center font-raleway text-[40px] font-bold leading-[150%]">Your Personalized Wallet</p>    
          <div className="relative">
            <PieChart data={dataPie}></PieChart>
-           <Image src="/images/wallet.png" alt="Wallet" width={180} height={180} className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"></Image>
+           <Link href="/PersonalizedWallet">
+           <Image src="/images/wallet.png" alt="Wallet" width={180} height={180} className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"></Image></Link>
          </div>
        </div>
         <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[50px] pt-[12px] pb-[46px] flex flex-col items-center justify-center h-[884px]">
@@ -87,7 +89,7 @@ export default function Homepage2() {
            <div className="border-1 border-[#D3D7EF] w-full self-center mt-8">
            </div>
            <div className="self-end mt-10 ">
-             <FullInsight link={"/homepage2"}></FullInsight>
+             <FullInsight link={"/Optimization"}></FullInsight>
            </div>
          </div>
        </div>

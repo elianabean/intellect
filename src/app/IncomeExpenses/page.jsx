@@ -26,7 +26,7 @@ function IncomeExpenses() {
             <div className="h-full min-h-[100vh] w-[100vw] pl-36 flex flex-row flex-wrap justify-center items-center pt-[116px] gap-[92px]">
                 <div className="flex flex-col gap-8">
                     <div className="bg-[#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid px-[80px] py-[74px]">
-                        <h1 className="text-center text-[#516958] text-6xl px-96 pb-20 font-bold">Icome | Expenses</h1>
+                        <h1 className="text-center text-[#516958] text-6xl px-96 pb-20 font-bold">Income | Expenses</h1>
                         <div className="flex flex-row flex-wrap justify-center items-center gap-[92px]"> 
                             <div className="flex flex-col gap-8">
                                 <Month Month='January'></Month>
@@ -38,12 +38,12 @@ function IncomeExpenses() {
                             </div>
 
                             <div className="flex flex-col gap-8">
-                                <Month Month='January'></Month>
-                                <Month Month='February'></Month>
-                                <Month Month='March'></Month>
-                                <Month Month='April'></Month>
-                                <Month Month='May'></Month>
-                                <Month Month='June'></Month>
+                                <Month Month='July'></Month>
+                                <Month Month='August'></Month>
+                                <Month Month='September'></Month>
+                                <Month Month='October'></Month>
+                                <Month Month='November'></Month>
+                                <Month Month='December'></Month>
                             </div>
                         </div>
                         <div className="border-2 border-[#D3D7EF] w-full self-center mt-11"></div>
