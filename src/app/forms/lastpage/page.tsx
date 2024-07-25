@@ -1,6 +1,6 @@
 "use client";
 
-import Profile from "./components/Profile";
+import Profile from "../../components/Profile";
 import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
