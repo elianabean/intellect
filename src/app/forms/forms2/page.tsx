@@ -64,7 +64,7 @@ export default function Forms() {
 
       if (response.ok) {
         console.log('Data successfully sent to backend');
-        router.push('/nextPage'); // Redirect to the next page
+        router.push('/forms/forms3'); // Redirect to the next page
       } else {
         console.error('Failed to send data to backend');
       }
@@ -113,7 +113,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="xxx$"
             />
-            <p className="w-[150px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Gender</p>
+            <p className="w-[150px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Scholarships</p>
             <input
               type="text"
               name="Scholarships"

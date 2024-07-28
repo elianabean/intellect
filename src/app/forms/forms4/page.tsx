@@ -68,7 +68,7 @@ export default function Forms() {
 
      if (response.ok) {
        console.log('Data successfully sent to backend');
-       router.push('/nextPage'); // Redirect to the next page
+       router.push('/forms/lastpage'); // Redirect to the next page
      } else {
        console.error('Failed to send data to backend');
      }
