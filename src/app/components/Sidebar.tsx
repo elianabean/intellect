@@ -33,7 +33,7 @@ export default function Sidebar() {
               height={currentPath === "/chat" ? 36 : 36}
             />
         </Link>
-        <Link href="/forms">
+        <Link href="/forms/intropage">
         <Image
               src={currentPath === "/settings" ? "/icons/iconly-bold-setting-color.svg" : "/icons/iconly-bold-setting.svg"}
               alt="Settings"

@@ -53,7 +53,7 @@ export default function Forms() {
     };
 
     try {
-      const response = await fetch('/api/insertUserInfo', {
+      const response = await fetch('/api/insertFinancialDetails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

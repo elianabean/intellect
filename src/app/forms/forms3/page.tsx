@@ -12,7 +12,7 @@ export default function Forms() {
  const [Groceries, setGroceries] = useState("");
  const [TransportationExpenses, setTransportationExpenses] = useState("");
  const [InsuranceExpenses, setInsuranceExpenses] = useState("");
- const [Insurance, setInsurance] = useState("");
+ const [InsuranceType, setInsuranceType] = useState("");
 
  const router = useRouter();
 
@@ -38,7 +38,7 @@ export default function Forms() {
        setInsuranceExpenses(value);
        break;
      case 'Insurance':
-       setInsurance(value);
+       setInsuranceType(value);
        break;
      default:
        break;
@@ -54,7 +54,7 @@ export default function Forms() {
      Groceries,
      TransportationExpenses,
      InsuranceExpenses,
-     Insurance
+     InsuranceType
    };
 
    try {
@@ -157,7 +157,7 @@ export default function Forms() {
            <input
              type="text"
              name="Insurance"
-             value={Insurance}
+             value={InsuranceType}
              onChange={handleChange}
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Blue Cross Blue Shield"
