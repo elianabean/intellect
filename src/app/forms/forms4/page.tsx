@@ -8,11 +8,11 @@ import { useRouter } from 'next/navigation';
 export default function Forms() {
  const [ECExpenses, setECExpenses] = useState("");
  const [ClothingExpenses, setClothingExpenses] = useState("");
- const [Clothing, setClothing] = useState("");
+ const [ClothingType, setClothingType] = useState("");
  const [SubscriptionExpenses, setSubscriptionExpenses] = useState("");
- const [Subscriptions, setSubscriptions] = useState("");
+ const [SubscriptionType, setSubscriptionType] = useState("");
  const [EntertainmentExpenses, setEntertainmentExpenses] = useState("");
- const [Entertainment, setEntertainment] = useState("");
+ const [EntertainmentType, setEntertainmentType] = useState("");
 
  const router = useRouter();
 
@@ -25,20 +25,20 @@ export default function Forms() {
      case 'ClothingExpenses':
        setClothingExpenses(value);
        break;
-     case 'Clothing':
-       setClothing(value);
+     case 'ClothingType':
+       setClothingType(value);
        break;
      case 'SubscriptionExpenses':
        setSubscriptionExpenses(value);
        break;
-     case 'Subscriptions':
-       setSubscriptions(value);
+     case 'SubscriptionType':
+       setSubscriptionType(value);
        break;
      case 'EntertainmentExpenses':
        setEntertainmentExpenses(value);
        break;
-     case 'Entertainment':
-       setEntertainment(value);
+     case 'EntertainmentType':
+       setEntertainmentType(value);
        break;
      default:
        break;
@@ -50,15 +50,15 @@ export default function Forms() {
    const userData = {
      ECExpenses,
      ClothingExpenses,
-     Clothing,
+     ClothingType,
      SubscriptionExpenses,
-     Subscriptions,
+     SubscriptionType,
      EntertainmentExpenses,
-     Entertainment
+     EntertainmentType
    };
 
    try {
-     const response = await fetch('/api/insertUserInfo', {
+     const response = await fetch('/api/insertWantsDetails', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -120,8 +120,8 @@ export default function Forms() {
            <p className="w-[971px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you purchase clothing often?</p>
            <input
              type="text"
-             name="Clothing"
-             value={Clothing}
+             name="ClothingType"
+             value={ClothingType}
              onChange={handleChange}
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Nike"
@@ -138,8 +138,8 @@ export default function Forms() {
            <p className="w-[625px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What subscriptions are you paying for?</p>
            <input
              type="text"
-             name="Subscriptions"
-             value={Subscriptions}
+             name="SubscriptionType"
+             value={SubscriptionType}
              onChange={handleChange}
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Netflix, Spotify"
@@ -156,8 +156,8 @@ export default function Forms() {
            <p className="w-[850px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What do you usually do for entertainment (Go out, drinks, movies)?</p>
            <input
              type="text"
-             name="Entertainment"
-             value={Entertainment}
+             name="EntertainmentType"
+             value={EntertainmentType}
              onChange={handleChange}
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Go out"

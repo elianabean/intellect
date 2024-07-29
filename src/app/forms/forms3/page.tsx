@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 export default function Forms() {
  const [HousingExpenses, setHousingExpenses] = useState("");
- const [Housing, setHousing] = useState("");
+ const [HousingType, setHousingType] = useState("");
  const [FoodExpenses, setFoodExpenses] = useState("");
  const [Groceries, setGroceries] = useState("");
  const [TransportationExpenses, setTransportationExpenses] = useState("");
@@ -22,8 +22,8 @@ export default function Forms() {
      case 'HousingExpenses':
        setHousingExpenses(value);
        break;
-     case 'Housing':
-       setHousing(value);
+     case 'HousingType':
+       setHousingType(value);
        break;
      case 'FoodExpenses':
        setFoodExpenses(value);
@@ -37,7 +37,7 @@ export default function Forms() {
      case 'InsuranceExpenses':
        setInsuranceExpenses(value);
        break;
-     case 'Insurance':
+     case 'InsuranceType':
        setInsuranceType(value);
        break;
      default:
@@ -49,7 +49,7 @@ export default function Forms() {
    e.preventDefault();
    const userData = {
      HousingExpenses,
-     Housing,
+     HousingType,
      FoodExpenses,
      Groceries,
      TransportationExpenses,
@@ -58,7 +58,7 @@ export default function Forms() {
    };
 
    try {
-     const response = await fetch('/api/insertUserInfo', {
+     const response = await fetch('/api/insertExpensesDetails', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
@@ -111,8 +111,8 @@ export default function Forms() {
            <p className="w-[660px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Do you live in the dorms, an apartment, or a house?</p>
            <input
              type="text"
-             name="Housing"
-             value={Housing}
+             name="HousingType"
+             value={HousingType}
              onChange={handleChange}
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Dorms"
@@ -156,7 +156,7 @@ export default function Forms() {
            <p className="w-[454px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you get your insurance?</p>
            <input
              type="text"
-             name="Insurance"
+             name="InsuranceType"
              value={InsuranceType}
              onChange={handleChange}
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
