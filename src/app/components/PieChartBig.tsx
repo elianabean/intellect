@@ -9,11 +9,11 @@ interface PieChartProps {
 export default function PieChartExport({ data }: PieChartProps)  {
     return (
         <PieChart series={[{data,
-            innerRadius: 95,
-           outerRadius: 160,
+            innerRadius: 125,
+           outerRadius: 205,
           //  arcLabel: 'label',
-           cx: 155,
-           cy: 170,
+           cx: 200,
+           cy: 230,
          },
        ]}
       //  sx={{
@@ -22,8 +22,8 @@ export default function PieChartExport({ data }: PieChartProps)  {
       //      width: 139,
       //    },
       //  }}
-       width={325}
-       height={350}
+       width={425}
+       height={450}
        slotProps={{ legend: { hidden: true }}}
      />
     );

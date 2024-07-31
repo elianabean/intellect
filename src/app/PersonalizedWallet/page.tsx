@@ -1,6 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import Profile from "../components/Profile";
-import PieChart from "../components/PieChart";
+import PieChart from "../components/PieChartBig";
 import Image from "next/image";
 import {Progress} from "@nextui-org/react";
 
@@ -20,39 +20,39 @@ export default function Homepage2() {
 
       <Profile></Profile>
 
-      <div className="h-full min-h-[100vh] w-[100vw] pl-36 flex flex-col items-center justify-center">
-        <div className="flex flex-row flex-wrap justify-center items-stretch gap-[50px] h-[80%]">
-        <div className="[background:rgba(252,251,255,0.80)] rounded-[30px] border-4 border-solid border-[#2A3A28] flex flex-col justify-start items-center py-[32px] px-[60px] w-[60%]">
+      <div className="h-full min-h-[100vh] w-[100vw] pl-28 pr-3 pb-16 pt-24 flex flex-col items-center justify-center">
+        <div className="flex flex-row flex-wrap justify-center items-stretch gap-[40px] h-[80%]">
+        <div className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] flex flex-col justify-start items-center py-[25px] px-[40px] w-[50%]">
             <div className="flex flex-col items-start">
-                <p className="text-[#2A3A28] font-raleway text-3xl font-bold leading-[150%]">Personalized Ideal Wallet</p>
-                <p className="text-[#2A3A28] font-raleway text-[25px] font-bold leading-[150%] w-[90%] mt-[16px]">After taking a look at your interests and expenses, I created your Ideal Wallet!</p>
+                <p className="text-[#2A3A28] font-raleway text-2xl font-bold leading-[150%]">Personalized Ideal Wallet</p>
+                <p className="text-[#2A3A28] font-raleway text-[18px] font-bold leading-[150%] w-[90%] mt-[16px]">After taking a look at your interests and expenses, I created your Ideal Wallet!</p>
             </div>
             
             <div className="relative">
                 <PieChart data={dataPie}></PieChart>
 
-                <Image src="/images/wallet.png" alt="Wallet" width={180} height={180} className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"></Image>
+                <Image src="/images/wallet.png" alt="Wallet" width={165} height={165} className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"></Image>
             </div>
             
         </div>
 
-        <div className="[background:rgba(252,251,255,0.80)] rounded-[30px] border-4 border-solid border-[#2A3A28] flex flex-col justify-center items-start py-[32px] px-[60px] w-[30%] ">
-            <p className="text-[#2A3A28] font-raleway text-[25px] font-bold leading-[150%] mb-[20px]">Here’s an HP Bar of each of your expenses. Please keep them alive!</p>
+        <div className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] flex flex-col justify-center items-start py-[12px] px-[45px] w-[40%] ">
+            <p className="text-[#2A3A28] font-raleway text-[18px] font-bold leading-[150%] mb-[30px]">Here’s an HP Bar of each of your expenses. Please keep them alive!</p>
             
-            <p className="text-[#516958] font-raleway text-[27px] font-semibold leading-[150%] mb-3">Food</p>
-            <Progress value={75} size="lg" classNames={{indicator: "[background:#ACFFAC]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[35px]", base:"w-[250px]"}} aria-label="percentage bar"/>
+            <p className="text-[#516958] font-raleway text-[20px] font-semibold leading-[150%] mb-1">Food</p>
+            <Progress value={75} size="lg" classNames={{indicator: "[background:#ACFFAC]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[25px]", base:"w-[355px]"}} aria-label="percentage bar"/>
 
-            <p className=" text-[#516958] font-raleway text-[27px] font-semibold leading-[150%] mb-3 mt-4 ">Entertainment</p>
-            <Progress value={40} size="lg" classNames={{indicator: "[background:#FFE073]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[35px]", base:"w-[250px]"}} aria-label="percentage bar"/>
+            <p className=" text-[#516958] font-raleway text-[20px] font-semibold leading-[150%] mb-1 mt-8 ">Entertainment</p>
+            <Progress value={40} size="lg" classNames={{indicator: "[background:#FFE073]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[25px]", base:"w-[355px]"}} aria-label="percentage bar"/>
 
-            <p className=" text-[#516958] font-raleway text-[27px] font-semibold leading-[150%] mb-3 mt-4">Clubs</p>
-            <Progress value={70} size="lg" classNames={{indicator: "[background:#FFE073]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[35px]", base:"w-[250px]"}} aria-label="percentage bar"/>
+            <p className=" text-[#516958] font-raleway text-[20px] font-semibold leading-[150%] mb-1 mt-8">Clubs</p>
+            <Progress value={70} size="lg" classNames={{indicator: "[background:#FFE073]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[25px]", base:"w-[355px]"}} aria-label="percentage bar"/>
 
-            <p className=" text-[#516958] font-raleway text-[27px] font-semibold leading-[150%] mb-3 mt-4">Transportation</p>
-            <Progress value={30} size="lg" classNames={{indicator: "[background:rgba(250,34,75,0.80)]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[35px]", base:"w-[250px]"}} aria-label="percentage bar"/>
+            <p className=" text-[#516958] font-raleway text-[20px] font-semibold leading-[150%] mb-1 mt-8">Transportation</p>
+            <Progress value={30} size="lg" classNames={{indicator: "[background:rgba(250,34,75,0.80)]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[25px]", base:"w-[355px]"}} aria-label="percentage bar"/>
 
-            <p className=" text-[#516958] font-raleway text-[27px] font-semibold leading-[150%] mb-3 mt-4">Housing</p>
-            <Progress value={90} size="lg" classNames={{indicator: "[background:#ACFFAC]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[35px]", base:"w-[250px]"}} aria-label="percentage bar"/>
+            <p className=" text-[#516958] font-raleway text-[20px] font-semibold leading-[150%] mb-1 mt-8">Housing</p>
+            <Progress value={90} size="lg" classNames={{indicator: "[background:#ACFFAC]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[25px]", base:"w-[355px]"}} aria-label="percentage bar"/>
             
         </div>
         </div>

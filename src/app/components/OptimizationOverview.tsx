@@ -15,9 +15,10 @@ export default function OptimizationOverview({ necessity, school, discretionary,
     }
 
     return (
-        <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-row justify-center items-center w-[45%] gap-[110px] py-[20px]">
+        <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-row justify-center items-center w-[80%] gap-[110px] py-[35px]">
             <div className="flex flex-col justify-center items-start">
-                <p className="text-black font-raleway text-2xl font-bold leading-[150%] mb-8">Optimization Overview</p>
+                <p className="text-black font-raleway text-2xl font-bold leading-[150%] mb-9">Optimization Overview</p>
+
 
                 <p className=" text-[#516958] font-inter text-lg font-medium leading-[150%] mb-3">Necessity</p>
                 <Progress value={necessity} size="lg" classNames={{indicator: barColor(necessity), track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[35px]", base:"w-[250px]"}} aria-label="percentage bar"/>
