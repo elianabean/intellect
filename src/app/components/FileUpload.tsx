@@ -31,10 +31,10 @@ export default function FileUpload() {
     
     return (
         <div className="w-full">
-            <div className="[background:#FFF] rounded-[30px] border-[3px] border-solid border-[#2A3A28] w-full flex flex-row justify-between items-center px-[24px] py-[10px] gap-2">
-                <p className="text-[#A5A4A4] font-raleway text-xl font-bold leading-[150%]">New Screenshot</p>
+            <div className="[background:#FFF] rounded-[30px] border-[2.5px] border-solid border-[#2A3A28] w-full flex flex-row justify-between items-center px-[24px] gap-2">
+                <p className="text-[#A5A4A4] font-raleway text-base font-bold leading-[150%]">New Screenshot</p>
                 <Button isIconOnly className="bg-transparent" onClick={() => openFilePicker()}>
-                    <Image src="/icons/plus.png" width={26} height={26} alt="plus" />
+                    <Image src="/icons/plus.png" width={20} height={20} alt="plus" />
                 </Button>
             </div>
             <br />
