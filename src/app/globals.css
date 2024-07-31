@@ -32,68 +32,106 @@ body {
   }
 }
 
-@keyframes slideToRight {
+@keyframes slideToRightFadeIn {
   from {
     left: 0%;
-    transform: translateX(0%);
+    transform: translateX(0%) scale(0.7);
+    filter: blur(4px);
+    opacity: 0.5;
   }
   to {
     left: -50%;
-    transform: translateX(50%);
+    transform: translateX(50%) scale(1.0);
+    filter: blur(0);
+    opacity: 100;
   }
 }
 
-@keyframes slideToLeft {
+@keyframes slideToRightFadeOut {
   from {
     left: 0%;
-    transform: translateX(0%);
+    transform: translateX(0%) scale(1.0);
+    filter: blur(0);
+    opacity: 100;
+  }
+  to {
+    left: -50%;
+    transform: translateX(50%) scale(0.7);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideToLeftFadeIn {
+  from {
+    left: 0%;
+    transform: translateX(0%) scale(0.7);
+    filter: blur(4px);
+    opacity: 0.5;
   }
   to {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(1.0);
+    filter: blur(0);
+    opacity: 100;
+  }
+}
+
+@keyframes slideToLeftFadeOut {
+  from {
+    left: 0%;
+    transform: translateX(0%) scale(1.0);
+    filter: blur(0);
+    opacity: 100;
+  }
+  to {
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideFromRightToOut {
+  from {
+    left: 0%;
+    transform: translateX(0%) scale(0.7);
+  }
+  to {
+    left: -50%;
+    transform: translateX(50%) scale(0.7);
+  }
+}
+
+@keyframes slideFromLeftToOut {
+  from {
+    left: 0%;
+    transform: translateX(0%) scale(0.7);
+  }
+  to {
+    left: 50%;
+    transform: translateX(-50%) scale(0.7);
   }
 }
 
 @keyframes slideFromOutToRight {
   from {
     left: -50%;
-    transform: translateX(50%);
+    transform: translateX(50%) scale(0.7);
   }
   to {
     left: 0%;
-    transform: translateX(0%);
+    transform: translateX(0%) scale(0.7);
   }
 }
 
 @keyframes slideFromOutToLeft {
   from {
     left: 150%;
-    transform: translateX(-150%);
+    transform: translateX(-150%) scale(0.7);
   }
   to {
     left: 100%;
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    filter: blur(4px);
-    opacity: 0.5;
-  }
-  to {
-    filter: blur(0);
-    opacity: 100;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    filter: blur(0);
-    opacity: 100;
-  }
-  to {
-    filter: blur(4px);
-    opacity: 0.5;
+    transform: translateX(-100%) scale(0.7);
   }
 }

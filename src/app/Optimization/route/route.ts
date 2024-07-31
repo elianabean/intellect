@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
   });
 
   const assistant = await openai.beta.assistants.retrieve(
-    "asst_dwKXHQOxnXEORvb9HzVaY3Qc"
+    "asst_Ww15rxknjcE28kRQqFwPA5P0"
   );
 
   const thread = await openai.beta.threads.create();
@@ -24,14 +24,11 @@ export async function POST(request: NextRequest) {
 
   await openai.beta.threads.messages.create(thread.id, {
     role: "user",
-    content: message,
+    content: `What are three bullet points of suggestions that can mitigate costs for ${expense1}, ${expense2}, and ${expense3} considering the user's expenses and unique situation? Here is the user's personal information, containing all the expenses and information about the user, including school, location, and preference: ${message}`,
   });
 
-  let instructions = `What are three bullet points of suggestions that can mitigate costs for ${expense1}, ${expense2}, and ${expense3} considering the users expenses and unique situation.`
-
   const run = await openai.beta.threads.runs.create(thread.id, {
-    assistant_id: assistant.id,
-    instructions: instructions,
+    assistant_id: assistant.id
   });
 
   await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -50,7 +47,6 @@ export async function POST(request: NextRequest) {
     );
 
     if (assistantResponse && assistantResponse.content.length > 0) {
-      console.log(assistantResponse);
       assistantResponse.content.forEach((content) => {
         if (content.type === "text") {
           assistantMessage += content.text.value;

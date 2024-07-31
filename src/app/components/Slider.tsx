@@ -21,11 +21,11 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
   };
 
   const endAnimation = () => {
-    if (animationDirection === -1) {
+    if (animationDirection === 1) {
       setCurrentIndex((prevIndex) =>
         prevIndex === 0 ? components.length - 1 : prevIndex - 1
       );
-    } else if (animationDirection === 1) {
+    } else if (animationDirection === -1) {
       setCurrentIndex((prevIndex) =>
         prevIndex === components.length - 1 ? 0 : prevIndex + 1
       );
@@ -40,7 +40,7 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
     <div className="relative flex align-items-center" style={{ justifyContent: 'space-between' }}>
         <div
           className="absolute flex 100vh items-center opacity-50"
-          style={{ left: '-50%', transform: 'translateX(50%)', animation: animationDirection == -1 ? 'slideFromOutToRight 1s ease-out 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0.5"
+          style={{ left: '-50%', transform: 'translateX(50%) scale(0.7)', animation: animationDirection == -1 ? 'slideFromOutToRight 0.5s ease 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0.5"
           }}
         >
           {components[prevIndex == 0 ? components.length - 1 : prevIndex - 1]}
@@ -49,7 +49,7 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
         <div
           className="relative flex 100vh items-center transition-opacity duration-500 ease-in-out opacity-50"
           onAnimationEnd={() => endAnimation()}
-          style={{ animation: animationDirection == 1 ? 'slideToRight 1s ease-out 0s 1 normal forwards' : (animationDirection == -1 ? 'slideToLeft 1s ease-out 0s 1 normal forwards, fadeIn 1s ease-in-out' : ''), filter: "blur(4px)", opacity: "0.5"
+          style={{ transform: 'scale(0.7)', animation: animationDirection == 1 ? 'slideFromRightToOut 0.5s ease 0s 1 normal forwards' : (animationDirection == -1 ? 'slideToLeftFadeIn 0.5s ease 0s 1 normal forwards' : ''), filter: "blur(4px)", opacity: "0.5"
           }}
         >
           {components[prevIndex]}
@@ -81,7 +81,7 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
 
         <div
           className="relative flex 100vh items-center h-full"
-          style={{ zIndex: 1, animation: animationDirection == 1 ? 'slideToRight 1s ease-out 0s 1 normal forwards, fadeOut 1s ease-in-out' : (animationDirection == -1 ? 'slideToLeft 1s ease-out 0s 1 normal forwards, fadeOut 1s ease-in-out' : '') }}
+          style={{ zIndex: 1, animation: animationDirection == 1 ? 'slideToRightFadeOut 0.5s ease 0s 1 normal forwards' : (animationDirection == -1 ? 'slideToLeftFadeOut 0.5s ease 0s 1 normal forwards' : '') }}
           onAnimationEnd={() => endAnimation()}
         >
           {components[currentIndex]}
@@ -113,14 +113,14 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
         <div
           className="relative flex 100vh items-center h-full transition-opacity duration-500 ease-in-out opacity-50 blur-sm"
           onAnimationEnd={() => endAnimation()}
-          style={{ animation: animationDirection == 1 ? 'slideToRight 1s ease-out 0s 1 normal forwards, fadeIn 1s ease-in-out' : (animationDirection == -1 ? 'slideToLeft 1s ease-out 0s 1 normal forwards' : ''), filter: "blur(4px)", opacity: "0.5"}}
+          style={{ transform: 'scale(0.7)', animation: animationDirection == 1 ? 'slideToRightFadeIn 0.5s ease 0s 1 normal forwards' : (animationDirection == -1 ? 'slideFromLeftToOut 0.5s ease 0s 1 normal forwards' : ''), filter: "blur(4px)", opacity: "0.5"}}
         >
           {components[nextIndex]}
         </div>
 
         <div
           className="absolute flex 100vh items-center opacity-50"
-          style={{ left: '150%', transform: 'translateX(-150%)', animation: animationDirection == 1 ? 'slideFromOutToLeft 1s ease-out 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0.5"
+          style={{ left: '150%', transform: 'translateX(-150%) scale(0.7)', animation: animationDirection == 1 ? 'slideFromOutToLeft 0.5s ease 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0.5"
           }}
         >
           {components[nextIndex == components.length - 1 ? 0 : nextIndex + 1]}

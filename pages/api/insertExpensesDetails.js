@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
       const { data, error } = await supabase
         .from('expenses_details')
-        .insert([{
+        .upsert([{
           user_id: userId, 
           housing_expenses: HousingExpenses,
           food_expenses: FoodExpenses,

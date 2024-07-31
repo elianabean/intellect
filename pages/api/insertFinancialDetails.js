@@ -23,8 +23,8 @@ export default async function handler(req, res) {
 
       const { data, error } = await supabase
         .from('financial_details')
-        .insert([{
-          user_id: userId, 
+        .upsert([{
+          user_id: userId,
           tuition: Tuition,
           financial_aid: Aid,
           scholarship: Scholarships,
@@ -32,11 +32,13 @@ export default async function handler(req, res) {
           income: Income,
           job_type: JobType,
           
-        }]);
+        }])
+        .select();
 
       if (error) throw error;
 
       res.status(200).json({ message: 'Data saved successfully', data });
+      console.log(data);
     } catch (error) {
       console.error('Error saving data:', error);
       res.status(500).json({ error: 'Error saving data' });

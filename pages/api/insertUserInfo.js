@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
       const { data, error } = await supabase
         .from('personal_details')
-        .insert([{
+        .upsert([{
           user_id: userId, 
           first_name: FullName,
           last_name: FullName,
@@ -32,7 +32,8 @@ export default async function handler(req, res) {
           college: UniversityName,
           graduation_year: YearOfGraduation,
           
-        }]);
+        }])
+        .select();
 
       if (error) throw error;
 
