@@ -1,10 +1,10 @@
 interface EdOpCardProps {
     title: string;
-    number: number;
-    walletAlloc: number;
-    currSpending: number;
+    number: string;
+    walletAlloc: string;
+    currSpending: string;
     sign: string;
-    budgetDiff: number;
+    budgetDiff: string;
   }
 
 export default function EdOpCard({ title, number, walletAlloc, currSpending, sign, budgetDiff }: EdOpCardProps) {
