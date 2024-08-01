@@ -151,12 +151,12 @@ export default function EducationalOptimization() {
       <div className="h-full min-h-[100vh] w-[100vw] pl-[204px] pr-[60px] pt-24 flex flex-col flex-wrap justify-center items-center gap-12">
         <div className="flex flex-row flex-wrap w-full justify-between items-center">
 
-          <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-col justify-center items-center w-[15%] h-[280.4px] ">
-            <p className="text-[#516958] text-center font-inter text-[25px] font-extrabold leading-[150%]">Total Expense</p>
-            <p className="text-[#516958] text-center font-inter text-[45px] font-extrabold leading-[150%]">${(walletTotal/1000).toFixed(1)}K</p>
-            <p className="text-[#888] text-center font-inter text-xl font-semibold leading-[150%]">Wallet Allocation</p>
-            <p className="text-[#636161] text-center font-inter text-xl font-semibold leading-[150%]">Current Spending</p>
-            <p className="text-[#636161] text-center font-inter text-xl font-semibold leading-[150%] mt-[34px]">Over/Under Budget</p>
+          <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-col justify-center items-center w-[15%] h-[160px] ">
+            <p className="text-[#516958] text-center font-inter text-[15px] font-extrabold leading-[150%]">Total Expense</p>
+            <p className="text-[#516958] text-center font-inter text-3xl font-extrabold leading-[150%]">${(walletTotal/1000).toFixed(1)}K</p>
+            <p className="text-[#888] text-center font-inter text-[13px] font-semibold leading-[150%]">Wallet Allocation</p>
+            <p className="text-[#636161] text-center font-inter text-[13px] font-semibold leading-[150%]">Current Spending</p>
+            <p className="text-[#636161] text-center font-inter text-[13px] font-semibold leading-[150%] mt-[14px]">Over/Under Budget</p>
 
         </div>
             <EdOpCard title="Housing"         number={(housing/1000).toFixed(1)}        walletAlloc={housingBudget.toFixed(2)}        currSpending={housingSpending.toFixed(2)}       budgetDiff={Math.abs(housingBudget - housingSpending).toFixed(2)}             sign={housingBudget >= housingSpending ? "+" : "-"}></EdOpCard>
