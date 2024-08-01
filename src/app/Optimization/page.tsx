@@ -10,7 +10,7 @@ import { useEffect, useState, useRef } from "react";
 
 export default function EducationalOptimization() {
   // walletInfo contains all available financialInfo the user inputed on the forms (see getWalletBreakdown.js)
-  const [walletInfo, setWalletInfo] = useState(null);
+  const [walletInfo, setWalletInfo] = useState(null) as any;
   // defines tbg gpt4 tips
   const [message, setMessage] = useState([]);
 
@@ -59,75 +59,74 @@ export default function EducationalOptimization() {
   };
 
   const setBarValues = () => {
+    const clip = (num: number, min: number, max: number) => Math.max(Math.min(num, Math.max(min, max)), Math.min(min, max));
+
     // Breakdown: 45% -> housingDeficit, 35% -> foodDeficit, 20% -> transportDeficit
-    necessity = (45 - 2 * (housingBudget >= housingSpending ? 0 : housingSpending - housingBudget)) + (35 - 3 * (foodBudget >= foodSpending ? 0 : foodSpending - foodBudget)) + (20 - (transportBudget >= transportSpending ? 0 : transportSpending - transportBudget));
+    necessity = clip(45 - 2 * (housingSpending - housingBudget), 0, 45) + 
+                clip(35 - 3 * (foodSpending - foodBudget), 0, 35) + 
+                clip(20 - (transportSpending - transportBudget), 0, 20);
     
-    // Breakdown: 20% -> ec relative to tuition, 80% -> scholarship+financial aid relative to tuition
-    school = 0;
     const tuition = walletInfo.financial_details.tuition;
     const scholarship = walletInfo.financial_details.scholarship;
     const aid = walletInfo.financial_details.financial_aid;
 
-    school += 20;
-    if (clubsSpending >= 0.05 * tuition) {
-      // clubspending/tuition is a decimal, mult by 100 to convert to percent
-      school -= clubsSpending / tuition >= 0.15 ? 20 : 100 * 2 * (clubsSpending / tuition - 0.05)
-    }
-
-    school += (scholarship + aid) >= tuition ? 80 : 100 * 4 * (scholarship + aid) / tuition;
-
-    // Breakdown: 25% -> clothing / absolute val, 20% -> subscriptions / absolute val, 55% -> entertainment_deficit
-    discretionary = 0;
+    // Breakdown: 20% -> ec relative to tuition, 80% -> scholarship+financial aid relative to tuition
+    school = (20 - clip(200 * (clubsSpending / tuition - 0.05), 0, 20)) + 
+             clip(400 * (scholarship + aid) / tuition, 0, 80);
 
     const clothing_expenses = walletInfo.wants_details.clothing_expenses;
-    discretionary += 25;
-    if (clothing_expenses > 100) {
-      // subtract the percent that clothing expenses goes over $100 (100% over or $200 = 0%, 0% over = 25% for optimization score)
-      discretionary -= clothing_expenses >= 200 ? 25 : (clothing_expenses / 100 - 1) * 25
-    }
-
     const subscription_expenses = walletInfo.wants_details.subscription_expenses;
-    discretionary += 20;
-    if (subscription_expenses > 40) {
-      // subtract the percent that subscription expenses goes over $40 (100% over or $80 = 0%, 0% over = 20% for optimization score)
-      discretionary -= subscription_expenses >= 80 ? 20 : (subscription_expenses / 40 - 1) * 20
-    }
-
-    discretionary += 55 - 2 * (entertainmentBudget >= entertainmentSpending ? 0 : entertainmentSpending - entertainmentBudget);
+    
+    // Breakdown: 25% -> clothing / absolute val, 20% -> subscriptions / absolute val, 55% -> entertainment_deficit
+    discretionary = clip((1 - clothing_expenses / 100) * 25, 0, 25) + 
+                    clip((1 - (subscription_expenses - 40) / 80) * 20, 0, 20) +
+                    clip(55 - 2 * (entertainmentSpending - entertainmentBudget), 0, 55);
   };
 
   const setOptimizationStrats = () => {
+    // define categories & questions to be asked for each
+    let expense_questions = [
+      [entertainmentSpending - entertainmentBudget, ['entertainment', 'subscriptions', 'clothing']], 
+      [housingSpending - housingBudget,             ['housing']], 
+      [foodSpending - foodBudget,                   ['food', 'groceries']], 
+      [transportSpending - transportBudget,         ['transportation']], 
+      [clubsSpending - clubsBudget,                 ['student extracurriculars, clubs, and research']]
+    ] as any;
     // sort list of categories by how poorly money is being spent
-    let expense_questions = [[entertainmentSpending - entertainmentBudget, ['entertainment', 'subscriptions', 'clothing']], [housingSpending - housingBudget, ['housing']], [foodSpending - foodBudget, ['food', 'groceries']], [transportSpending - transportBudget, ['transportation']], [clubsSpending - clubsBudget, ['student extracurriculars, clubs, and research']]];
-    expense_questions.sort(function(a, b) {
+    expense_questions.sort(function(a: any, b: any) {
       return a[0] > b[0] ? -1 : 1;
     });
 
-    fetch('/Optimization/route', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        // pick the first 3 (worst) and then pick a random sub-element
-        'expense1': expense_questions[0][1][Math.floor(Math.random()*expense_questions[0][1].length)],
-        'expense2': expense_questions[1][1][Math.floor(Math.random()*expense_questions[1][1].length)],
-        'expense3': expense_questions[2][1][Math.floor(Math.random()*expense_questions[2][1].length)],
-        'message': `Spends $${walletInfo.expenses_details.housing_expenses} a month on housing, $${walletInfo.expenses_details.food_expenses} a month on food, 
-        $${walletInfo.wants_details.entertainment_expenses} a month on entertainment to do things like $${walletInfo.wants_details.entertainment_type}, 
-        $${walletInfo.expenses_details.transportation_expenses} a month on transport, and $${walletInfo.wants_details.ec_expenses} on student clubs. 
-        $${walletInfo.wants_details.clothing_expenses} on clothes with the main brand being $${walletInfo.wants_details.clothing_type}. 
-        $${walletInfo.wants_details.subscription_expenses} on online subscriptions such as $${walletInfo.wants_details.subscription_type}`
+    try {
+      fetch('/Optimization/route', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          // pick the first 3 (aka 3 worst managed) and then pick a random sub-element from 2nd part of list
+          'expense1': expense_questions[0][1][Math.floor(Math.random()*expense_questions[0][1].length)],
+          'expense2': expense_questions[1][1][Math.floor(Math.random()*expense_questions[1][1].length)],
+          'expense3': expense_questions[2][1][Math.floor(Math.random()*expense_questions[2][1].length)],
+          'message': `Goes to ${walletInfo.personal_details.college}. Spends $${walletInfo.expenses_details.housing_expenses} a month on housing, 
+          $${walletInfo.expenses_details.food_expenses} a month on food, $${walletInfo.wants_details.entertainment_expenses} a month on entertainment 
+          to do things like ${walletInfo.wants_details.entertainment_type}, $${walletInfo.expenses_details.transportation_expenses} a month on transport, 
+          and $${walletInfo.wants_details.ec_expenses} on student clubs. $${walletInfo.wants_details.clothing_expenses} on clothes 
+          with the main brand being ${walletInfo.wants_details.clothing_type}. $${walletInfo.wants_details.subscription_expenses} on online subscriptions 
+          such as ${walletInfo.wants_details.subscription_type}`
+        })
       })
-    })
-    .then(response => response.json())
-    .then(data => {
-      // format chat gpt response into split up bullet points
-      setMessage(data.message.trim().split('- ').slice(1));
-    });
+      .then(response => response.json())
+      .then(data => {
+        // format gpt response into split up bullet points
+        setMessage(data.message.trim().split('- ').slice(1));
+      });
+    } catch (error) {
+      console.error('Error: ', error);
+    }
   };
   
-  const runitback = useRef(false);
+  const runFlag = useRef(false);
   if (walletInfo != null) {
     setExpenseValues();
     
@@ -136,9 +135,10 @@ export default function EducationalOptimization() {
     
     setBarValues();
 
-    if (!runitback.current) {
+    // using runFlag so that this bit of code is only run once
+    if (!runFlag.current) {
       setOptimizationStrats();
-      runitback.current = true;
+      runFlag.current = true;
     }
   }
 

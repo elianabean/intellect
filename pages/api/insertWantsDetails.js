@@ -5,20 +5,6 @@ export default async function handler(req, res) {
     const { ECExpenses, ClothingExpenses, ClothingType, SubscriptionExpenses, SubscriptionType, EntertainmentExpenses, EntertainmentType} = req.body;
 
     try {
-      // // Insert a dummy user into the users table
-      // const { data: userData, error: userError } = await supabase
-      //   .from('users')
-      //   .insert([{
-      //     username: Email, 
-      //     password: 'dummyPassword', 
-      //     email: Email,
-      //     phone: '123-456-7890' 
-      //   }])
-      //   .select('id')
-      //   .single();
-
-      // if (userError) throw userError;
-
       const userId = "f46ad135-f439-418e-b383-459a1ea78edb";
 
       const { data, error } = await supabase

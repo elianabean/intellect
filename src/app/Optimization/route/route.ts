@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
   await openai.beta.threads.messages.create(thread.id, {
     role: "user",
-    content: `What are three bullet points of suggestions that can mitigate costs for ${expense1}, ${expense2}, and ${expense3} considering the user's expenses and unique situation? Here is the user's personal information, containing all the expenses and information about the user, including school, location, and preference: ${message}`,
+    content: `What are three bullet points of suggestions that can mitigate costs for ${expense1}, ${expense2}, and ${expense3} considering the user's expenses and unique situation? Here is the user's personal information, containing all the expenses and information about the user, including school, and specific activities: ${message}`,
   });
 
   const run = await openai.beta.threads.runs.create(thread.id, {

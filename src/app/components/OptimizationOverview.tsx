@@ -32,7 +32,7 @@ export default function OptimizationOverview({ necessity, school, discretionary,
             <div className="flex flex-col justify-start items-start w-[40%] border [background:#FBFBFF] rounded-[7px] border-solid border-[#2A3A28] p-6">
                 <p className="text-[#516958] font-inter text-lg font-medium leading-[150%] mb-6">Optimization Strategies</p>
                 <ul className="list-disc list-inside">
-                    {strategies.length == 0 ? <img src={"https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/8/e/6/8e6f33126207a47f09f7c6ac5333057c1f45b5de.gif"} alt="Loading..." /> : strategies.map((element) => <li className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>)}
+                    {strategies.length == 0 ? <img src={"https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/8/e/6/8e6f33126207a47f09f7c6ac5333057c1f45b5de.gif"} alt="Loading..." /> : strategies.map((element) => <li key={element} className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>)}
                 </ul>
             </div>
         </div>
