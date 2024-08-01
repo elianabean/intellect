@@ -28,7 +28,6 @@ const styles = {
     alignItems: 'center',
     paddingTop: '50px',
     paddingBottom: '100px',
-    transform: 'translatex(-70px)',
     position: 'relative' as 'relative',
   },
   timelineItem: {
