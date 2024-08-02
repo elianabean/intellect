@@ -101,7 +101,7 @@ export default function Forms() {
              <p className="text-white font-inter text-[30px]">4 &rarr; Your Wants</p>
              <p className="text-[#C11D1D] font-inter text-[30px]">*</p>
            </div>
-           <p className="w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for extracurriculars or fraternities?</p>
+           <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for extracurriculars or fraternities?</p>
            <input
              type="text"
              name="ECExpenses"
@@ -110,7 +110,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[525px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for clothing?</p>
+           <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for clothing?</p>
            <input
              type="text"
              name="ClothingExpenses"
@@ -119,7 +119,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you purchase clothing often?</p>
+           <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you purchase clothing often?</p>
            <input
              type="text"
              name="ClothingType"
@@ -128,7 +128,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Nike"
            />
-           <p className="w-[501px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly subscriptions costs?</p>
+           <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly subscriptions costs?</p>
            <input
              type="text"
              name="SubscriptionExpenses"
@@ -137,7 +137,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[625px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What subscriptions are you paying for?</p>
+           <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What subscriptions are you paying for?</p>
            <input
              type="text"
              name="SubscriptionType"
@@ -146,7 +146,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Netflix, Spotify"
            />
-           <p className="w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for entertainment (Going out, drinks, movies, etc)?</p>
+           <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for entertainment (Going out, drinks, movies, etc)?</p>
            <input
              type="text"
              name="EntertainmentExpenses"
@@ -155,7 +155,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What do you usually do for entertainment (Go out, drinks, movies)?</p>
+           <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What do you usually do for entertainment (Go out, drinks, movies)?</p>
            <input
              type="text"
              name="EntertainmentType"
