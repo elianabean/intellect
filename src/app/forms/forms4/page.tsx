@@ -4,6 +4,7 @@ import Profile from "../../components/Profile";
 import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Sidebar from "@/app/components/Sidebar";
 
 export default function Forms() {
  const [ECExpenses, setECExpenses] = useState("");
@@ -79,6 +80,7 @@ export default function Forms() {
 
  return (
    <div className="relative">
+    <Sidebar/>
      <Profile/>
      <div style={{backgroundColor:"#3D513B",minHeight:"100vh",overflowY: "scroll" }}>
        <Image
@@ -117,7 +119,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[971px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you purchase clothing often?</p>
+           <p className="w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you purchase clothing often?</p>
            <input
              type="text"
              name="ClothingType"
@@ -144,7 +146,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Netflix, Spotify"
            />
-           <p className="w-[1002px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for entertainment (Going out, drinks, movies, etc)?</p>
+           <p className="w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for entertainment (Going out, drinks, movies, etc)?</p>
            <input
              type="text"
              name="EntertainmentExpenses"
@@ -153,7 +155,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[850px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What do you usually do for entertainment (Go out, drinks, movies)?</p>
+           <p className="w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What do you usually do for entertainment (Go out, drinks, movies)?</p>
            <input
              type="text"
              name="EntertainmentType"

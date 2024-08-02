@@ -3,7 +3,7 @@ import { User } from "@nextui-org/react";
 
 export default function Profile() {
     return (
-        <div className="flex flex-row justify-end absolute top-0 w-[100vw] pl-36 pr-[20px] py-[25px]">
+        <div className="flex justify-end absolute top-0 w-full pl-36 pr-[30px] py-[25px]">
         <User
           name="Jackson Owen"
           avatarProps={{
