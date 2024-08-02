@@ -157,7 +157,7 @@ export default function EducationalOptimization() {
 
       <Profile></Profile>
 
-      <div className="h-full min-h-[100vh] w-[100vw] pl-[204px] pr-[60px] pt-24 flex flex-col flex-wrap justify-center items-center gap-12">
+      <div className="h-full min-h-[100vh] max-w-full w-full pl-[204px] pr-[60px] pt-24 flex flex-col flex-wrap justify-center items-center gap-12">
         <div className="flex flex-row flex-wrap w-full justify-between items-center">
 
           <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-col justify-center items-center w-[15%] h-[160px] ">

@@ -4,6 +4,7 @@ import Profile from "../../components/Profile";
 import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Sidebar from "@/app/components/Sidebar";
 
 interface Answer {
   id: number;
@@ -44,7 +45,7 @@ export default function RankingForm() {
 
       if (response.ok) {
         console.log('Data successfully sent to backend');
-        router.push('/nextPage'); // Redirect to the next page
+        router.push('/homepage2/mainpage'); // Redirect to homepage
       } else {
         console.error('Failed to send data to backend');
       }
@@ -77,6 +78,7 @@ export default function RankingForm() {
 
   return (
     <div className="relative">
+      <Sidebar/>
       <Profile />
       <div style={{ backgroundColor: "#3D513B", minHeight: "100vh", overflowY: "scroll" }}>
         <Image

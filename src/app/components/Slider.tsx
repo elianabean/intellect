@@ -37,7 +37,7 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
   const nextIndex = (currentIndex + 1) % components.length;
 
   return (
-    <div className="relative flex flex-col gap-5 items-center">
+    <div className="relative flex flex-col gap-5 items-center z-50">
         <div
           className="absolute flex 100vh items-center pointer-events-none cursor-default"
           style={{ top: '-50%', transform: 'translateY(50%) scale(0.6)', animation: animationDirection == -1 ? 'slideDownFromOut 0.5s ease 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0"
