@@ -4,6 +4,7 @@ import Profile from "../../components/Profile";
 import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Sidebar from "@/app/components/Sidebar";
 
 export default function Forms() {
   const [FullName, setFullName] = useState("");
@@ -79,6 +80,7 @@ export default function Forms() {
 
   return (
     <div className="relative">
+      <Sidebar/>
       <Profile/>
       <div style={{backgroundColor:"#3D513B",minHeight:"100vh",overflowY: "scroll" }}>
         <Image
@@ -99,7 +101,7 @@ export default function Forms() {
               <p className="text-white text-3xl font-medium font-['Inter'] leading-[45px]">1 &rarr; Your Information</p>
               <p className="text-[#c11d1d]/80 text-3xl font-medium font-['Inter'] leading-[45px]">*</p>
             </div>
-            <p className="w-[150px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Full Name</p>
+            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Full Name</p>
             <input
               type="text"
               name="FullName"
@@ -108,7 +110,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="Jane Doe"
             />
-            <p className="w-[150px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Email</p>
+            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Email</p>
             <input
               type="text"
               name="Email"
@@ -117,7 +119,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="example@gmail.com"
             />
-            <p className="w-[150px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Gender</p>
+            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Gender</p>
             <input
               type="text"
               name="Gender"
@@ -126,7 +128,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="Female"
             />
-            <p className="w-[206px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">University Name</p>
+            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">University Name</p>
             <input
               type="text"
               name="UniversityName"
@@ -135,7 +137,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="Carnegie Mellon University"
             />
-            <p className="w-[214px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Degree Program</p>
+            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Degree Program</p>
             <input
               type="text"
               name="DegreeProgram"
@@ -144,7 +146,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="Mechanical Engineering"
             />
-            <p className="w-[214px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Year Of Graduation</p>
+            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Year Of Graduation</p>
             <input
               type="text"
               name="YearOfGraduation"

@@ -9,7 +9,7 @@ export default function Sidebar() {
   const currentPath = usePathname();
 
     return (
-      <div className="3xl:w-20 h-full bg-[#516958] flex flex-col items-center justify-start fixed left-0 px-[20px] pt-[67px] z-50">
+      <div className="min-w-fit h-full bg-[#516958] flex flex-col items-center justify-start fixed left-0 px-[20px] pt-[67px] z-50">
         <Link href="/homepage2/mainpage">
         <p className="text-[#C4D8C4] font-inter text-sm italic font-black leading-[150%]">Intellect.ai</p>
         </Link>

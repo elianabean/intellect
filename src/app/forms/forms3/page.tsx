@@ -4,6 +4,7 @@ import Profile from "../../components/Profile";
 import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Sidebar from "@/app/components/Sidebar";
 
 export default function Forms() {
  const [HousingExpenses, setHousingExpenses] = useState("");
@@ -79,6 +80,7 @@ export default function Forms() {
 
  return (
    <div className="relative">
+      <Sidebar/>
      <Profile/>
      <div style={{backgroundColor:"#3D513B",minHeight:"100vh",overflowY: "scroll" }}>
        <Image
@@ -99,7 +101,7 @@ export default function Forms() {
              <p className="text-white font-inter text-[30px]">3 &rarr; Your Expenses</p>
              <p className="text-[#C11D1D] font-inter text-[30px]">*</p>
            </div>
-           <p className="w-[637px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for housing? (If any)</p>
+           <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for housing? (If any)</p>
            <input
              type="text"
              name="HousingExpenses"
@@ -108,7 +110,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[660px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Do you live in the dorms, an apartment, or a house?</p>
+           <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Do you live in the dorms, an apartment, or a house?</p>
            <input
              type="text"
              name="HousingType"
@@ -117,7 +119,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Dorms"
            />
-           <p className="w-[850px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for food? (not counting school meal plans)</p>
+           <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for food? (not counting school meal plans)</p>
            <input
              type="text"
              name="FoodExpenses"
@@ -126,7 +128,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[850px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you usually shop for groceries?</p>
+           <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you usually shop for groceries?</p>
            <input
              type="text"
              name="Groceries"
@@ -135,7 +137,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="Kroger"
            />
-           <p className="w-[859px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for transportation? (car, gas, bus, subway)</p>
+           <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly expenses for transportation? (car, gas, bus, subway)</p>
            <input
              type="text"
              name="TransportationExpenses"
@@ -144,7 +146,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[637px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly insurance costs?</p>
+           <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What are your monthly insurance costs?</p>
            <input
              type="text"
              name="InsuranceExpenses"
@@ -153,7 +155,7 @@ export default function Forms() {
              className="border-b-2 border-[#888888] text-[#888888] font-inter text-[30px] bg-transparent outline-none"
              placeholder="xxx$"
            />
-           <p className="w-[454px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you get your insurance?</p>
+           <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Where do you get your insurance?</p>
            <input
              type="text"
              name="InsuranceType"

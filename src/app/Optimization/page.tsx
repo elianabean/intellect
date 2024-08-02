@@ -13,7 +13,7 @@ export default function EducationalOptimization() {
 
       <Profile></Profile>
 
-      <div className="h-full min-h-[100vh] w-[100vw] pl-[204px] pr-[60px] pt-24 flex flex-col flex-wrap justify-center items-center gap-12">
+      <div className="h-full min-h-[100vh] max-w-full w-full pl-[204px] pr-[60px] pt-24 flex flex-col flex-wrap justify-center items-center gap-12">
         <div className="flex flex-row flex-wrap w-full justify-between items-center">
           <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-col justify-center items-center w-[15%] h-[160px] ">
             <p className="text-[#516958] text-center font-inter text-[15px] font-extrabold leading-[150%]">Total Expense</p>
@@ -29,7 +29,7 @@ export default function EducationalOptimization() {
             <EdOpCard title="Clubs" number={1.2} walletAlloc={7.63} currSpending={7.44} budgetDiff={0.07} sign="+"></EdOpCard>
         </div>
 
-        <div className="flex flex-row justify-center pb-20 w-full z-50">
+        <div className="flex flex-row justify-center pb-20 w-full max-w-full z-50">
           <OptimizationOverview/>
         </div>
 
