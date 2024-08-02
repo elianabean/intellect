@@ -97,7 +97,7 @@ export default function Forms() {
               <p className="text-white text-3xl font-medium font-['Inter'] leading-[45px]">2 &rarr; Your Income</p>
               <p className="text-[#c11d1d]/80 text-3xl font-medium font-['Inter'] leading-[45px]">*</p>
             </div>
-            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What is your Monthly Income?</p>
+            <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What is your Monthly Income? (number only)</p>
             <input
               type="text"
               name="Income"
@@ -106,7 +106,7 @@ export default function Forms() {
               className=" border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="xxx$"
             />
-            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">How much did you receive in total from Financial Aid packages? (If any)</p>
+            <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">How much did you receive in total from Financial Aid packages? (If any)</p>
             <input
               type="text"
               name="Aid"
@@ -115,7 +115,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="xxx$"
             />
-            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Scholarships</p>
+            <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">Scholarships</p>
             <input
               type="text"
               name="Scholarships"
@@ -124,7 +124,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="xxx$"
             />
-            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What is your Job type? (Full-time/Part-time/Internship)</p>
+            <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What is your Job type? (Full-time/Part-time/Internship)</p>
             <input
               type="text"
               name="JobType"
@@ -133,7 +133,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="Full-time"
             />
-            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">How much parental support (any allowance/money from parents) do you receive monthly?</p>
+            <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">How much parental support (any allowance/money from parents) do you receive monthly?</p>
             <input
               type="text"
               name="ParentalSupport"
@@ -142,7 +142,7 @@ export default function Forms() {
               className="border-b-2 border-[#888888] text-[#888888] text-3xl font-medium font-['Inter'] leading-[45px] bg-transparent outline-none"
               placeholder="xxx$"
             />
-            <p className="max-w-[800px] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What is your yearly tuition?</p>
+            <p className="max-w-[80vw] h-[35px] text-white text-[23px] font-medium font-['Inter'] leading-[34.50px]">What is your yearly tuition?</p>
             <input
               type="text"
               name="Tuition"

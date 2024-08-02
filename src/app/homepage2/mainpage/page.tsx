@@ -40,7 +40,7 @@ export default function Homepage2() {
             <Image src="/images/wallet.png" alt="Wallet" width={50} height={50}></Image>
           </div>
 
-        <div className="flex flex-row justify-center gap-10 pl-10 pr-10 pt-[0px]">
+        <div className="flex flex-row justify-center gap-20 pl-10 pr-10 pt-[0px]">
           <Slider components={[
             <MoneyCard key="moneyCard" />,
             <IncomeCard key="incomeCard" />,
