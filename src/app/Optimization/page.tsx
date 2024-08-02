@@ -92,7 +92,7 @@ export default function EducationalOptimization() {
       [housingSpending - housingBudget,             ['housing']], 
       [foodSpending - foodBudget,                   ['food', 'groceries']], 
       [transportSpending - transportBudget,         ['transportation']], 
-      [clubsSpending - clubsBudget,                 ['student extracurriculars, clubs, and research']]
+      [clubsSpending - clubsBudget,                 ['student extracurriculars and clubs']]
     ] as any;
     // sort list of categories by how poorly money is being spent
     expense_questions.sort(function(a: any, b: any) {
@@ -110,12 +110,14 @@ export default function EducationalOptimization() {
           'expense1': expense_questions[0][1][Math.floor(Math.random()*expense_questions[0][1].length)],
           'expense2': expense_questions[1][1][Math.floor(Math.random()*expense_questions[1][1].length)],
           'expense3': expense_questions[2][1][Math.floor(Math.random()*expense_questions[2][1].length)],
-          'message': `Goes to ${walletInfo.personal_details.college}. Spends $${walletInfo.expenses_details.housing_expenses} a month on housing, 
-          $${walletInfo.expenses_details.food_expenses} a month on food, $${walletInfo.wants_details.entertainment_expenses} a month on entertainment 
-          to do things like ${walletInfo.wants_details.entertainment_type}, $${walletInfo.expenses_details.transportation_expenses} a month on transport, 
-          and $${walletInfo.wants_details.ec_expenses} on student clubs. $${walletInfo.wants_details.clothing_expenses} on clothes 
-          with the main brand being ${walletInfo.wants_details.clothing_type}. $${walletInfo.wants_details.subscription_expenses} on online subscriptions 
-          such as ${walletInfo.wants_details.subscription_type}`
+          'message': `The user goes to ${walletInfo.personal_details.college} with a major in ${walletInfo.personal_details.major}. 
+          They spend $${walletInfo.expenses_details.housing_expenses} a month on housing and lives in a $${walletInfo.expenses_details.housing_type}.
+          They spend $${walletInfo.expenses_details.food_expenses} a month on food, shopping primarily at $${walletInfo.expenses_details.groceries}. 
+          They spend $${walletInfo.wants_details.entertainment_expenses} a month on entertainment to do things like ${walletInfo.wants_details.entertainment_type}. 
+          They spend $${walletInfo.expenses_details.transportation_expenses} a month on transport.
+          They spend $${walletInfo.wants_details.ec_expenses} on student clubs. 
+          They spend $${walletInfo.wants_details.clothing_expenses} on clothes with the main brand being ${walletInfo.wants_details.clothing_type}. 
+          They spend $${walletInfo.wants_details.subscription_expenses} on online subscriptions such as ${walletInfo.wants_details.subscription_type}`
         })
       })
       .then(response => {

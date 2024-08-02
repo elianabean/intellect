@@ -24,6 +24,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 @layer utilities {
@@ -32,106 +35,111 @@ body {
   }
 }
 
-@keyframes slideToRightFadeIn {
+@keyframes slideDownFromTop {
   from {
-    left: 0%;
-    transform: translateX(0%) scale(0.7);
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
     filter: blur(4px);
     opacity: 0.5;
   }
   to {
-    left: -50%;
-    transform: translateX(50%) scale(1.0);
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
     filter: blur(0);
-    opacity: 100;
+    opacity: 1;
   }
 }
 
-@keyframes slideToRightFadeOut {
+@keyframes slideDownFromMid {
   from {
-    left: 0%;
-    transform: translateX(0%) scale(1.0);
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
     filter: blur(0);
-    opacity: 100;
+    opacity: 1;
   }
   to {
-    left: -50%;
-    transform: translateX(50%) scale(0.7);
-    filter: blur(4px);
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
     opacity: 0.5;
   }
 }
 
-@keyframes slideToLeftFadeIn {
+@keyframes slideUpFromBottom {
   from {
-    left: 0%;
-    transform: translateX(0%) scale(0.7);
-    filter: blur(4px);
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
     opacity: 0.5;
   }
   to {
-    left: 50%;
-    transform: translateX(-50%) scale(1.0);
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
     filter: blur(0);
-    opacity: 100;
+    opacity: 1;
   }
 }
 
-@keyframes slideToLeftFadeOut {
+@keyframes slideUpFromMid {
   from {
-    left: 0%;
-    transform: translateX(0%) scale(1.0);
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
     filter: blur(0);
-    opacity: 100;
+    opacity: 1;
   }
   to {
-    left: 50%;
-    transform: translateX(-50%) scale(0.7);
-    filter: blur(4px);
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
     opacity: 0.5;
   }
 }
 
-@keyframes slideFromRightToOut {
+@keyframes slideDownFromBottom {
   from {
-    left: 0%;
-    transform: translateX(0%) scale(0.7);
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
+    opacity: 0.5;
   }
   to {
-    left: -50%;
-    transform: translateX(50%) scale(0.7);
+    top: 150%;
+    transform: translateY(-150%) scale(0.6);
+    opacity: 0;
   }
 }
 
-@keyframes slideFromLeftToOut {
+@keyframes slideUpFromTop {
   from {
-    left: 0%;
-    transform: translateX(0%) scale(0.7);
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
+    opacity: 0.5;
   }
   to {
-    left: 50%;
-    transform: translateX(-50%) scale(0.7);
+    top: -50%;
+    transform: translateY(50%) scale(0.6);
+    opacity: 0;
   }
 }
 
-@keyframes slideFromOutToRight {
+@keyframes slideUpFromOut {
   from {
-    left: -50%;
-    transform: translateX(50%) scale(0.7);
+    top: 150%;
+    transform: translateY(-150%) scale(0.6);
+    opacity: 0;
   }
   to {
-    left: 0%;
-    transform: translateX(0%) scale(0.7);
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
+    opacity: 0.5;
   }
 }
 
-@keyframes slideFromOutToLeft {
+@keyframes slideDownFromOut {
   from {
-    left: 150%;
-    transform: translateX(-150%) scale(0.7);
+    top: -50%;
+    transform: translateY(50%) scale(0.6);
+    opacity: 0;
   }
   to {
-    left: 100%;
-    transform: translateX(-100%) scale(0.7);
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
+    opacity: 0.5;
   }
 }

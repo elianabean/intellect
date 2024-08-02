@@ -41,6 +41,12 @@ export default function Homepage2() {
           </div>
 
         <div className="flex flex-row justify-center gap-10 pl-10 pr-10 pt-[0px]">
+          <Slider components={[
+            <MoneyCard key="moneyCard" />,
+            <IncomeCard key="incomeCard" />,
+            <BudgetingCard key="budgetingCard" />,
+            <SSCard key = "ssCard" />
+          ]} />
           
          <BudgetTree/>
          <Timeline/>
@@ -63,14 +69,6 @@ export default function Homepage2() {
            </div>
           </div>
         </div>
-       <div className="relative w-[95%] mb-[80px]">
-         <Slider components={[
-           <MoneyCard key="moneyCard" />,
-           <IncomeCard key="incomeCard" />,
-           <BudgetingCard key="budgetingCard" />,
-           <SSCard key = "ssCard" />
-         ]} />
-       </div>
        
        <div className="flex flex-row flex-wrap w-full items-center justify-center gap-[50px]">
        <div className="w-[447px] h-[441px] shrink-0 [background:#FBFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b-[#516958] border-b border-solid gap-5 flex flex-col justify-start items-center pt-[20px]">

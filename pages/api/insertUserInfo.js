@@ -17,6 +17,7 @@ export default async function handler(req, res) {
           gender: Gender,
           college: UniversityName,
           graduation_year: YearOfGraduation,
+          major: DegreeProgram
           
         }])
         .select();
