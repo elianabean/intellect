@@ -13,6 +13,8 @@ export default function EducationalOptimization() {
   const [walletInfo, setWalletInfo] = useState(null) as any;
   // defines tbg gpt4 tips
   const [message, setMessage] = useState([]);
+  // gpt4 error handle
+  const [strategiesError, setStrategiesError] = useState(false);
 
   // expenses
   let [housing, food, entertainment, transport, clubs, walletTotal] = [0, 0, 0, 0, 0, 0];
@@ -116,6 +118,11 @@ export default function EducationalOptimization() {
           such as ${walletInfo.wants_details.subscription_type}`
         })
       })
+      .then(response => {
+        if (response.ok) return response;
+        setStrategiesError(true);
+        throw new Error();
+      })
       .then(response => response.json())
       .then(data => {
         // format gpt response into split up bullet points
@@ -167,7 +174,7 @@ export default function EducationalOptimization() {
         </div>
 
         <div className="flex flex-row justify-between w-full z-50">
-          <OptimizationOverview necessity={necessity} school={school} discretionary={discretionary} strategies={message}/>
+          <OptimizationOverview necessity={necessity} school={school} discretionary={discretionary} strategies={message} strategiesError={strategiesError}/>
         </div>
 
         <Image src="/images/ellipse-34.svg" width={1524.261} height={486.942} alt="background" className="absolute bottom-0"></Image>

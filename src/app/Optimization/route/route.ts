@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
   // I'll hide this in an env later
   const openai = new OpenAI({
@@ -10,7 +12,7 @@ export async function POST(request: NextRequest) {
   const assistant = await openai.beta.assistants.retrieve(
     "asst_Ww15rxknjcE28kRQqFwPA5P0"
   );
-
+  
   const thread = await openai.beta.threads.create();
 
   const body = await request.json();
@@ -32,8 +34,6 @@ export async function POST(request: NextRequest) {
   });
 
   await new Promise((resolve) => setTimeout(resolve, 5000));
-
-  const messages = await openai.beta.threads.messages.list(thread.id);
 
   let assistantMessage = "";
 
