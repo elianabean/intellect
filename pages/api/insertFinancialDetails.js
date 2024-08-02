@@ -5,26 +5,12 @@ export default async function handler(req, res) {
     const { Income , Aid, Scholarships, JobType, ParentalSupport, Tuition } = req.body;
 
     try {
-      // // Insert a dummy user into the users table
-      // const { data: userData, error: userError } = await supabase
-      //   .from('users')
-      //   .insert([{
-      //     username: Email, 
-      //     password: 'dummyPassword', 
-      //     email: Email,
-      //     phone: '123-456-7890' 
-      //   }])
-      //   .select('id')
-      //   .single();
-
-      // if (userError) throw userError;
-
       const userId = "f46ad135-f439-418e-b383-459a1ea78edb";
 
       const { data, error } = await supabase
         .from('financial_details')
-        .insert([{
-          user_id: userId, 
+        .upsert([{
+          user_id: userId,
           tuition: Tuition,
           financial_aid: Aid,
           scholarship: Scholarships,
@@ -32,7 +18,8 @@ export default async function handler(req, res) {
           income: Income,
           job_type: JobType,
           
-        }]);
+        }])
+        .select();
 
       if (error) throw error;
 

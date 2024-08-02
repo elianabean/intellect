@@ -21,11 +21,11 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
   };
 
   const endAnimation = () => {
-    if (animationDirection === -1) {
+    if (animationDirection === 1) {
       setCurrentIndex((prevIndex) =>
         prevIndex === 0 ? components.length - 1 : prevIndex - 1
       );
-    } else if (animationDirection === 1) {
+    } else if (animationDirection === -1) {
       setCurrentIndex((prevIndex) =>
         prevIndex === components.length - 1 ? 0 : prevIndex + 1
       );
@@ -37,90 +37,92 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
   const nextIndex = (currentIndex + 1) % components.length;
 
   return (
-    <div className="relative flex align-items-center" style={{ justifyContent: 'space-between' }}>
+    <div className="relative flex flex-col gap-5 items-center">
         <div
-          className="absolute flex 100vh items-center opacity-50"
-          style={{ left: '-50%', transform: 'translateX(50%)', animation: animationDirection == -1 ? 'slideFromOutToRight 1s ease-out 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0.5"
+          className="absolute flex 100vh items-center"
+          style={{ top: '-50%', transform: 'translateY(50%) scale(0.6)', animation: animationDirection == -1 ? 'slideDownFromOut 0.5s ease 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0"
           }}
         >
           {components[prevIndex == 0 ? components.length - 1 : prevIndex - 1]}
         </div>
         
         <div
-          className="relative flex 100vh items-center transition-opacity duration-500 ease-in-out opacity-50"
+          className="absolute flex 100vh items-center"
           onAnimationEnd={() => endAnimation()}
-          style={{ animation: animationDirection == 1 ? 'slideToRight 1s ease-out 0s 1 normal forwards' : (animationDirection == -1 ? 'slideToLeft 1s ease-out 0s 1 normal forwards, fadeIn 1s ease-in-out' : ''), filter: "blur(4px)", opacity: "0.5"
+          style={{ top: '0%', transform: 'translateY(0%) scale(0.6)', animation: animationDirection == 1 ? 'slideUpFromTop 0.5s ease 0s 1 normal forwards' : (animationDirection == -1 ? 'slideDownFromTop 0.5s ease 0s 1 normal forwards' : ''), filter: "blur(4px)", opacity: "0.5"
           }}
         >
           {components[prevIndex]}
         </div>
 
         <button
-          className="relative top-1/2 transform text-white p-2 cursor-pointer z-10"
+          className="absolute text-white p-2 cursor-pointer z-10"
+          style={{ top: 'calc(50% - 120px)' }}
           onClick={() => handlePrev()}
         >
-          <svg width="59" height="68" viewBox="0 0 59 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g id="Vector" filter="url(#filter0_d_1316_506)">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M43.0968 7.38057C44.3154 8.26482 45 9.46396 45 10.7143C45 11.9646 44.3154 13.1638 43.0968 14.048L21.6907 29.5756L43.0968 45.1031C44.2809 45.9924 44.9361 47.1835 44.9213 48.4199C44.9065 49.6562 44.2228 50.8389 43.0176 51.7132C41.8123 52.5874 40.1819 53.0833 38.4775 53.0941C36.7731 53.1048 35.1311 52.6295 33.9051 51.7706L7.90325 32.9093C6.6846 32.0251 6 30.8259 6 29.5756C6 28.3252 6.6846 27.1261 7.90325 26.2418L33.9051 7.38057C35.1241 6.49658 36.7772 5.99998 38.5009 5.99998C40.2246 5.99998 41.8777 6.49658 43.0968 7.38057Z" fill="white"/>
+          <svg width="54" height="40" viewBox="0 0 54 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_1901_3041)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M38.5873 25.024C37.9569 25.6489 37.1021 26 36.2108 26C35.3195 26 34.4647 25.6489 33.8343 25.024L22.7654 14.0465L11.6965 25.024C11.0626 25.6312 10.2135 25.9672 9.33214 25.9596C8.4508 25.952 7.60774 25.6014 6.98452 24.9834C6.3613 24.3653 6.00779 23.5292 6.00013 22.6551C5.99247 21.7811 6.33127 20.939 6.94357 20.3103L20.389 6.97602C21.0193 6.35108 21.8741 6 22.7654 6C23.6567 6 24.5115 6.35108 25.1419 6.97602L38.5873 20.3103C39.2174 20.9354 39.5714 21.7832 39.5714 22.6671C39.5714 23.5511 39.2174 24.3988 38.5873 25.024Z" fill="white"/>
             </g>
             <defs>
-              <filter id="filter0_d_1316_506" x="0" y="0" width="59" height="67.0942" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feOffset dx="4" dy="4"/>
-                <feGaussianBlur stdDeviation="5"/>
-                <feComposite in2="hardAlpha" operator="out"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-              l	<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1316_506"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1316_506" result="shape"/>
-              </filter>
+              <filter id="filter0_d_1901_3041" x="0" y="0" width="53.5713" height="40" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+              <feOffset dx="4" dy="4"/>
+              <feGaussianBlur stdDeviation="5"/>
+              <feComposite in2="hardAlpha" operator="out"/>
+              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1901_3041"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1901_3041" result="shape"/>
+            </filter>
             </defs>
           </svg>
 
         </button>
 
         <div
-          className="relative flex 100vh items-center h-full"
-          style={{ zIndex: 1, animation: animationDirection == 1 ? 'slideToRight 1s ease-out 0s 1 normal forwards, fadeOut 1s ease-in-out' : (animationDirection == -1 ? 'slideToLeft 1s ease-out 0s 1 normal forwards, fadeOut 1s ease-in-out' : '') }}
+          className="absolute flex 100vh items-center"
+          style={{ top: '50%', transform: 'translateY(-50%) scale(0.7)', animation: animationDirection == 1 ? 'slideUpFromMid 0.5s ease 0s 1 normal forwards' : (animationDirection == -1 ? 'slideDownFromMid 0.5s ease 0s 1 normal forwards' : '') }}
           onAnimationEnd={() => endAnimation()}
         >
           {components[currentIndex]}
         </div>
 
         <button
-          className="relative top-1/2 transform text-white p-2 cursor-pointer z-10"
+          className="absolute text-white p-2 cursor-pointer z-10"
+          style={{ top: 'calc(50% + 73px)' }}
           onClick={() => handleNext()}
         >
-          <svg width="59" height="68" viewBox="0 0 59 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_d_1316_507)">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M7.90325 51.7137C6.6846 50.8294 6 49.6303 6 48.3799C6 47.1296 6.6846 45.9305 7.90325 45.0462L29.3093 29.5187L7.90325 13.9911C6.71914 13.1018 6.06392 11.9107 6.07873 10.6743C6.09355 9.43801 6.77719 8.25535 7.98243 7.38109C9.18767 6.50683 10.8181 6.01092 12.5225 6.00018C14.2269 5.98943 15.8689 6.46471 17.0949 7.32365L43.0968 26.1849C44.3154 27.0692 45 28.2683 45 29.5187C45 30.769 44.3154 31.9681 43.0968 32.8524L17.0949 51.7137C15.8759 52.5977 14.2228 53.0943 12.4991 53.0943C10.7754 53.0943 9.12227 52.5977 7.90325 51.7137Z" fill="white"/>
+          <svg width="54" height="40" viewBox="0 0 54 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_1901_3039)">
+             <path fill-rule="evenodd" clip-rule="evenodd" d="M6.98402 6.97602C7.61436 6.35108 8.46918 6 9.36049 6C10.2518 6 11.1066 6.35108 11.737 6.97602L22.8059 17.9535L33.8748 6.97602C34.5087 6.36879 35.3578 6.03278 36.2392 6.04038C37.1205 6.04797 37.9636 6.39856 38.5868 7.01663C39.21 7.6347 39.5635 8.47081 39.5712 9.34486C39.5788 10.2189 39.24 11.061 38.6277 11.6897L25.1823 25.024C24.552 25.6489 23.6972 26 22.8059 26C21.9146 26 21.0597 25.6489 20.4294 25.024L6.98402 11.6897C6.35386 11.0646 5.99986 10.2168 5.99986 9.33286C5.99986 8.44892 6.35386 7.60116 6.98402 6.97602Z" fill="white"/>
             </g>
             <defs>
-              <filter id="filter0_d_1316_507" x="0" y="0" width="59" height="67.0942" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <filter id="filter0_d_1901_3039" x="0" y="0" width="53.5713" height="40" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feOffset dx="4" dy="4"/>
                 <feGaussianBlur stdDeviation="5"/>
                 <feComposite in2="hardAlpha" operator="out"/>
                 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1316_507"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1316_507" result="shape"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1901_3039"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1901_3039" result="shape"/>
               </filter>
             </defs>
           </svg>
       	</button>
 
         <div
-          className="relative flex 100vh items-center h-full transition-opacity duration-500 ease-in-out opacity-50 blur-sm"
+          className="absolute flex 100vh items-center"
           onAnimationEnd={() => endAnimation()}
-          style={{ animation: animationDirection == 1 ? 'slideToRight 1s ease-out 0s 1 normal forwards, fadeIn 1s ease-in-out' : (animationDirection == -1 ? 'slideToLeft 1s ease-out 0s 1 normal forwards' : ''), filter: "blur(4px)", opacity: "0.5"}}
+          style={{ top: '100%', transform: 'translateY(-100%) scale(0.6)', animation: animationDirection == 1 ? 'slideUpFromBottom 0.5s ease 0s 1 normal forwards' : (animationDirection == -1 ? 'slideDownFromBottom 0.5s ease 0s 1 normal forwards' : ''), filter: "blur(4px)", opacity: "0.5"}}
         >
           {components[nextIndex]}
         </div>
 
         <div
-          className="absolute flex 100vh items-center opacity-50"
-          style={{ left: '150%', transform: 'translateX(-150%)', animation: animationDirection == 1 ? 'slideFromOutToLeft 1s ease-out 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0.5"
+          className="absolute flex 100vh items-center"
+          style={{ top: '150%', transform: 'translateY(-150%) scale(0.6)', animation: animationDirection == 1 ? 'slideUpFromOut 0.5s ease 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0"
           }}
         >
           {components[nextIndex == components.length - 1 ? 0 : nextIndex + 1]}
