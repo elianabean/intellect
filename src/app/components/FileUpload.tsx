@@ -10,7 +10,7 @@ import {
 import { Button } from "@nextui-org/button";
 import { useState } from 'react';
 
-export default function FileUpload({ day, date, userId }) {
+export default function FileUpload({ day, date, userId }: { day: any, date: any, userId: any }) {
   const { openFilePicker, filesContent, loading, errors, clear } = useFilePicker({
     readAs: 'DataURL',
     accept: 'image/*',

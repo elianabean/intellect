@@ -23,7 +23,7 @@ export default function SsScanning() {
     });
   };
 
-  const formatDate = (date) => {
+  const formatDate = (date: any) => {
     const options = { month: 'numeric', day: 'numeric', year: '2-digit' };
     return date.toLocaleDateString('en-US', options);
   };
