@@ -39,7 +39,7 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
   return (
     <div className="relative flex flex-col gap-5 items-center">
         <div
-          className="absolute flex 100vh items-center"
+          className="absolute flex 100vh items-center pointer-events-none cursor-default"
           style={{ top: '-50%', transform: 'translateY(50%) scale(0.6)', animation: animationDirection == -1 ? 'slideDownFromOut 0.5s ease 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0"
           }}
         >
@@ -121,7 +121,7 @@ const Slider: React.FC<SliderProps> = ({ components }) => {
         </div>
 
         <div
-          className="absolute flex 100vh items-center"
+          className="absolute flex 100vh items-center pointer-events-none cursor-default"
           style={{ top: '150%', transform: 'translateY(-150%) scale(0.6)', animation: animationDirection == 1 ? 'slideUpFromOut 0.5s ease 0s 1 normal forwards' : '', filter: "blur(4px)", opacity: "0"
           }}
         >

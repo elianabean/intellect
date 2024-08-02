@@ -60,6 +60,7 @@ body {
   to {
     top: 100%;
     transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
     opacity: 0.5;
   }
 }
@@ -68,6 +69,7 @@ body {
   from {
     top: 100%;
     transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
     opacity: 0.5;
   }
   to {
@@ -88,6 +90,7 @@ body {
   to {
     top: 0%;
     transform: translateY(0%) scale(0.6);
+    filter: blur(4px);
     opacity: 0.5;
   }
 }
@@ -96,11 +99,13 @@ body {
   from {
     top: 100%;
     transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
     opacity: 0.5;
   }
   to {
     top: 150%;
     transform: translateY(-150%) scale(0.6);
+    filter: blur(4px);
     opacity: 0;
   }
 }
@@ -109,11 +114,13 @@ body {
   from {
     top: 0%;
     transform: translateY(0%) scale(0.6);
+    filter: blur(4px);
     opacity: 0.5;
   }
   to {
     top: -50%;
     transform: translateY(50%) scale(0.6);
+    filter: blur(4px);
     opacity: 0;
   }
 }
@@ -122,11 +129,13 @@ body {
   from {
     top: 150%;
     transform: translateY(-150%) scale(0.6);
+    filter: blur(4px);
     opacity: 0;
   }
   to {
     top: 100%;
     transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
     opacity: 0.5;
   }
 }
@@ -135,11 +144,13 @@ body {
   from {
     top: -50%;
     transform: translateY(50%) scale(0.6);
+    filter: blur(4px);
     opacity: 0;
   }
   to {
     top: 0%;
     transform: translateY(0%) scale(0.6);
+    filter: blur(4px);
     opacity: 0.5;
   }
 }
