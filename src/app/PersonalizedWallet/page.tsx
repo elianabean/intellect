@@ -1,18 +1,51 @@
+"use client";
+
 import Sidebar from "../components/Sidebar";
 import Profile from "../components/Profile";
 import PieChart from "../components/PieChartBig";
 import Image from "next/image";
 import {Progress} from "@nextui-org/react";
 
+import { useEffect, useState, useRef } from "react";
+
 export default function Homepage2() {
-    const dataPie = [
-        { id: 0, value: 25, label: 'Food', color: '#8CB497'},
-        { id: 1, value: 10, label: 'Entertainment', color: '#7FBB7A' },
-        { id: 2, value: 5, label: 'Savings', color: '#386F38' },
-        { id: 3, value: 5, label: 'Clubs', color: '#75AE86' },
-        { id: 4, value: 20, label: 'Transportation', color: '#90E482' },
-        { id: 5, value: 35, label: 'Housing', color: '#96F996' },
-    ];
+  const [walletInfo, setWalletInfo] = useState(null);
+  const [dataPie, setDataPie] = useState([
+    { id: 0, value: 25, label: 'Food', color: '#8CB497' },
+    { id: 1, value: 10, label: 'Entertainment', color: '#7FBB7A' },
+    { id: 2, value: 5, label: 'Savings', color: '#386F38' },
+    { id: 3, value: 5, label: 'Clubs', color: '#75AE86' },
+    { id: 4, value: 20, label: 'Transportation', color: '#90E482' },
+    { id: 5, value: 35, label: 'Housing', color: '#96F996' },
+  ]);
+
+  useEffect(() => {
+    // Fetch data from the API
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/getWalletBreakdown');
+        if (!response.ok) throw new Error('Failed to fetch data');
+        const data = await response.json();
+        setWalletInfo(data);
+
+        // Extract values and update dataPie based on fetched data
+        console.log(data);
+        const newDataPie = [
+          { id: 0, value: data.expenses_details.food_expenses || 0, label: 'Food', color: '#8CB497' },
+          { id: 1, value: data.wants_details.entertainment_expenses, label: 'Entertainment', color: '#7FBB7A' },
+          { id: 2, value: data.wants_details.ec_expenses || 0, label: 'Clubs', color: '#75AE86' },
+          { id: 3, value: data.expenses_details.transportation_expenses || 0, label: 'Transportation', color: '#90E482' },
+          { id: 4, value: data.expenses_details.housing_expenses || 0, label: 'Housing', color: '#96F996' },
+        ];
+        console.log(data.expenses_details.entertainment_expenses);
+        setDataPie(newDataPie);
+      } catch (error) {
+        console.error('Error fetching wallet breakdown:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="relative">
