@@ -24,9 +24,8 @@ export default function EducationalOptimization() {
   let [housingBudget, foodBudget, entertainmentBudget, transportBudget, clubsBudget] = [0, 0, 0, 0, 0];
   // optimization bar values
   let [necessity, school, discretionary] = [0, 0, 0];
-  
-  // useEffect b/c page should only fetch once on start of render
-  useEffect(() => {
+
+  const setWalletBreakdown = () => {
     try {
       fetch('/api/getWalletBreakdown', {
         method: 'GET',
@@ -41,15 +40,15 @@ export default function EducationalOptimization() {
     } catch (error) {
       console.error('Error: ', error);
     }
-  }, []);
+  }
 
-  const setExpenseValues = () => {
+  const setExpenseValues = (data: any) => {
     // get expense values directly from db
-    housing = walletInfo.expenses_details.housing_expenses;
-    food = walletInfo.expenses_details.food_expenses;
-    entertainment = walletInfo.wants_details.entertainment_expenses;
-    transport = walletInfo.expenses_details.transportation_expenses;
-    clubs = walletInfo.wants_details.ec_expenses;
+    housing = data.expenses_details.housing_expenses;
+    food = data.expenses_details.food_expenses;
+    entertainment = data.wants_details.entertainment_expenses;
+    transport = data.expenses_details.transportation_expenses;
+    clubs = data.wants_details.ec_expenses;
     walletTotal = housing + food + entertainment + transport + clubs;
 
     // spending values as a percentage of total
@@ -60,7 +59,7 @@ export default function EducationalOptimization() {
     clubsSpending = 100 * clubs / walletTotal;
   };
 
-  const setBarValues = () => {
+  const setBarValues = (data: any) => {
     const clip = (num: number, min: number, max: number) => Math.max(Math.min(num, Math.max(min, max)), Math.min(min, max));
 
     // Breakdown: 45% -> housingDeficit, 35% -> foodDeficit, 20% -> transportDeficit
@@ -68,16 +67,16 @@ export default function EducationalOptimization() {
                 clip(35 - 3 * (foodSpending - foodBudget), 0, 35) + 
                 clip(20 - (transportSpending - transportBudget), 0, 20);
     
-    const tuition = walletInfo.financial_details.tuition;
-    const scholarship = walletInfo.financial_details.scholarship;
-    const aid = walletInfo.financial_details.financial_aid;
+    const tuition = data.financial_details.tuition;
+    const scholarship = data.financial_details.scholarship;
+    const aid = data.financial_details.financial_aid;
 
     // Breakdown: 20% -> ec relative to tuition, 80% -> scholarship+financial aid relative to tuition
     school = (20 - clip(200 * (clubsSpending / tuition - 0.05), 0, 20)) + 
              clip(400 * (scholarship + aid) / tuition, 0, 80);
 
-    const clothing_expenses = walletInfo.wants_details.clothing_expenses;
-    const subscription_expenses = walletInfo.wants_details.subscription_expenses;
+    const clothing_expenses = data.wants_details.clothing_expenses;
+    const subscription_expenses = data.wants_details.subscription_expenses;
     
     // Breakdown: 25% -> clothing / absolute val, 20% -> subscriptions / absolute val, 55% -> entertainment_deficit
     discretionary = clip((1 - clothing_expenses / 100) * 25, 0, 25) + 
@@ -85,7 +84,7 @@ export default function EducationalOptimization() {
                     clip(55 - 2 * (entertainmentSpending - entertainmentBudget), 0, 55);
   };
 
-  const setOptimizationStrats = () => {
+  const setOptimizationStrats = (data: any) => {
     // define categories & questions to be asked for each
     let expense_questions = [
       [entertainmentSpending - entertainmentBudget, ['entertainment', 'subscriptions', 'clothing']], 
@@ -110,20 +109,20 @@ export default function EducationalOptimization() {
           'expense1': expense_questions[0][1][Math.floor(Math.random()*expense_questions[0][1].length)],
           'expense2': expense_questions[1][1][Math.floor(Math.random()*expense_questions[1][1].length)],
           'expense3': expense_questions[2][1][Math.floor(Math.random()*expense_questions[2][1].length)],
-          'message': `The user goes to ${walletInfo.personal_details.college} with a major in ${walletInfo.personal_details.major}. 
-          They spend $${walletInfo.expenses_details.housing_expenses} a month on housing and lives in a $${walletInfo.expenses_details.housing_type}.
-          They spend $${walletInfo.expenses_details.food_expenses} a month on food, shopping primarily at $${walletInfo.expenses_details.groceries}. 
-          They spend $${walletInfo.wants_details.entertainment_expenses} a month on entertainment to do things like ${walletInfo.wants_details.entertainment_type}. 
-          They spend $${walletInfo.expenses_details.transportation_expenses} a month on transport.
-          They spend $${walletInfo.wants_details.ec_expenses} on student clubs. 
-          They spend $${walletInfo.wants_details.clothing_expenses} on clothes with the main brand being ${walletInfo.wants_details.clothing_type}. 
-          They spend $${walletInfo.wants_details.subscription_expenses} on online subscriptions such as ${walletInfo.wants_details.subscription_type}`
+          'message': `The user goes to ${data.personal_details.college} with a major in ${data.personal_details.major}. 
+          They spend $${data.expenses_details.housing_expenses} a month on housing and lives in a $${data.expenses_details.housing_type}.
+          They spend $${data.expenses_details.food_expenses} a month on food, shopping primarily at $${data.expenses_details.groceries}. 
+          They spend $${data.wants_details.entertainment_expenses} a month on entertainment to do things like ${data.wants_details.entertainment_type}. 
+          They spend $${data.expenses_details.transportation_expenses} a month on transport.
+          They spend $${data.wants_details.ec_expenses} on student clubs. 
+          They spend $${data.wants_details.clothing_expenses} on clothes with the main brand being ${data.wants_details.clothing_type}. 
+          They spend $${data.wants_details.subscription_expenses} on online subscriptions such as ${data.wants_details.subscription_type}`
         })
       })
       .then(response => {
         if (response.ok) return response;
         setStrategiesError(true);
-        throw new Error();
+        throw new Error("An error occurred getting the optimization strategies");
       })
       .then(response => response.json())
       .then(data => {
@@ -135,18 +134,23 @@ export default function EducationalOptimization() {
     }
   };
   
+  // useEffect b/c page should only fetch once on start of render
+  useEffect(() => {
+    setWalletBreakdown();
+  }, []);
+
   const runFlag = useRef(false);
   if (walletInfo != null) {
-    setExpenseValues();
+    setExpenseValues(walletInfo);
     
     // TODO: Implement wallet allocations -- currently just using random values
     housingBudget = 34.32, foodBudget = 27.32, entertainmentBudget = 16.58, transportBudget = 13.16, clubsBudget = 7.44;
     
-    setBarValues();
+    setBarValues(walletInfo);
 
     // using runFlag so that this bit of code is only run once
     if (!runFlag.current) {
-      setOptimizationStrats();
+      setOptimizationStrats(walletInfo);
       runFlag.current = true;
     }
   }
@@ -175,7 +179,7 @@ export default function EducationalOptimization() {
             <EdOpCard title="Clubs"           number={(clubs/1000).toFixed(1)}          walletAlloc={clubsBudget.toFixed(2)}          currSpending={clubsSpending.toFixed(2)}         budgetDiff={Math.abs(clubsBudget - clubsSpending).toFixed(2)}                 sign={clubsBudget >= clubsSpending ? "+" : "-"}></EdOpCard>
         </div>
 
-        <div className="flex flex-row justify-between w-full z-50">
+        <div className="flex justify-center w-full z-50">
           <OptimizationOverview necessity={necessity} school={school} discretionary={discretionary} strategies={message} strategiesError={strategiesError}/>
         </div>
 
