@@ -110,8 +110,8 @@ export default function EducationalOptimization() {
           'expense2': expense_questions[1][1][Math.floor(Math.random()*expense_questions[1][1].length)],
           'expense3': expense_questions[2][1][Math.floor(Math.random()*expense_questions[2][1].length)],
           'message': `The user goes to ${data.personal_details.college} with a major in ${data.personal_details.major}. 
-          They spend $${data.expenses_details.housing_expenses} a month on housing and lives in a $${data.expenses_details.housing_type}.
-          They spend $${data.expenses_details.food_expenses} a month on food, shopping primarily at $${data.expenses_details.groceries}. 
+          They spend $${data.expenses_details.housing_expenses} a month on housing and live in a ${data.expenses_details.housing_type}.
+          They spend $${data.expenses_details.food_expenses} a month on food, shopping primarily at ${data.expenses_details.groceries}. 
           They spend $${data.wants_details.entertainment_expenses} a month on entertainment to do things like ${data.wants_details.entertainment_type}. 
           They spend $${data.expenses_details.transportation_expenses} a month on transport.
           They spend $${data.wants_details.ec_expenses} on student clubs. 
@@ -127,7 +127,7 @@ export default function EducationalOptimization() {
       .then(response => response.json())
       .then(data => {
         // format gpt response into split up bullet points
-        setMessage(data.message.trim().split('- ').slice(1));
+        setMessage(data.message.trim().split(/(?:\n|- )/).filter((item: any) => item.trim() !== ""));
       });
     } catch (error) {
       console.error('Error: ', error);
