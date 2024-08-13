@@ -23,7 +23,7 @@ const config: Config = {
         '3xl': '1920px',
       }, colors: {
         'primary': '#588FEF',
-      },
+      }, 
     },
   },
   darkMode: "class",

@@ -1,5 +1,6 @@
 import {Button} from "@nextui-org/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Section6() {
     return (
@@ -9,11 +10,12 @@ export default function Section6() {
             </div>
 
             <div className="w-[85vw] h-[694px] [background:#F8F9FC] rounded-[120px] flex flex-col justify-between items-center relative pt-[32px] overflow-hidden" >
-                <p className="text-[#0B1215] text-center font-inter text-[70px] font-semibold leading-[150%] w-[500px]">Grow your <span className="bg-gradient-to-r from-[1%] from-[rgba(202,255,214,0.70)] via-[rgba(1,135,33,0.70)] via-[15%] to-[rgba(202,255,214,0.70)]  bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">money tree.</span></p>
+                <p className="text-[#0B1215] text-center font-inter text-[70px] font-semibold leading-[150%] w-[500px] " data-aos="fade-up">Grow your <span className="bg-gradient-to-r from-[1%] from-[rgba(202,255,214,0.70)] via-[rgba(1,135,33,0.70)] via-[15%] to-[rgba(202,255,214,0.70)]  bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]" >money tree.</span></p>
 
-                <Button className="py-[30px] px-[83px] [background:#00A727] rounded-[30px] "><p className="text-white text-center font-inter text-[25px] font-semibold leading-[150%] ">Book a Demo</p></Button>
+                <Link href="https://calendly.com/intellect-ai-team/30min">
+                <Button className="py-[30px] px-[83px] [background:#00A727] rounded-[30px] " data-aos="fade-up"><p className="text-white text-center font-inter text-[25px] font-semibold leading-[150%] " >Book a Demo</p></Button></Link>
 
-                <Image src="/images/image-18.png" alt="Screenshot of Intellect Dashboard" width={796} height={566.83} className="shadow-[0px_0px_4px_1px_rgba(0,0,0,0.25)] rounded-[15px] border-solid border-[#C4D8C4]"></Image>
+                <Image src="/images/image-18.png" alt="Screenshot of Intellect Dashboard" width={796} height={566.83} className="shadow-[0px_0px_4px_1px_rgba(0,0,0,0.25)] rounded-[15px] border-solid border-[#C4D8C4] " data-aos="fade-up"></Image>
             </div>
         </div>
     );
