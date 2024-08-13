@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Header() {
     return (
-        <div className="z-10 w-[90%] h-20 border [background:#FFF] shadow-[0px_4px_40px_0px_rgba(224,255,224,0.70)_inset,0px_0px_5px_0px_rgba(0,0,0,0.25)] rounded-[70px] border-solid border-[#C4D8C4] mt-[40px] flex flex-row justify-between px-[80px]">
+        <div className="absolute z-10 w-[90%] h-20 border [background:#FFF] shadow-[0px_4px_40px_0px_rgba(224,255,224,0.70)_inset,0px_0px_5px_0px_rgba(0,0,0,0.25)] rounded-[70px] border-solid border-[#C4D8C4] mt-[40px] flex flex-row justify-between px-[80px]" data-aos="fade-in">
             
                 <div className="flex flex-row items-center justify-center ">
                     <Link href="/">
