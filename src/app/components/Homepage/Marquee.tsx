@@ -4,6 +4,8 @@ import Image from 'next/image'
 export default function SponsorsMarquee() {
     return (
         <div className="relative w-[100vw]">
+            <p className="z-10 text-center font-inter text-xl font-bold leading-[150%] text-[#6B7280] mt-[20px]" data-aos="fade-up">Trusted By Students At The <span className="text-[#00A727]">Top Universities</span></p>
+            
             <Marquee direction="left" speed={80} className="overflow-y-hidden bg-transparent" gradient={true}>
                 <div className="flex flex-row items-end mr-[116px]">
                     <div className="relative w-[350px] h-[220.37px]">
