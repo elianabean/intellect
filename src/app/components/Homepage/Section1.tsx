@@ -7,7 +7,7 @@ export default function Section1() {
     return (
         <div className="flex flex-col w-[100vw] min-h-[720px] h-full relative justify-start items-center">
             <Image src="/images/ellipse-98.png" alt="background" width={1064.12} height={1042.5} className="absolute z-0 top-[-174px] left-[-395px]"></Image>
-
+            
             <Header></Header>
 
             <div className="z-10 relative flex flex-col justify-center items-center w-full h-full mt-[10%]">
