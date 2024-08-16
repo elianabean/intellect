@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AOSInit/>
-      <body className={`${raleway.variable} ${montserrat.variable} ${inter.variable} ${lato.variable} bg-[#C4D8C4] bg-none`}>
+      <body className={`${raleway.variable} ${montserrat.variable} ${inter.variable} ${lato.variable} bg-neutral-50 bg-none`}>
         {children}
         </body>
     </html>

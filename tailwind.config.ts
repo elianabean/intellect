@@ -22,7 +22,7 @@ const config: Config = {
       }, screens: {
         '3xl': '1920px',
       }, colors: {
-        'primary': '#588FEF',
+        'primary': '#FFFF',
       }, 
     },
   },

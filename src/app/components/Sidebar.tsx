@@ -13,11 +13,11 @@ export default function Sidebar() {
         <Link href="/homepage2/mainpage">
         <p className="text-[#00A727] font-inter text-[30px] italic font-black ml-5 leading-[150%]">Intellect</p>
         </Link>
-        <Link href="/forms/forms2" >
-        <div className={currentPath === "/" || currentPath === "/forms/forms2" ? "bg-[#E0FFE0] pr-14 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
+        <Link href="/PersonalizedWallet" >
+        <div className={currentPath === "/" || currentPath === "/PersonalizedWallet" ? "bg-[#E0FFE0] pr-14 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
           <Image
-              src={currentPath === "/" || currentPath === "/forms/forms2" ? "/images/simple-wallet-icon-vector-green.svg" : "/images/simple-wallet-icon-vector-grey.svg"}
-              alt="PersonalWallet"
+              src={currentPath === "/" || currentPath === "/PersonalizedWallet" ? "/images/simple-wallet-icon-vector-green.svg" : "/images/simple-wallet-icon-vector-grey.svg"}
+              alt="PersonalizedWallet"
               className=""
               width={60}
               height={60}
@@ -37,10 +37,10 @@ export default function Sidebar() {
           <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Intellect AI</span>
           </div>
         </Link>
-        <Link href="/forms/forms3">
-        <div className={currentPath === "/forms/forms3" ? "bg-[#E0FFE0] pr-5 py-1 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
+        <Link href="/DebitLimitPrediction">
+        <div className={currentPath === "/DebitLimitPrediction" ? "bg-[#E0FFE0] pr-5 py-1 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
         <Image
-              src={currentPath === "/forms/forms3" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
+              src={currentPath === "/DebitLimitPrediction" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
               alt="DebitLimitPrediction"
               className="dark:invert"
               width={50}
