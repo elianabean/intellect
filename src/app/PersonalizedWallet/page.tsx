@@ -68,7 +68,7 @@ export default function Homepage2() {
                 <p className="absolute text-[#515251] text-2xl absolute top-[38%] left-[50%] translate-x-[-50%] translate-y-[-80%] text-center">Your Personalized Wallet</p>
             </div>
             
-              <div className="absolute w-[247.88px] h-[30.05px] text-gray-500 top-[50%] text-[20px] font-semibold font-['Inter'] leading-snug">KEY</div>
+              <div className="absolute w-[247.88px] h-[30.05px] text-gray-500 top-[60%] text-[20px] translate-x-[-50%] font-semibold font-['Inter'] leading-snug">KEY</div>
             
             
             
