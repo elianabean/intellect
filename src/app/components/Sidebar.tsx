@@ -9,38 +9,57 @@ export default function Sidebar() {
   const currentPath = usePathname();
 
     return (
-      <div className="3xl:w-36 h-full bg-[#516958] flex flex-col items-center justify-start fixed left-0 px-[20px] pt-[67px] z-50">
-        <Link href="/">
-        <p className="text-[#C4D8C4] font-inter text-xl italic font-black leading-[150%]">Intellect.ai</p>
+      <div className="min-w-fit w-[10vw] h-full bg-[#FFF] flex flex-col gap-[5vh] items-start justify-start fixed left-0 pl-5 pr-6 pt-[5vh] z-50">
+        <Link href="/homepage2/mainpage">
+        <p className="text-[#00A727] font-inter text-[30px] italic font-black ml-5 leading-[150%]">Intellect</p>
         </Link>
-
-        <Link href="/" >
-        <Image
-              src={currentPath === "/" || currentPath === "/homepage2" ? "/icons/iconly-bold-home-color.svg" : "/icons/iconly-bold-home.svg"}
-              alt="Home"
-              className="dark:invert mt-[108px] "
-              width={20}
-              height={20}
+        <Link href="/forms/forms2" >
+        <div className={currentPath === "/" || currentPath === "/forms/forms2" ? "bg-[#E0FFE0] pr-14 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
+          <Image
+              src={currentPath === "/" || currentPath === "/forms/forms2" ? "/images/simple-wallet-icon-vector-green.svg" : "/images/simple-wallet-icon-vector-grey.svg"}
+              alt="PersonalWallet"
+              className=""
+              width={60}
+              height={60}
             />
+          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Personal Wallet</span>
+          </div>
         </Link>
-        
-        <Link href="/chat">
+        <Link href="/forms/forms4">
+        <div className={currentPath === "/forms/forms4" ? "bg-[#E0FFE0] pr-24 py-3 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
         <Image
-              src={currentPath === "/chat" ? "/icons/sp-ai-blue.svg" : "/icons/sp-ai.svg"}
-              alt="Chat"
-              className="dark:invert mt-[40px] border-0"
-              width={currentPath === "/chat" ? 59 : 59}
-              height={currentPath === "/chat" ? 36 : 36}
+              src={currentPath === "/forms/forms4" ? "/images/Intellect-icon-green.svg" : "/images/Intellect-icon-grey.svg"}
+              alt="IntellectAI"
+              className="dark:invert"
+              width={60}
+              height={60}
             />
+          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Intellect AI</span>
+          </div>
         </Link>
-        <Link href="/settings">
+        <Link href="/forms/forms3">
+        <div className={currentPath === "/forms/forms3" ? "bg-[#E0FFE0] pr-5 py-1 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
         <Image
-              src={currentPath === "/settings" ? "/icons/iconly-bold-setting-color.svg" : "/icons/iconly-bold-setting.svg"}
+              src={currentPath === "/forms/forms3" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
+              alt="DebitLimitPrediction"
+              className="dark:invert"
+              width={50}
+              height={50}
+            />
+          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Debit Limit Prediction</span>
+        </div>
+        </Link>
+        <Link href="/forms/forms1">
+        <div className={currentPath === "/forms/forms1" ? "bg-[#E0FFE0] pr-8 pl-2 py-4 rounded-xl flex flex-row gap-2 items-center justify-start mt-[5vh]" : "pl-2 flex flex-row gap-2 items-center justify-start mt-[5vh]"}>
+        <Image
+              src={currentPath === "/forms/forms1" ? "/images/Setting-icon-green.svg" : "/images/Setting-icon-grey.svg"}
               alt="Settings"
-              className="dark:invert mt-[40px]"
-              width={24}
-              height={24}
+              className="dark:invert"
+              width={31}
+              height={31}
             />
+          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Personal Information</span>
+        </div>
         </Link>
       </div>
     );
