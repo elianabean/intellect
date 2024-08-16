@@ -101,13 +101,13 @@ export default function Homepage2() {
     var color = "#fffffff"
     switch(true){
       case(100-props.realValue/props.maxValue*100<=33):
-        color = "#FF3B60"
+        color = "#FA224B"
         break;
       case(100-props.realValue/props.maxValue*100<=66):
         color = "#FFE073"
         break;
       default:
-        color = "#33ED33"
+        color = "#96F996"
         break;
     }
 
@@ -128,7 +128,7 @@ export default function Homepage2() {
                     })}
                   />
                   <div style={{width: "50%", alignContent: "center", paddingLeft: "10%"}}>
-                  <Progress value={100 - props.realValue/props.maxValue*100} size="sm" classNames={{indicator: (100-props.realValue/props.maxValue*100<=33) ?"[background:#FF3B60]": (100-props.realValue/props.maxValue*100<=66)? "[background:#FFE073]": "[background:#33ED33]", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[25px]", base:"w-[200px]"}} aria-label="percentage bar"/>
+                  <Progress value={100 - props.realValue/props.maxValue*100} size="sm" classNames={{indicator: (100-props.realValue/props.maxValue*100<=33) ?"[background:#FA224B] opacity-80": (100-props.realValue/props.maxValue*100<=66)? "[background:#FFE073] opacity-80": "[background:#96F996] opacity-80", track:"bg-[#EBEEFF] border-[2px] border-solid border-[#516958] h-[25px]", base:"w-[200px]"}} aria-label="percentage bar"/>
                   <h3 className="h5 text-center text-2xl text-black  w-[200%]">${props.realValue} Spent</h3>
                   </div>
                   

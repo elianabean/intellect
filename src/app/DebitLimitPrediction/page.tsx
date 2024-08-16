@@ -78,6 +78,7 @@ export default function Homepage2() {
                 <div className="translate-x-[10%]">
                 <Box sx={{ width: "80%", }}>
                   <Slider
+                    
                     className="text-green" 
                     value={daysFollowed}
                     min={1}

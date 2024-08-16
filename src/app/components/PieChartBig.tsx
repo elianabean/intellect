@@ -15,12 +15,35 @@ export default function PieChartExport({ data }: PieChartProps)  {
           //  arcLabel: 'label',
            cx: 245,
            cy: 245,
-           highlightScope: { highlighted: 'item' },
+           highlightScope: { highlighted: 'item', },
            highlighted: { innerRadius: 125, additionalRadius: 50},
            faded: { innerRadius: 40, additionalRadius: 0},
 
            
-         },
+         },{data,
+          innerRadius: 200,
+         outerRadius: 300,
+        //  arcLabel: 'label',
+         cx: 245,
+         cy: 245,
+         highlightScope: { highlighted: 'item', faded: 'global'},
+         highlighted: { innerRadius: 125, additionalRadius: 50},
+         faded: { innerRadius: 40, additionalRadius: 0},
+         startAngle:0,
+         endAngle:90
+       },
+       {data,
+        innerRadius: 200,
+       outerRadius: 300,
+      //  arcLabel: 'label',
+       cx: 245,
+       cy: 245,
+       highlightScope: { highlighted: 'item' },
+       highlighted: { innerRadius: 125, additionalRadius: 50},
+       faded: { innerRadius: 40, additionalRadius: 0},
+       startAngle:90,
+       endAngle:180
+     },
        ]}
       //  sx={{
       //    [`& .${pieArcLabelClasses.root}`]: {
