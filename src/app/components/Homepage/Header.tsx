@@ -15,7 +15,7 @@ export default function Header() {
             
             <div className="flex flex-row items-center justify-center gap-[77px]">
                 <Link href="https://calendly.com/intellect-ai-team/30min"><p className="text-gray-500 font-inter text-xl font-medium leading-[150%]">Book a Demo</p></Link>
-                <p className="text-gray-500 font-inter text-xl font-medium leading-[150%]">Intellect Dashboard</p>
+                <Link href="/PersonalizedWallet" className="text-gray-500 font-inter text-xl font-medium leading-[150%]">Intellect Dashboard</Link>
             </div>
             
         </div>
