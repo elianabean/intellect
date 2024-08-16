@@ -18,7 +18,7 @@ export default function Chat() {
 
     console.log(textAreaValue);
 
-    const response = await fetch("/query", {
+    const response = await fetch("/chat/route", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 0, 0,  0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
@@ -24,10 +24,133 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@keyframes slideDownFromTop {
+  from {
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+  to {
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDownFromMid {
+  from {
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
+    filter: blur(0);
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideUpFromBottom {
+  from {
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+  to {
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpFromMid {
+  from {
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
+    filter: blur(0);
+    opacity: 1;
+  }
+  to {
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideDownFromBottom {
+  from {
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+  to {
+    top: 150%;
+    transform: translateY(-150%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUpFromTop {
+  from {
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+  to {
+    top: -50%;
+    transform: translateY(50%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUpFromOut {
+  from {
+    top: 150%;
+    transform: translateY(-150%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  to {
+    top: 100%;
+    transform: translateY(-100%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideDownFromOut {
+  from {
+    top: -50%;
+    transform: translateY(50%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  to {
+    top: 0%;
+    transform: translateY(0%) scale(0.6);
+    filter: blur(4px);
+    opacity: 0.5;
   }
 }

@@ -5,25 +5,11 @@ export default async function handler(req, res) {
     const { FullName, Email, Gender, UniversityName, DegreeProgram, YearOfGraduation, Birthday } = req.body;
 
     try {
-      // // Insert a dummy user into the users table
-      // const { data: userData, error: userError } = await supabase
-      //   .from('users')
-      //   .insert([{
-      //     username: Email, 
-      //     password: 'dummyPassword', 
-      //     email: Email,
-      //     phone: '123-456-7890' 
-      //   }])
-      //   .select('id')
-      //   .single();
-
-      // if (userError) throw userError;
-
       const userId = "f46ad135-f439-418e-b383-459a1ea78edb";
 
       const { data, error } = await supabase
         .from('personal_details')
-        .insert([{
+        .upsert([{
           user_id: userId, 
           first_name: FullName,
           last_name: FullName,
@@ -31,8 +17,10 @@ export default async function handler(req, res) {
           gender: Gender,
           college: UniversityName,
           graduation_year: YearOfGraduation,
+          major: DegreeProgram
           
-        }]);
+        }])
+        .select();
 
       if (error) throw error;
 

@@ -1,15 +1,16 @@
 "use client";
+import React, { Suspense } from 'react';
 import Sidebar from "../../components/Sidebar";
 import { User } from "@nextui-org/react";
 import { Textarea } from "@nextui-org/react";
 
 import { useSearchParams } from "next/navigation";
 
-export default function Chat() {
+const ChatResponse = () => {
   const searchParams = useSearchParams();
 
-  const question = searchParams.get("question");
-  const message = searchParams.get("message");
+  const question = searchParams?.get("question");
+  const message = searchParams?.get("message");
 
   return (
     <div className="relative">
@@ -58,3 +59,11 @@ export default function Chat() {
     </div>
   );
 }
+
+const ChatResponseWrapper = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <ChatResponse />
+  </Suspense>
+);
+
+export default ChatResponseWrapper;
