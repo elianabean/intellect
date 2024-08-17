@@ -1,10 +1,13 @@
 
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Radar, RadarChart, PolarGrid, 
     PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+    import CircleIcon from '@mui/icons-material/Circle';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { SvgIconTypeMap } from '@mui/material';
 
 interface RadarChartProps {
-    data: { name: string, x: number}[];
+    data: { name:  string, x: number}[];
 }
 
 export default function MyRadarChart({ data }: RadarChartProps)  {
@@ -12,11 +15,12 @@ export default function MyRadarChart({ data }: RadarChartProps)  {
     // Sample data
 
     return (
-        <RadarChart height={400} width={410} 
-            outerRadius="100%" data={data}>
+        <RadarChart height={300} width={300} 
+            outerRadius="90%" data={data}>
+            {/* <PolarAngleAxis dataKey="name" /> */}
             <PolarGrid />
-            <Radar dataKey="x" stroke="purple"
-                fill="purple" fillOpacity={0.3} />
+            <Radar dataKey="x" stroke="#D3D0FF"
+                fill="#D3D0FF" fillOpacity={0.5} max={100}/>
         </RadarChart>
     );
 }
