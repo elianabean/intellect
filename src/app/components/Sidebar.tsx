@@ -13,8 +13,8 @@ export default function Sidebar() {
         <Link href="/homepage2/mainpage">
         <p className="text-[#00A727] font-inter text-[30px] italic font-black ml-5 leading-[150%]">Intellect</p>
         </Link>
-        <Link href="/forms/forms2" >
-        <div className={currentPath === "/" || currentPath === "/forms/forms2" ? "bg-[#E0FFE0] text-black pr-[75px] rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center text-[#8A8A8A] justify-start mt-[5vh]"}>
+        <Link href="/PersonalizedWallet" >
+        <div className={currentPath === "/" || currentPath === "/PersonalizedWallet" ? "bg-[#E0FFE0] text-black pr-[75px] rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center text-[#8A8A8A] justify-start mt-[5vh]"}>
           <Image
               src={currentPath === "/" || currentPath === "/PersonalizedWallet" ? "/images/simple-wallet-icon-vector-green.svg" : "/images/simple-wallet-icon-vector-grey.svg"}
               alt="PersonalizedWallet"
@@ -37,7 +37,7 @@ export default function Sidebar() {
           <span className="font-inter text-[16px] font-semibold leading-[150%]">Intellect AI</span>
           </div>
         </Link>
-        <Link href="/forms/forms3">
+        <Link href="/DebitLimitPrediction">
         <div className={currentPath === "/forms/forms3" ? "bg-[#E0FFE0] text-black pr-5 py-1 rounded-xl flex flex-row gap-3 items-center justify-start mt-[5vh]" : " flex flex-row text-[#8A8A8A] gap-2 items-center justify-start mt-[5vh]"}>
         <Image
               src={currentPath === "/DebitLimitPrediction" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
