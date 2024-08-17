@@ -14,7 +14,7 @@ import React from "react";
 export default function Homepage2() {
   const [walletInfo, setWalletInfo] = useState(null);
   const [value, setValue] = React.useState<number>(5);
-  const [daysFollowed, setDaysFollowed] = React.useState<number>(4);
+  const [daysFollowed, setDaysFollowed] = React.useState<number>(1);
   const [svgScore, setSvgScore] = React.useState<number>(0);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -108,7 +108,7 @@ export default function Homepage2() {
           />
         </Box>
         </StyledEngineProvider>
-        <Button variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setSvgScore(svgScore+10); console.log("huh");}}>
+        <Button variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setDaysFollowed(daysFollowed+1); console.log("huh");}}>
         Regenerate 
       </Button> 
       </div>

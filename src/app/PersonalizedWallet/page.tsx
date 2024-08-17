@@ -69,6 +69,13 @@ export default function Homepage2() {
             </div>
             <div className="absolute w-[247.88px] h-[30.05px] text-gray-500 top-[60%] text-[20px] translate-x-[-20%] translate-y-[150px] font-semibold font-['Inter'] leading-snug">
             <div className="text-gray-500 top-[60%] text-[20px] leading-snug font-inter font-semibold">KEY</div>
+            <hr
+                style={{
+                    color: "#ACBDC9",
+                    backgroundColor: "#ACBDC9",
+                    height: 2
+                }}
+            />
             <div className="flex text-gray-500 text-[15px] leading-snug space-x-[10px] font-inter font-medium" style={{ marginTop: 5 }}>
               <CircleIcon className="text-[#96F996]"/>
               <div>Food</div>  
