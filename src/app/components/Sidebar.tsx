@@ -9,24 +9,24 @@ export default function Sidebar() {
   const currentPath = usePathname();
 
     return (
-      <div className="min-w-fit w-[10vw] h-full bg-[#FFF] flex flex-col gap-[5vh] items-start justify-start fixed left-0 pl-5 pr-6 pt-[5vh] z-50">
+      <div className="w-[23vw] h-full bg-[#FFF] flex flex-col gap-[1vh] items-start justify-start fixed left-0 pl-5 pr-6 pt-[5vh] z-50">
         <Link href="/homepage2/mainpage">
         <p className="text-[#00A727] font-inter text-[30px] italic font-black ml-5 leading-[150%]">Intellect</p>
         </Link>
         <Link href="/forms/forms2" >
-        <div className={currentPath === "/" || currentPath === "/forms/forms2" ? "bg-[#E0FFE0] pr-14 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
+        <div className={currentPath === "/" || currentPath === "/forms/forms2" ? "bg-[#E0FFE0] text-black pr-[75px] rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center text-[#8A8A8A] justify-start mt-[5vh]"}>
           <Image
               src={currentPath === "/" || currentPath === "/forms/forms2" ? "/images/simple-wallet-icon-vector-green.svg" : "/images/simple-wallet-icon-vector-grey.svg"}
               alt="PersonalWallet"
               className=""
-              width={60}
-              height={60}
+              width={55}
+              height={55}
             />
-          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Personal Wallet</span>
+          <span className="font-inter text-[16px] font-semibold leading-[150%]">Personal Wallet</span>
           </div>
         </Link>
         <Link href="/forms/forms4">
-        <div className={currentPath === "/forms/forms4" ? "bg-[#E0FFE0] pr-24 py-3 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
+        <div className={currentPath === "/forms/forms4" ? "bg-[#E0FFE0] pr-[105px] text-black py-3 rounded-xl flex flex-row items-center justify-start mt-[3vh]" : "flex flex-row text-[#8A8A8A] items-center justify-start mt-[5vh]"}>
         <Image
               src={currentPath === "/forms/forms4" ? "/images/Intellect-icon-green.svg" : "/images/Intellect-icon-grey.svg"}
               alt="IntellectAI"
@@ -34,11 +34,11 @@ export default function Sidebar() {
               width={60}
               height={60}
             />
-          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Intellect AI</span>
+          <span className="font-inter text-[16px] font-semibold leading-[150%]">Intellect AI</span>
           </div>
         </Link>
         <Link href="/forms/forms3">
-        <div className={currentPath === "/forms/forms3" ? "bg-[#E0FFE0] pr-5 py-1 rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center justify-start mt-[5vh]"}>
+        <div className={currentPath === "/forms/forms3" ? "bg-[#E0FFE0] text-black pr-5 py-1 rounded-xl flex flex-row gap-3 items-center justify-start mt-[5vh]" : " flex flex-row text-[#8A8A8A] gap-2 items-center justify-start mt-[5vh]"}>
         <Image
               src={currentPath === "/forms/forms3" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
               alt="DebitLimitPrediction"
@@ -46,11 +46,11 @@ export default function Sidebar() {
               width={50}
               height={50}
             />
-          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Debit Limit Prediction</span>
+          <span className="font-inter text-[16px] font-semibold leading-[150%]">Debit Limit Prediction</span>
         </div>
         </Link>
         <Link href="/forms/forms1">
-        <div className={currentPath === "/forms/forms1" ? "bg-[#E0FFE0] pr-8 pl-2 py-4 rounded-xl flex flex-row gap-2 items-center justify-start mt-[5vh]" : "pl-2 flex flex-row gap-2 items-center justify-start mt-[5vh]"}>
+        <div className={currentPath === "/forms/forms1" ? "bg-[#E0FFE0] text-black pr-7 pl-2 py-4 rounded-xl flex flex-row gap-5 items-center justify-start mt-[3vh]" : "text-[#8A8A8A] pl-2 flex flex-row gap-5 items-center justify-start mt-[6vh]"}>
         <Image
               src={currentPath === "/forms/forms1" ? "/images/Setting-icon-green.svg" : "/images/Setting-icon-grey.svg"}
               alt="Settings"
@@ -58,7 +58,7 @@ export default function Sidebar() {
               width={31}
               height={31}
             />
-          <span className="font-inter text-[#8A8A8A] text-[16px] font-medium leading-[150%]">Personal Information</span>
+          <span className="font-inter text-[16px] font-semibold leading-[150%]">Personal Information</span>
         </div>
         </Link>
       </div>

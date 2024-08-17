@@ -82,9 +82,9 @@ export default function Forms() {
       <div className="relative">
       <Sidebar/>
       <Profile/>
-      <div style={{backgroundColor:"#FAFAFA",minHeight:"100vh",overflowY: "scroll" }}>
+      <div style={{backgroundColor:"#FAFAFA",minHeight:"100vh",overflowY: "auto" }}>
         <form onSubmit={handleSubmit} className="relative z-10">
-          <div className="flex flex-row h-full gap-10 ml-[300px] mr-[100px] min-h-[100vh] mt-[100px] mb-[100px] justify-start">
+          <div className="flex flex-row h-full gap-10 ml-[25vw] mr-[100px] min-h-[100vh] mt-[100px] mb-[100px] justify-start">
             <div className="flex flex-col items-center h-screen w-[15vw] pt-[20vh]">
               <div className="mb-3">
                 <h1 className="text-gray-500 text-[13px] font-inter">Your Info</h1>
@@ -119,7 +119,7 @@ export default function Forms() {
                   name="HousingExpenses"
                   value={HousingExpenses}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -130,7 +130,7 @@ export default function Forms() {
                   name="HousingType"
                   value={HousingType}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Dorms"
                 />
               </div>
@@ -141,7 +141,7 @@ export default function Forms() {
                   name="FoodExpenses"
                   value={FoodExpenses}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] order-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -152,7 +152,7 @@ export default function Forms() {
                   name="Groceries"
                   value={Groceries}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Costco"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function Forms() {
                   name="TransportationExpenses"
                   value={TransportationExpenses}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -174,7 +174,7 @@ export default function Forms() {
                   name="InsuranceExpenses"
                   value={InsuranceExpenses}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -185,7 +185,7 @@ export default function Forms() {
                   name="InsuranceType"
                   value={InsuranceType}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Blue Cross Blue Shield"
                 />
               </div>

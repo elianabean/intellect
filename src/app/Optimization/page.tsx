@@ -156,22 +156,22 @@ export default function EducationalOptimization() {
   }
 
   return (
-    <div className="relative">
+    <div className="bg-[#FAFAFA] relative">
       <Sidebar></Sidebar>
 
       <Profile></Profile>
 
-      <div className="h-full min-h-[100vh] max-w-full w-full pl-[204px] pr-[60px] pt-24 flex flex-col flex-wrap justify-center items-center gap-12">
+      <div className="h-full min-h-[100vh] max-w-full w-full pl-[23vw] pr-[3vw] pt-24 flex flex-col flex-wrap justify-center items-center gap-12">
         <div className="flex flex-row flex-wrap w-full justify-between items-center">
 
-          <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-col justify-center items-center w-[15%] h-[160px] ">
-            <p className="text-[#516958] text-center font-inter text-[15px] font-extrabold leading-[150%]">Total Expense</p>
-            <p className="text-[#516958] text-center font-inter text-3xl font-extrabold leading-[150%]">${(walletTotal/1000).toFixed(1)}K</p>
-            <p className="text-[#888] text-center font-inter text-[13px] font-semibold leading-[150%]">Wallet Allocation</p>
-            <p className="text-[#636161] text-center font-inter text-[13px] font-semibold leading-[150%]">Current Spending</p>
-            <p className="text-[#636161] text-center font-inter text-[13px] font-semibold leading-[150%] mt-[14px]">Over/Under Budget</p>
+          <div className="[background:#FCFBFF] border-1 rounded-lg border-[#C4D8C4] flex flex-col justify-center items-center w-[135px] h-[160px] ">
+            <p className="text-[#8F8F8F] text-center font-inter text-[15px] font-extrabold leading-[150%]">Total Expense</p>
+            <p className="text-[rgba(1,135,33,0.70)] text-center font-inter text-[27px] font-extrabold leading-[150%]">${(walletTotal/1000).toFixed(1)}K</p>
+            <p className="text-[#888] text-center font-inter text-[11px] font-semibold leading-[150%]">Wallet Allocation</p>
+            <p className="text-[#636161] text-center font-inter text-[11px] font-semibold leading-[150%]">Current Spending</p>
+            <p className="text-[#636161] text-center font-inter text-[12px] font-semibold leading-[150%] mt-[14px]">Over/Under Budget</p>
+          </div>
 
-        </div>
             <EdOpCard title="Housing"         number={(housing/1000).toFixed(1)}        walletAlloc={housingBudget.toFixed(2)}        currSpending={housingSpending.toFixed(2)}       budgetDiff={Math.abs(housingBudget - housingSpending).toFixed(2)}             sign={housingBudget >= housingSpending ? "+" : "-"}></EdOpCard>
             <EdOpCard title="Food"            number={(food/1000).toFixed(1)}           walletAlloc={foodBudget.toFixed(2)}           currSpending={foodSpending.toFixed(2)}          budgetDiff={Math.abs(foodBudget - foodSpending).toFixed(2)}                   sign={foodBudget >= foodSpending ? "+" : "-"}></EdOpCard>
             <EdOpCard title="Entertainment"   number={(entertainment/1000).toFixed(1)}  walletAlloc={entertainmentBudget.toFixed(2)}  currSpending={entertainmentSpending.toFixed(2)} budgetDiff={Math.abs(entertainmentBudget - entertainmentSpending).toFixed(2)} sign={entertainmentBudget >= entertainmentSpending ? "+" : "-"}></EdOpCard>

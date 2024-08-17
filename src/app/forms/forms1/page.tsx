@@ -79,7 +79,7 @@ export default function Forms() {
       <Profile/>
       <div style={{backgroundColor:"#FAFAFA",minHeight:"100vh",overflowY: "auto" }}>
         <form onSubmit={handleSubmit} className="relative z-10">
-          <div className="flex flex-row h-full gap-10 ml-[300px] mr-[100px] min-h-[100vh] mt-[100px] mb-[100px] justify-start">
+          <div className="flex flex-row h-full gap-10 ml-[25vw] mr-[100px] min-h-[100vh] mt-[100px] mb-[100px] justify-start">
             <div className="flex flex-col items-center h-screen w-[15vw] pt-[17vh]">
               <div className="bg-green-100 rounded-md py-3 px-14 mb-3">
                 <h1 className=" text-black text-[13px] font-inter font-semibold">Your Info</h1>
@@ -114,7 +114,7 @@ export default function Forms() {
                   name="FullName"
                   value={FullName}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="First, Last"
               //idea for ux
                   // if value == null (placeholder ="first, last")
@@ -128,7 +128,7 @@ export default function Forms() {
                   name="Email"
                   value={Email}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Name@email.com"
                 />
               </div>
@@ -139,7 +139,7 @@ export default function Forms() {
                   name="Gender"
                   value={Gender}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Male"
                 />
               </div>
@@ -150,7 +150,7 @@ export default function Forms() {
                   name="UniversityName"
                   value={UniversityName}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="University of Location"
                 />
               </div>
@@ -161,7 +161,7 @@ export default function Forms() {
                   name="DegreeProgram"
                   value={DegreeProgram}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Program Name"
                 />
               </div>
@@ -172,7 +172,7 @@ export default function Forms() {
                   name="YearOfGraduation"
                   value={YearOfGraduation}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Year"
                 />
               </div>

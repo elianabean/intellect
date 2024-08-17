@@ -78,9 +78,9 @@ export default function Forms() {
     <div className="relative">
       <Sidebar/>
       <Profile/>
-      <div style={{backgroundColor:"#FAFAFA",minHeight:"100vh",overflowY: "scroll" }}>
+      <div style={{backgroundColor:"#FAFAFA",minHeight:"100vh",overflowY: "auto" }}>
         <form onSubmit={handleSubmit} className="relative z-10">
-          <div className="flex flex-row h-full gap-10 ml-[300px] mr-[100px] min-h-[100vh] mt-[100px] mb-[100px] justify-start">
+          <div className="flex flex-row h-full gap-10 ml-[25vw] mr-[100px] min-h-[100vh] mt-[100px] mb-[100px] justify-start">
             <div className="flex flex-col items-center h-screen w-[15vw] pt-[18vh]">
               <div className="mb-3">
                 <h1 className="text-gray-500 text-[13px] font-inter">Your Info</h1>
@@ -115,7 +115,7 @@ export default function Forms() {
                   name="Income"
                   value={Income}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -126,7 +126,7 @@ export default function Forms() {
                   name="Aid"
                   value={Aid}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -137,7 +137,7 @@ export default function Forms() {
                   name="Scholarships"
                   value={Scholarships}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -148,7 +148,7 @@ export default function Forms() {
                   name="JobType"
                   value={JobType}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="Full-time"
                 />
               </div>
@@ -159,7 +159,7 @@ export default function Forms() {
                   name="ParentalSupport"
                   value={ParentalSupport}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>
@@ -170,7 +170,7 @@ export default function Forms() {
                   name="Tuition"
                   value={Tuition}
                   onChange={handleChange}
-                  className="border-1 rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
+                  className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
                   placeholder="xxx$"
                 />
               </div>

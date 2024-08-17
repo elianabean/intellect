@@ -9,11 +9,11 @@ interface EdOpCardProps {
 
 export default function EdOpCard({ title, number, walletAlloc, currSpending, sign, budgetDiff }: EdOpCardProps) {
     return (
-        <div className="[background:#FCFBFF] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[5px] border-b-[#516958] border-b border-solid flex flex-col justify-center items-center py-2 pt-4 w-[15%] h-[160px]">
-            <p className="text-[#516958] text-center font-raleway text-[15px] font-bold leading-[150%]">{title}</p>
-            <p className="text-[#516958] text-center font-inter text-[30px] font-extrabold leading-[150%]">${number}K</p>
-            <p className="text-[#888] text-center font-inter text-[12px] font-semibold leading-[150%]">{walletAlloc}%</p>
-            <p className="text-[#636161] text-center font-inter text-[12px] font-semibold leading-[150%]">{currSpending}%</p>
+        <div className="[background:#FCFBFF] border-1 rounded-lg border-[#C4D8C4] flex flex-col justify-center items-center py-2 pt-4 w-[135px] h-[160px]">
+            <p className="text-[#8F8F8F] text-center font-raleway text-[15px] font-bold leading-[150%]">{title}</p>
+            <p className="text-[rgba(1,135,33,0.70)] text-center font-inter text-[27px] font-extrabold leading-[150%]">${number}K</p>
+            <p className="text-[#888] text-center font-inter text-[13px] font-semibold leading-[150%]">{walletAlloc}%</p>
+            <p className="text-[#636161] text-center font-inter text-[13px] font-semibold leading-[150%]">{currSpending}%</p>
 
             <div className="border w-[70%] [background:#737373] mt-[6px] mb-1"></div>
 
