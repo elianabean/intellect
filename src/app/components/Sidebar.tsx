@@ -16,8 +16,8 @@ export default function Sidebar() {
         <Link href="/forms/forms2" >
         <div className={currentPath === "/" || currentPath === "/forms/forms2" ? "bg-[#E0FFE0] text-black pr-[75px] rounded-xl flex flex-row items-center justify-start mt-[5vh]" : "flex flex-row items-center text-[#8A8A8A] justify-start mt-[5vh]"}>
           <Image
-              src={currentPath === "/" || currentPath === "/forms/forms2" ? "/images/simple-wallet-icon-vector-green.svg" : "/images/simple-wallet-icon-vector-grey.svg"}
-              alt="PersonalWallet"
+              src={currentPath === "/" || currentPath === "/PersonalizedWallet" ? "/images/simple-wallet-icon-vector-green.svg" : "/images/simple-wallet-icon-vector-grey.svg"}
+              alt="PersonalizedWallet"
               className=""
               width={55}
               height={55}
@@ -40,7 +40,7 @@ export default function Sidebar() {
         <Link href="/forms/forms3">
         <div className={currentPath === "/forms/forms3" ? "bg-[#E0FFE0] text-black pr-5 py-1 rounded-xl flex flex-row gap-3 items-center justify-start mt-[5vh]" : " flex flex-row text-[#8A8A8A] gap-2 items-center justify-start mt-[5vh]"}>
         <Image
-              src={currentPath === "/forms/forms3" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
+              src={currentPath === "/DebitLimitPrediction" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
               alt="DebitLimitPrediction"
               className="dark:invert"
               width={50}
