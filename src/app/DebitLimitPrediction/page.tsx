@@ -40,8 +40,6 @@ export default function Homepage2() {
         if (!response.ok) throw new Error('Failed to fetch data');
         const data = await response.json();
         setWalletInfo(data);
-
-        console.log(data.expenses_details.entertainment_expenses);
       } catch (error) {
         console.error('Error fetching wallet breakdown:', error);
       }
