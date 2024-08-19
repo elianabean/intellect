@@ -14,9 +14,9 @@ export default function Section3() {
             <div className="flex flex-col justify-center items-end w-[40vw]  h-full pr-[84px]">
                 <p className="text-[#0B1215] font-inter text-[35px] font-semibold leading-[150%] w-[400px] text-right mb-[16px] " data-aos="fade-up">Expense Optimization</p>
 
-                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] text-right w-[400px] " data-aos="fade-up">By aligning with your unique wallet allocation goals, our AI models offer personalized financial advice to adjust your financial behaviour and provide an in-depth analysis of your current financial health.</p>
+                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] text-right w-[400px] " data-aos="fade-up">Our AI model aligns with your specific wallet allocation goals to offer personalized financial advice and a detailed analysis of your current financial health.</p>
                 <br></br>
-                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] text-right w-[400px] " data-aos="fade-up">This enables you to understand precisely how your spending decisions impact your overall financial objectives, empowering you to make smarter, data-driven choices.</p>
+                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] text-right w-[400px] " data-aos="fade-up">This helps you understand how your spending choices affect your overall financial objectives, empowering you to make smarter, data-driven decisions.</p>
             </div>
         </div>
     );
