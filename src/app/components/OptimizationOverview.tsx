@@ -1,6 +1,7 @@
 import {Progress} from "@nextui-org/react";
 import Image from "next/image";
 
+
 interface OverviewProps {
     necessity: number;
     school: number;
@@ -39,12 +40,15 @@ export default function OptimizationOverview({ necessity, school, discretionary,
                 
             </div>
         
-        <div className="[background:#FFFFFF] border-1 rounded-lg border-[#C4D8C4] flex flex-row justify-center items-center w-[50%] gap-[110px] py-[15px]">
-            <div className="flex flex-col justify-start items-start w-[40%] [background:#FFFFFF] p-6">
-                <p className="text-[#888] justify-start font-inter text-[15px] font-medium leading-[150%] w-[45vw] mb-6">Optimization Strategies</p>
+        <div className="[background:#FFFFFF] border-1 rounded-lg border-[#C4D8C4] flex flex-col w-[35vw] gap-[80px] py-6">
+            <div className="flex justify-start items-start">
+                <p className="text-[#888] font-inter text-[15px] font-medium leading-[150%] mb-6 pl-8">Optimization Strategies:</p>
+            </div>
+            {/* <div className="flex w-[40%] [background:#FFFFFF] p-6">  </div> */}     
+            <div className="flex justify-center items-center w-[100%]">
                 <ul className="list-disc list-inside">
-                    {strategiesError ? <p className="text-[#516958] font-inter text-lg font-black leading-[150%] mb-6">Failed to generate strategies!</p> : (strategies.length == 0 ? <img src={"https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/8/e/6/8e6f33126207a47f09f7c6ac5333057c1f45b5de.gif"} alt="Loading..." /> : strategies.map((element) => <li key={element} className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>))}
-                </ul>
+                    {strategiesError ? <p className="text-[#516958] font-inter text-lg font-black leading-[150%] mb-6">Failed to generate strategies!</p> : (strategies.length == 0 ? <img src={"https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/8/e/6/8e6f33126207a47f09f7c6ac5333057c1f45b5de.gif"} alt="Loading..." width={150} height={100} /> : strategies.map((element) => <li key={element} className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>))}
+                 </ul>
             </div>
         </div>
     </div>
