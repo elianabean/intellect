@@ -10,9 +10,12 @@ export default function Section2() {
                 <br></br>
                 <p className="text-white font-inter text-lg font-medium leading-[150%] " data-aos="fade-up">Our deep-learning AI streamlines personal financial management, empowering students to make informed financial decisions.</p>
             </div>
-            <div className="flex flex-col justify-center items-center w-[60vw] h-full">
-                <Image src="/images/image-10.png" alt="Screenshot of Intellect Dashboard" width={550} height={389.35} className="box-border shadow-[0px_0px_4px_10px_rgba(0,0,0,0.25)] rounded-[20px] border-[3px] border-solid border-[#ACFFAC] absolute top-[160px] left-[569px] " data-aos="fade-up"></Image>
-                <Image src="/images/image-11.png" alt="Screenshot of Intellect Dashboard" width={200} height={299.18} className="shadow-[5px_6px_5px_10px_rgba(0,0,0,0.25)] rounded-[20px] border-solid border-[#ACFFAC] border-[3px] absolute top-[325px] left-[975px] " data-aos="fade-up"></Image>
+            <div className="flex flex-col justify-center items-center w-[60vw] h-full relative">
+                <div className="flex flex-col justify-center items-center relative">
+                    <Image src="/images/image-10.png" alt="Screenshot of Intellect Dashboard" width={550} height={389.35} className="box-border shadow-[0px_0px_4px_10px_rgba(0,0,0,0.25)] rounded-[20px] border-[3px] border-solid border-[#ACFFAC]" data-aos="fade-up"></Image>
+                    <Image src="/images/image-11.png" alt="Screenshot of Intellect Dashboard" width={200} height={299.18} className="shadow-[5px_6px_5px_10px_rgba(0,0,0,0.25)] rounded-[20px] border-solid border-[#ACFFAC] border-[3px] absolute bottom-[-100px] right-[-45px] " data-aos="fade-up"></Image>
+                </div>
+                
             </div>
         </div>
     );

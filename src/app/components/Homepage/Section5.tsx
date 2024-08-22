@@ -8,9 +8,11 @@ export default function Section5() {
             <div className="flex flex-col justify-center items-start w-[50vw]  h-full pl-[84px] z-10">
                 <p className="text-[#0B1215] font-inter text-[35px] font-semibold leading-[150%] mb-[16px] " data-aos="fade-up">Debit Limit Prediction</p>
 
-                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] " data-aos="fade-up">Intellect AI introduces a tailored financial offering designed to modulate your debit spending in line with your savings ambitions. This service dynamically adjusts your allowable spending based on your expressed willingness to save, incorporating days of leeway to accommodate the realities of daily life.</p>
+                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] " data-aos="fade-up">Intellect AI introduces a tailored financial offering designed to modulate your debit spending in line with your savings ambitions. This service dynamically adjusts your allowable spending based on your expressed willingness to save, 
+                incorporating days of leeway to accommodate the realities of daily life. </p>
                 <br></br>
-                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] " data-aos="fade-up">It provides personalized recommendations on how many days per week you should maintain consistent spending to achieve your goals. This adaptive approach is finely tuned to reflect your specific needs, values, and lifestyle, ensuring that the guidance you receive is both practical and aligned with your financial objectives.</p>
+                <p className="text-[#0B1215] font-inter text-lg font-normal leading-[150%] " data-aos="fade-up">This adaptive approach is finely tuned to reflect your specific needs, values, and lifestyle, ensuring 
+                that the guidance you receive is both practical and aligned with your financial objectives.</p>
             </div>
             <div className="flex flex-col justify-center items-center w-[50vw]  h-full z-10">
                 <div className="flex flex-col justify-center items-center">
