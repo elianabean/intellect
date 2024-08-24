@@ -20,7 +20,7 @@ export default function MyRadarChart({ data }: RadarChartProps)  {
             {/* <PolarAngleAxis dataKey="name" /> */}
             <PolarGrid />
             <Radar dataKey="x" stroke="#D3D0FF"
-                fill="#D3D0FF" fillOpacity={0.5} max={100}/>
+                fill="#D3D0FF" fillOpacity={0.8} max={100}/>
         </RadarChart>
     );
 }

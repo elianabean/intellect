@@ -8,20 +8,15 @@ import Image from "next/image";
 import { useEffect, useState, useRef, AwaitedReactNode, JSXElementConstructor, ReactElement, ReactNode, ReactPortal } from "react";
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { Backdrop, Box, Button, CircularProgress, Slider, SliderTrack, StyledEngineProvider } from "@mui/material";
+import { Backdrop, Box, Button, CircularProgress, Slider, SliderTrack, StyledEngineProvider, styled, Typography } from "@mui/material";
 import BoltIcon from '@mui/icons-material/Bolt';
 import React from "react";
 export default function Homepage2() {
   const [walletInfo, setWalletInfo] = useState(null);
-  const [value, setValue] = React.useState<number>(5);
   const [daysFollowed, setDaysFollowed] = React.useState<number>(1);
   const [svgScore, setSvgScore] = React.useState<number>(0);
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
-    if (typeof newValue === 'number') {
-      setValue(newValue);
-    }
-  };
+  
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -29,6 +24,74 @@ export default function Homepage2() {
   const handleOpen = () => {
     setOpen(true);
   };
+  
+  const UltraFancySlider = () => {
+    const [value, setValue] = React.useState<number>(5);
+
+    const handleChange = (event: Event, newValue: number | number[]) => {
+      if (typeof newValue === 'number') {
+        setValue(newValue);
+      }
+    };
+
+    const FunSlider = styled(Slider)(() => ({
+      color: "#eae6e6",
+      height: "12px",
+      width: "80%",
+      
+    }))
+    function valueLabelFormat(value: number) {
+      if(value<=3){
+    
+      }
+      switch (true){
+        case (value<=3):
+            return "Low";
+            break;
+        case (value<=6):
+            return "Moderate";
+            break; 
+        default:
+            return "High"
+      }
+      
+    }
+    
+
+    return (
+        <Box>
+        <div id="non-linear-slider" className="text-[#515251] translate-x-[10px]">
+          <Typography id="discrete-slider" gutterBottom>
+              <h3 className="h5 font-lato font-semibold text-black">
+                    <span className="text-sm">Willingness to Save: </span>
+                    <span className="text-base font-bold ">{valueLabelFormat(value)}</span>
+            </h3>
+          </Typography>
+        </div> 
+        <div  className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] h-[80px] w-[1000px] translate-y-[20%]" >
+          <FunSlider
+            className="translate-x-[10%] translate-y-[40%]"
+            slotProps={{ thumb: { className: 'rounded-sm bg-[#16C045] h-[30px] w-[23px]' }}}
+            value={value}
+            min={1}
+            step={1}
+            max={10}
+            getAriaValueText={valueLabelFormat}
+            valueLabelFormat={valueLabelFormat}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            aria-labelledby="non-linear-slider"
+          />
+        </div>
+        </Box>
+      
+    );
+  };
+  const FunButton = styled(Button)(() => ({
+    backgroundColor: "#04BF30",
+    height: "35px",
+    width: "350px"
+  }))
 
 
 
@@ -61,56 +124,37 @@ export default function Homepage2() {
             <div className="score-wrap">
               <div className="score">
                 <div className="score-bar translate-x-[-100%] h-[100px] ">
-                <div className=" score-name text-[#8F8F8F] text-center translate-x-[95%]">Daily Purchase Limit</div>
+                <div className=" score-name text-[#8F8F8F] text-center translate-x-[95%]">Your Daily Limit</div>
                   <div className="absolute score-circle">{progressSemiCircle(svgScore, true)}</div>
                 </div>
                 <div className=" score-value ">
-                  <div className="score-number text-black text-center text-6xl">${Math.round(svgScore)}</div>
-                  <div className=" score-name text-black">Daily Purchase Limit</div>
+                  <div className="score-number text-black text-center text-6xl font-inter">${Math.round(svgScore)}</div>
+                  <div className=" score-name text-[#8F8F8F] text-m translate-y-[25px]">Daily Purchase Limit</div>
                 </div>
               </div>
             </div>
             
             </div>
-            <div  className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] h-[150px] w-[300px] translate-y-[20%]" >
+            
+            <div  className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] h-[150px] w-[300px] translate-y-[30%]" >
+                <div className=" score-name text-[#8F8F8F] text-center translate-y-[-155%]">Consistency Percentage</div>
                 <div className="translate-x-[3%] translate-y-[3px]">
                 <div className="absolute score-circle">{progressBar(daysFollowed)}</div>
                 </div>
               
               <div className="text-black  text-center flex translate-y-[50px]">
-              <div className="text-black text-center text-5xl translate-x-[120px]">{daysFollowed}</div>
-              <div className="text-black text-center text-3xl translate-y-[30%] translate-x-[120px]">/7</div>
+              <div className="text-black text-center text-5xl font-semibold translate-x-[120px] font-inter">{daysFollowed}</div>
+              <div className="text-black text-center text-3xl translate-y-[30%] translate-x-[120px] font-inter">/7</div>
 
               </div>
               <div className="text-[#8F8F8F] text-m text-center translate-y-[50px]">days/week</div>
             </div>
           
         </div>
-        <StyledEngineProvider injectFirst>
-        <Box sx={{ width: "50%", }}>
-          <div id="non-linear-slider" className="text-[#515251]">
-            Willingness to Save: {valueLabelFormat(value)}
-          </div>
-          <Slider
-            className="text-teal-600" 
-            size=""
-            slotProps={{ thumb: { className: 'rounded-sm bg-[#fffff]' }}}
-            value={value}
-            min={1}
-            step={1}
-            max={10}
-            getAriaValueText={valueLabelFormat}
-            valueLabelFormat={valueLabelFormat}
-            onChange={(handleChange)}
-            valueLabelDisplay="auto"
-            thinkness
-            aria-labelledby="non-linear-slider"
-          />
-        </Box>
-        </StyledEngineProvider>
-        <Button variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setDaysFollowed(daysFollowed+1); console.log("huh");}}>
+        <UltraFancySlider/>
+        <FunButton style={{marginTop: "100px"}} variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setSvgScore(svgScore+1); console.log("huh");}}>
         Regenerate 
-      </Button> 
+      </FunButton> 
       </div>
       
     </div>
@@ -120,22 +164,6 @@ export default function Homepage2() {
 
 
 
-function valueLabelFormat(value: number) {
-  if(value<=3){
-
-  }
-  switch (true){
-    case (value<=3):
-        return "Low";
-        break;
-    case (value<=6):
-        return "Mid";
-        break; 
-    default:
-        return "High"
-  }
-  
-}
 
 function progressSemiCircle(precentage: number, gradient = false) {
   const radius = 150;
@@ -148,29 +176,49 @@ function progressSemiCircle(precentage: number, gradient = false) {
         cy="180"
         r={radius}
         fill="none"
-        strokeWidth="50"
+        strokeWidth="15"
         strokeDashoffset={-1 * Math.PI * radius}
         strokeDasharray={`${(Math.PI * radius * 100) / 100} 10000`}
         stroke={"#33ED33"}
       ></circle>
-      <circle 
+      <circle
         cx="220"
         cy="180"
         r={radius}
         fill="none"
-        strokeWidth="50"
+        strokeWidth="16"
         strokeDashoffset={-1 * Math.PI * radius}
-        strokeDasharray={`${(0.75*Math.PI * radius * 100) / 100} 10000`}
-        stroke={"#ACFFAC"}
+        strokeDasharray={`${(0.76*Math.PI * radius * 100) / 100} 10000`}
+        stroke={"white"}
       ></circle>
       <circle 
         cx="220"
         cy="180"
         r={radius}
         fill="none"
-        strokeWidth="50"
+        strokeWidth="15"
         strokeDashoffset={-1 * Math.PI * radius}
-        strokeDasharray={`${(0.5*Math.PI * radius * 100) / 100} 10000`}
+        strokeDasharray={`${(0.74*Math.PI * radius * 100) / 100} 10000`}
+        stroke={"#ACFFAC"}
+      ></circle>
+      <circle
+        cx="220"
+        cy="180"
+        r={radius}
+        fill="none"
+        strokeWidth="16"
+        strokeDashoffset={-1 * Math.PI * radius}
+        strokeDasharray={`${(0.51*Math.PI * radius * 100) / 100} 10000`}
+        stroke={"white"}
+      ></circle>
+      <circle 
+        cx="220"
+        cy="180"
+        r={radius}
+        fill="none"
+        strokeWidth="15"
+        strokeDashoffset={-1 * Math.PI * radius}
+        strokeDasharray={`${(0.49*Math.PI * radius * 100) / 100} 10000`}
         stroke={"#FFE073"}
       ></circle>
       <circle
@@ -178,9 +226,19 @@ function progressSemiCircle(precentage: number, gradient = false) {
         cy="180"
         r={radius}
         fill="none"
-        strokeWidth="51"
+        strokeWidth="16"
         strokeDashoffset={-1 * Math.PI * radius}
-        strokeDasharray={`${(0.25*Math.PI * radius * 100) / 100} 10000`}
+        strokeDasharray={`${(0.26*Math.PI * radius * 100) / 100} 10000`}
+        stroke={"white"}
+      ></circle>
+      <circle
+        cx="220"
+        cy="180"
+        r={radius}
+        fill="none"
+        strokeWidth="16"
+        strokeDashoffset={-1 * Math.PI * radius}
+        strokeDasharray={`${(0.24*Math.PI * radius * 100) / 100} 10000`}
         stroke={"#FF3B60"}
       ></circle>
       <circle 
@@ -189,7 +247,7 @@ function progressSemiCircle(precentage: number, gradient = false) {
         r={10}
         fill="white"
         strokeWidth={3}
-        stroke={"#000000"}
+        stroke={precentage/100<=0.25?"#FF3B60":precentage/100<=0.5?"#FFE073":precentage/100<0.75?"#ACFFAC":"#33ED33"}
       ></circle>
     </svg>
   );
@@ -203,44 +261,44 @@ function progressBar(day: number) {
     <svg width="500" height="500">
       <rect 
         x="0"
-        y="0"
-        height={30}
+        y="8"
+        height={15}
         width={65}
         fill="#FF3B60"
-        strokeWidth="50"
+        strokeWidth="15"
         strokeDashoffset={-1 * Math.PI * radius}
         strokeDasharray={`${(0.75*Math.PI * radius * 100) / 100} 10000`}
         stroke={"#FF3B60"}
       ></rect>
       <rect 
         x="70"
-        y="0"
-        height={30}
+        y="8"
+        height={15}
         width={65}
         fill="#FFE073"
-        strokeWidth="50"
+        strokeWidth="15"
         strokeDashoffset={-1 * Math.PI * radius}
         strokeDasharray={`${(0.75*Math.PI * radius * 100) / 100} 10000`}
         stroke={"#FFE073"}
       ></rect>
       <rect 
         x="140"
-        y="0"
-        height={30}
+        y="8"
+        height={15}
         width={65}
         fill="#ACFFAC"
-        strokeWidth="50"
+        strokeWidth="15"
         strokeDashoffset={-1 * Math.PI * radius}
         strokeDasharray={`${(0.75*Math.PI * radius * 100) / 100} 10000`}
         stroke={"#ACFFAC"}
       ></rect>
       <rect 
         x="210"
-        y="0"
-        height={30}
+        y="8"
+        height={15}
         width={65}
         fill="#33ED33"
-        strokeWidth="50"
+        strokeWidth="15"
         strokeDashoffset={-1 * Math.PI * radius}
         strokeDasharray={`${(0.75*Math.PI * radius * 100) / 100} 10000`}
         stroke={"#33ED33"}
@@ -251,7 +309,7 @@ function progressBar(day: number) {
         r={10}
         fill="white"
         strokeWidth={3}
-        stroke={"#000000"}
+        stroke={day<=2?"#FF3B60":day==3?"#FFE073":day<6?"#ACFFAC":"#33ED33"}
       ></circle>
     </svg>
   );

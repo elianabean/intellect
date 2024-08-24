@@ -22,6 +22,7 @@ export default function Sidebar() {
               width={55}
               height={55}
             />
+            
           <span className="font-inter text-[16px] font-semibold leading-[150%]">Personal Wallet</span>
           </div>
         </Link>
