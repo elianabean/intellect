@@ -1,3 +1,4 @@
+import {Spinner} from "@nextui-org/react";
 import {Progress} from "@nextui-org/react";
 import Image from "next/image";
 
@@ -47,7 +48,7 @@ export default function OptimizationOverview({ necessity, school, discretionary,
             {/* <div className="flex w-[40%] [background:#FFFFFF] p-6">  </div> */}     
             <div className="flex justify-center items-center w-[100%]">
                 <ul className="list-disc list-inside">
-                    {strategiesError ? <p className="text-[#516958] font-inter text-lg font-black leading-[150%] mb-6">Failed to generate strategies!</p> : (strategies.length == 0 ? <img src={"https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/8/e/6/8e6f33126207a47f09f7c6ac5333057c1f45b5de.gif"} alt="Loading..." width={150} height={100} /> : strategies.map((element) => <li key={element} className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>))}
+                    {strategiesError ? <p className="text-[#516958] font-inter text-lg font-black leading-[150%] mb-6">Failed to generate strategies!</p> : (strategies.length == 0 ? <Spinner color="secondary" size="lg" className="mt-[20px]" classNames={{wrapper: "w-15 h-15"}}/> : strategies.map((element) => <li key={element} className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>))}
                  </ul>
             </div>
         </div>

@@ -23,6 +23,7 @@ const config: Config = {
         '3xl': '1920px',
       }, colors: {
         'primary': '#FFFF',
+        'secondary': '#04BF30'
       }, 
     },
   },
