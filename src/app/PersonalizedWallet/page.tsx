@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 import Profile from "../components/Profile";
 import PieChart  from "../components/PieChartBig";
 import MyRadarChart from "../components/RadarChart";
+import CustomPieChart from "../components/LayeredPieChart";
 
 import Image from "next/image";
 import {Progress} from "@nextui-org/react";
@@ -14,16 +15,11 @@ import 'react-circular-progressbar/dist/styles.css';
 export default function Homepage2() {
   const [walletInfo, setWalletInfo] = useState(null);
   const [dataPie, setDataPie] = useState([
-    { id: 0, value: 50, label: 'Food', color: '#96F996', radius: 50 },
-    { id: 1, value: 600, label: 'Entertainment', color: '#C1E9FF', radius: 50 },
-    { id: 2, value: 500, label: 'Clubs', color: '#C0BBFF', radius: 50 },
-    { id: 3, value: 500, label: 'Transportation', color: '#BCFF87', radius: 50 },
-    { id: 4, value: 3000, label: 'Housing', color: '#4EDBD2', radius: 50 },
-    { id: 5, value: 10**-20, label: '', color: '#DFFADF', radius: 400 },
-    { id: 6, value: 10**-20, label: '',  color: '#DEF3FF', radius: 50 },
-    { id: 7, value: 10**-20, label: '',  color: '#E8E6FF', radius: 50 },
-    { id: 8, value: 10**-20, label: '',  color: '#DBFAC2', radius: 50 },
-    { id: 9, value: 10**-20, label: '',  color: '#A5F1ED', radius: 50 },
+    { x: 0, y: 50, name: 'Food', color: '#96F996', borderColor: '#DFFADF', radius: 290 },
+    { x: 1, y: 600, name: 'Entertainment', color: '#C1E9FF', borderColor: '#DEF3FF', radius: 290 },
+    { x: 2, y: 500, name: 'Clubs', color: '#C0BBFF', borderColor: '#E8E6FF', radius: 290 },
+    { x: 3, y: 500, name: 'Transportation', color: '#BCFF87', borderColor: '#DBFAC2', radius: 290 },
+    { x: 4, y: 3000, name: 'Housing', color: '#4EDBD2', borderColor: '#A5F1ED', radius: 290 },
   ]);
 
 
@@ -57,15 +53,16 @@ export default function Homepage2() {
       <div className="h-full min-h-[100vh] w-[100vw] pl-28 pr-3 pb-16 pt-24 flex flex-col items-center justify-center translate-y-[-2.5%]">
         <div className="flex flex-row flex-wrap">
         <div className="justify-center items-stretch gap-[40px] h-[90%]">
-        <div className="[background:rgba(255,255,0,0)] rounded-[10px] flex flex-col justify-start items-center py-[25px] px-[40px] w-[50%] translate-x-[70%]">
+        <div className="[background:rgba(255,255,0,0)] rounded-[10px] flex flex-col justify-start items-center py-[25px] px-[40px] w-[50%] translate-x-[70%] translate-y-[10%]">
             {/* <div className="flex flex-col items-start">
                 <p className="text-[#2A3A28] font-raleway text-2xl font-bold leading-[150%]">Personalized Ideal Wallet</p>
                 <p className="text-[#2A3A28] font-raleway text-[18px] font-bold leading-[150%] w-[90%] mt-[16px]">After taking a look at your interests and expenses, I created your Ideal Wallet!</p>
             </div>
              */}
-            <div className="relative ">
-                <PieChart data={dataPie}/>
-                <p className="absolute text-[#515251] text-2xl absolute top-[38%] left-[50%] translate-x-[-50%] translate-y-[-10%] w-[30%] text-center font-raleway font-bold ">Your Personalized Wallet</p>
+            <div className="relative w-[800px] h-[700px] translate-y-[-15%] translate-x-[15%]">
+                {/* <PieChart data={dataPie}/> */}
+                <CustomPieChart data={dataPie}></CustomPieChart>
+                <span className="absolute text-[#515251] text-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30%] text-center font-raleway font-bold z-20">Your Personalized Wallet</span>
             </div>
             <div className="absolute w-[247.88px] h-[30.05px] text-gray-500 top-[60%] text-[20px] translate-x-[-20%] translate-y-[150px] font-semibold font-['Inter'] leading-snug">
             <div className="text-gray-500 top-[60%] text-[20px] leading-snug font-inter font-semibold">KEY</div>
