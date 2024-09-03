@@ -60,7 +60,7 @@ export default function Homepage2() {
 
     return (
         <Box>
-        <div id="non-linear-slider" className="text-[#515251] translate-x-[10px]">
+        <div id="non-linear-slider" className="text-[#515251] translate-x-[10px] ml-[15vw]">
           <Typography id="discrete-slider" gutterBottom>
               <h3 className="h5 font-lato font-semibold text-black">
                     <span className="text-sm">Willingness to Save: </span>
@@ -68,7 +68,7 @@ export default function Homepage2() {
             </h3>
           </Typography>
         </div> 
-        <div  className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] h-[80px] w-[1000px] translate-y-[20%]" >
+        <div  className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] h-[70px] w-[800px] translate-y-[20%] ml-[15vw]" >
           <FunSlider
             className="translate-x-[10%] translate-y-[40%]"
             slotProps={{ thumb: { className: 'rounded-sm bg-[#16C045] h-[30px] w-[23px]' }}}
@@ -117,7 +117,7 @@ export default function Homepage2() {
       
       <Profile></Profile>
       <div className="h-full min-h-[100vh] w-[100vw] pl-28 pr-3 pb-16 pt-24 flex flex-col items-center justify-center">
-        <div className="flex flex-row flex-wrap justify-center items-stretch gap-[30%] h-[90%] w-[80%] right-[100px]" >
+        <div className="flex flex-row flex-wrap justify-center items-stretch gap-[30%] h-[90%] w-[80%] right-[100px] ml-[21vw]" >
             <div className="relative h-[300px]">
             <div className="score-wrap">
               <div className="score">
@@ -150,7 +150,7 @@ export default function Homepage2() {
           
         </div>
         <UltraFancySlider/>
-        <FunButton style={{marginTop: "100px"}} variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setSvgScore(svgScore+1); console.log("huh");}}>
+        <FunButton style={{marginTop: "100px", marginLeft: "15vw"}} variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setSvgScore(svgScore+1); console.log("huh");}}>
         Regenerate 
       </FunButton> 
       </div>

@@ -48,7 +48,7 @@ export default function OptimizationOverview({ necessity, school, discretionary,
             {/* <div className="flex w-[40%] [background:#FFFFFF] p-6">  </div> */}     
             <div className="flex justify-center items-center w-[100%]">
                 <ul className="list-disc list-inside">
-                    {strategiesError ? <p className="text-[#516958] font-inter text-lg font-black leading-[150%] mb-6">Failed to generate strategies!</p> : (strategies.length == 0 ? <Spinner color="secondary" size="lg" className="mt-[20px]" classNames={{wrapper: "w-15 h-15"}}/> : strategies.map((element) => <li key={element} className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>))}
+                    {strategiesError ? <p className="text-[#516958] font-inter text-lg font-black leading-[150%] mb-6">Failed to generate strategies!</p> : (strategies.length == 0 ? <Spinner color="secondary" size="lg" className="mt-[20px]" classNames={{wrapper: "w-50"}}/> : strategies.map((element) => <li key={element} className="text-[#516958] font-inter text-[15px] font-medium leading-[150%] mb-4">{element}</li>))}
                  </ul>
             </div>
         </div>
