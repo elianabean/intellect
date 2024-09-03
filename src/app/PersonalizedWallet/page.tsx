@@ -15,11 +15,11 @@ import 'react-circular-progressbar/dist/styles.css';
 export default function Homepage2() {
   const [walletInfo, setWalletInfo] = useState(null);
   const [dataPie, setDataPie] = useState([
-    { x: 0, y: 50, name: 'Food', color: '#96F996', borderColor: '#DFFADF', radius: 290 },
-    { x: 1, y: 600, name: 'Entertainment', color: '#C1E9FF', borderColor: '#DEF3FF', radius: 290 },
-    { x: 2, y: 500, name: 'Clubs', color: '#C0BBFF', borderColor: '#E8E6FF', radius: 290 },
-    { x: 3, y: 500, name: 'Transportation', color: '#BCFF87', borderColor: '#DBFAC2', radius: 290 },
-    { x: 4, y: 3000, name: 'Housing', color: '#4EDBD2', borderColor: '#A5F1ED', radius: 290 },
+    { i: 0, y: 50, x: 'Food', color: '#96F996', borderColor: '#DFFADF', radius: 290 },
+    { i: 1, y: 600, x: 'Entertainment', color: '#C1E9FF', borderColor: '#DEF3FF', radius: 290 },
+    { i: 2, y: 500, x: 'Clubs', color: '#C0BBFF', borderColor: '#E8E6FF', radius: 290 },
+    { i: 3, y: 500, x: 'Transportation', color: '#BCFF87', borderColor: '#DBFAC2', radius: 290 },
+    { i: 4, y: 3000, x: 'Housing', color: '#4EDBD2', borderColor: '#A5F1ED', radius: 290 },
   ]);
 
 
@@ -62,7 +62,7 @@ export default function Homepage2() {
             <div className="relative w-[800px] h-[700px] translate-y-[-15%] translate-x-[15%]">
                 {/* <PieChart data={dataPie}/> */}
                 <CustomPieChart data={dataPie}></CustomPieChart>
-                <span className="absolute text-[#515251] text-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30%] text-center font-raleway font-bold z-20">Your Personalized Wallet</span>
+                <span className="absolute text-[#515251] text-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30%] text-center font-raleway font-bold">Your Personalized Wallet</span>
             </div>
             <div className="absolute w-[247.88px] h-[30.05px] text-gray-500 top-[60%] text-[20px] translate-x-[-20%] translate-y-[150px] font-semibold font-['Inter'] leading-snug">
             <div className="text-gray-500 top-[60%] text-[20px] leading-snug font-inter font-semibold">KEY</div>

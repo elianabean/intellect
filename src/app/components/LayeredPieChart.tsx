@@ -1,32 +1,13 @@
-import { PieChartProps } from "@mui/x-charts";
 import React, { useState } from "react";
-import { VictoryPie } from "victory";
+import { VictoryPie, VictoryTooltip } from "victory";
+import CustomTooltip from "./CustomTooltip";
 
 const CustomPieChart = (props: any) => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(null);
     let sum = props.data.reduce((a: any, b: any) => a + b.y, 0);
 
     return (
         <React.Fragment>
-            <div className="absolute w-[800px] h-[700px] z-10">
-                <VictoryPie
-                    width={800}
-                    height={800}
-                    data={props.data}
-                    radius={145}
-                    style={{
-                        data: {
-                            fill: "#FFF",
-                            strokeWidth: 2,
-                        },
-                        parent: {
-                            position: "absolute"
-                        }
-                    }}
-                    labels={({ datum }) => null}
-                />
-            </div>
-
             <div className="absolute w-[800px] h-[700px]">
                 <VictoryPie
                     width={800}
@@ -41,10 +22,35 @@ const CustomPieChart = (props: any) => {
                             filter: "drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5))",
                         },
                         parent: {
-                            position: "absolute"
+                            position: "absolute",
+                            zIndex: "1"
+                        },
+                        labels: {
+                            zIndex: "25",
+                            fontSize: 14, 
+                            fill: "black"
                         }
                     }}
-                    labels={({ datum }) => null}
+                    labels={({ datum }) => datum.x}
+                    labelComponent={activeIndex !== null ? (<CustomTooltip activeIndex={activeIndex} setActiveIndex={setActiveIndex} />) : (<div />)}
+                    events={[
+                        {
+                            target: "data",
+                            eventHandlers: {
+                            onMouseOver: () => {
+                                return [
+                                {
+                                    target: "data",
+                                    mutation: (props) => {
+                                        setActiveIndex(props.index);
+                                    }
+                                }
+                                ];
+                            }
+                            }
+                        }
+                    ]}
+                    labelRadius={210}
                 />
             </div>
             <div className="absolute w-[800px] h-[700px]">
@@ -58,12 +64,11 @@ const CustomPieChart = (props: any) => {
                         data: {
                             fill: ({ datum }) => datum.borderColor,
                             strokeWidth: 2,
-                            zIndex: "-1",
                             filter: "drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5))",
                         },
                         parent: {
-                            zIndex: "-1",
-                            position: "absolute"
+                            position: "absolute",
+                            zIndex: "-1"
                         }
                     }}
                     labels={({ datum }) => null}
