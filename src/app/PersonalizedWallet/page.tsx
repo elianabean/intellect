@@ -59,7 +59,7 @@ export default function Homepage2() {
                 <p className="text-[#2A3A28] font-raleway text-[18px] font-bold leading-[150%] w-[90%] mt-[16px]">After taking a look at your interests and expenses, I created your Ideal Wallet!</p>
             </div>
              */}
-            <div className="relative w-[800px] h-[700px] translate-y-[-15%] translate-x-[15%]">
+            <div className="relative translate-y-[-15%] translate-x-[15%]" style={{width: "45vw", height: "40vw"}}>
                 {/* <PieChart data={dataPie}/> */}
                 <CustomPieChart data={dataPie}></CustomPieChart>
                 <span className="absolute text-[#515251] text-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30%] text-center font-raleway font-bold">Your Personalized Wallet</span>

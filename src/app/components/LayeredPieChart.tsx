@@ -8,7 +8,7 @@ const CustomPieChart = (props: any) => {
 
     return (
         <React.Fragment>
-            <div className="absolute w-[800px] h-[700px]">
+            <div className="absolute" style={{width: "100%", height: "100%"}}>
                 <VictoryPie
                     width={800}
                     height={800}
@@ -53,7 +53,7 @@ const CustomPieChart = (props: any) => {
                     labelRadius={210}
                 />
             </div>
-            <div className="absolute w-[800px] h-[700px]">
+            <div className="absolute" style={{width: "100%", height: "100%"}}>
                 <VictoryPie
                     width={800}
                     height={800}

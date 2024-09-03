@@ -4,7 +4,6 @@ const CustomTooltip = ({ x, y, datum, activeIndex, setActiveIndex }: any) => {
   if (activeIndex == datum.i)
     return (
       <foreignObject x={x - 125} y={y - 60} width="250" height="120" style={{
-        boxShadow: "0px 0px 10px 3px rgba(0, 0, 0, 0.25)",
         zIndex: "5000"
       }}>
         <div
@@ -21,17 +20,17 @@ const CustomTooltip = ({ x, y, datum, activeIndex, setActiveIndex }: any) => {
             zIndex: "5000",
 
             borderRadius: "7px",
+            boxShadow: "0px 0px 10px 3px rgba(0, 0, 0, 0.25)",
             border: `1px solid ${datum.color}`,
             background: "#FFF",
-            boxShadow: "0px 0px 10px 3px rgba(0, 0, 0, 0.25)",
             color: "black",
             textAlign: "center"
           }}
+          className="font-inter"
         >
           <div style={{
             color: "#6B7280",
             textAlign: "center",
-            fontFamily: "Inter",
             fontSize: "1em",
             fontStyle: "normal",
             fontWeight: "700",
@@ -41,7 +40,6 @@ const CustomTooltip = ({ x, y, datum, activeIndex, setActiveIndex }: any) => {
           </div>
           <div style={{
             color: "rgba(1, 135, 33, 0.70)",
-            fontFamily: "Inter",
             fontSize: "2.5em",
             fontStyle: "normal",
             fontWeight: "700",
@@ -56,7 +54,6 @@ const CustomTooltip = ({ x, y, datum, activeIndex, setActiveIndex }: any) => {
           </div>
           <div style={{
             color: "#888",
-            fontFamily: "Inter",
             textAlign: "center",
             fontSize: "0.8em",
             fontStyle: "normal",
