@@ -8,7 +8,7 @@ export default function Profile() {
         <User
           name=""
           avatarProps={{
-            src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+            src: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg?20200418092106",
           }}
           className="[background:rgb(255,255,255)] rounded-[39px] text-black font-inter text-base font-semibold pr-12 border-1"
         />

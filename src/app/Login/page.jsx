@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 function LoginPage () {
     const [Email, setEmail] = useState("");
@@ -42,7 +43,7 @@ function LoginPage () {
               
             if (response.ok) {
                 console.log('Data successfully sent to backend');
-                router.push('/homepage2/mainpage'); // Redirect to the next page
+                router.push('/PersonalizedWallet'); // Redirect to the next page
               } else {
                 console.error('Failed to send data to backend');
               }
@@ -97,6 +98,7 @@ function LoginPage () {
                     Sign In
                     </button>
                 </form>
+                <Link href="/Signup" className="text-gray-400 text-xs mt-2 ml-2">New to Intellect?</Link>
                 </div>
 
                 <div className="translate-x-16">

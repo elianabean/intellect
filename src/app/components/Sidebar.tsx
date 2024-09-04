@@ -10,7 +10,7 @@ export default function Sidebar() {
 
     return (
       <div className="w-[23vw] h-full bg-[#FFF] flex flex-col gap-[1vh] items-start justify-start fixed left-0 pl-5 pr-6 pt-[5vh] z-50">
-        <Link href="/homepage2/mainpage">
+        <Link href="/">
         <p className="text-[#00A727] font-inter text-[30px] italic font-black ml-5 leading-[150%]">Intellect</p>
         </Link>
         <Link href="/PersonalizedWallet" >
