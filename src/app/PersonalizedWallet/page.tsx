@@ -50,7 +50,7 @@ export default function Homepage2() {
       <Sidebar></Sidebar>
 
       <Profile></Profile>
-      <div className="h-full min-h-[100vh] w-[100vw] pl-28 pr-3 pb-16 pt-24 flex flex-col items-center justify-center translate-y-[-2.5%]">
+      <div className="h-full min-h-[100vh] w-[100vw] pl-28 pr-3 pb-16 pt-32 flex flex-col items-center justify-center translate-y-[-2.5%]">
         <div className="flex flex-row flex-wrap">
         <div className="justify-center items-stretch gap-[40px] h-[90%]">
         <div className="[background:rgba(255,255,0,0)] rounded-[10px] flex flex-col justify-start items-center py-[25px] px-[40px] w-[50%] translate-x-[70%] translate-y-[10%]">
@@ -64,13 +64,14 @@ export default function Homepage2() {
                 <CustomPieChart data={dataPie}></CustomPieChart>
                 <span className="absolute text-[#515251] text-2xl absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[30%] text-center font-raleway font-bold">Your Personalized Wallet</span>
             </div>
-            <div className="absolute w-[247.88px] h-[30.05px] text-gray-500 top-[60%] text-[20px] translate-x-[-20%] translate-y-[150px] font-semibold font-['Inter'] leading-snug">
+            <div className="absolute w-[247.88px] h-[30.05px] text-gray-500 top-[60%] text-[20px] translate-x-[-3%] translate-y-[150px] font-semibold font-['Inter'] leading-snug">
             <div className="text-gray-500 top-[60%] text-[20px] leading-snug font-inter font-semibold">KEY</div>
             <hr
                 style={{
                     color: "#ACBDC9",
                     backgroundColor: "#ACBDC9",
-                    height: 2
+                    height: 2,
+                    width: 30
                 }}
             />
             <div className="flex text-gray-500 text-[15px] leading-snug space-x-[10px] font-inter font-medium" style={{ marginTop: 5 }}>
@@ -96,8 +97,8 @@ export default function Homepage2() {
             </div>
         </div>
         </div>
-        <div className="flex flex-col items-start py-[12px] px-[45px] w-[35%] translate-x-[25%]">
-            <div className="[background:rgba(252,251,255,0.80)] w-[75%]  items-center shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958]" >
+        <div className="flex flex-col items-start py-[12px] w-[35%] translate-x-[30%]">
+            <div className="[background:rgba(252,251,255,0.80)] w-[78%] pr-[45px] items-center shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958]" >
             <PrecentageAndAbsRep label="Food" realValue={15} maxValue={20} />
             <PrecentageAndAbsRep label="Entertainment" realValue={90} maxValue={60} />
             <PrecentageAndAbsRep label="Clubs" realValue={10} maxValue={50} />
