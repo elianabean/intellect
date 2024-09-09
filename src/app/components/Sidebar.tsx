@@ -26,7 +26,7 @@ export default function Sidebar() {
           <span className="font-inter text-[16px] font-semibold leading-[150%]">Personal Wallet</span>
           </div>
         </Link>
-        <Link href="/forms/forms4">
+        <Link href="/Optimization">
         <div className={currentPath === "/forms/forms4" ? "bg-[#E0FFE0] pr-[105px] text-black py-3 rounded-xl flex flex-row items-center justify-start mt-[3vh]" : "flex flex-row text-[#8A8A8A] items-center justify-start mt-[5vh]"}>
         <Image
               src={currentPath === "/forms/forms4" ? "/images/Intellect-icon-green.svg" : "/images/Intellect-icon-grey.svg"}
@@ -62,6 +62,8 @@ export default function Sidebar() {
           <span className="font-inter text-[16px] font-semibold leading-[150%]">Personal Information</span>
         </div>
         </Link>
+
+        <Image src={"/images/askAlumni.png"} alt="ask alumni" className="mt-[50%] ml-2" width={100} height={100}></Image>
       </div>
     );
   }
