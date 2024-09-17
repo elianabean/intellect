@@ -27,9 +27,9 @@ export default function Sidebar() {
           </div>
         </Link>
         <Link href="/Optimization">
-        <div className={currentPath === "/forms/forms4" ? "bg-[#E0FFE0] pr-[105px] text-black py-3 rounded-xl flex flex-row items-center justify-start mt-[3vh]" : "flex flex-row text-[#8A8A8A] items-center justify-start mt-[5vh]"}>
+        <div className={currentPath === "/Optimization" ? "bg-[#E0FFE0] pr-[105px] text-black py-3 rounded-xl flex flex-row items-center justify-start mt-[3vh]" : "flex flex-row text-[#8A8A8A] items-center justify-start mt-[5vh]"}>
         <Image
-              src={currentPath === "/forms/forms4" ? "/images/Intellect-icon-green.svg" : "/images/Intellect-icon-grey.svg"}
+              src={currentPath === "/Optimization" ? "/images/Intellect-icon-green.svg" : "/images/Intellect-icon-grey.svg"}
               alt="IntellectAI"
               className="dark:invert"
               width={60}
@@ -39,7 +39,7 @@ export default function Sidebar() {
           </div>
         </Link>
         <Link href="/DebitLimitPrediction">
-        <div className={currentPath === "/forms/forms3" ? "bg-[#E0FFE0] text-black pr-5 py-1 rounded-xl flex flex-row gap-3 items-center justify-start mt-[5vh]" : " flex flex-row text-[#8A8A8A] gap-2 items-center justify-start mt-[5vh]"}>
+        <div className={currentPath === "/DebitLimitPrediction" ? "bg-[#E0FFE0] text-black pr-5 py-1 rounded-xl flex flex-row gap-3 items-center justify-start mt-[5vh]" : " flex flex-row text-[#8A8A8A] gap-2 items-center justify-start mt-[5vh]"}>
         <Image
               src={currentPath === "/DebitLimitPrediction" ? "/images/Debit-icon-green.svg" : "/images/Debit-icon-grey.svg"}
               alt="DebitLimitPrediction"
