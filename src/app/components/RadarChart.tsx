@@ -15,7 +15,7 @@ export default function MyRadarChart({ data }: RadarChartProps)  {
     // Sample data
 
     return (
-        <RadarChart height={300} width={300} 
+        <RadarChart height={250} width={250} 
             outerRadius="90%" data={data}>
             {/* <PolarAngleAxis dataKey="name" /> */}
             <PolarGrid />

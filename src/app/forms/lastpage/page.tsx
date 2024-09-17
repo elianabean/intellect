@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Sidebar from "@/app/components/Sidebar";
+import Link from 'next/link'
 
 interface Answer {
   id: number;
@@ -89,19 +90,19 @@ export default function RankingForm() {
               </div>
               <Image src="/images/Line 117.png" width={1} height={20} alt="line"></Image>
               <div className="my-3">
-                <h2 className="text-gray-500 text-[13px] font-inter">Income</h2>
+                <Link href="/forms/forms2"><h2 className="text-gray-500 text-[13px] font-inter">Income</h2></Link>
               </div>
               <Image src="/images/Line 117.png" width={1} height={20} alt="line"></Image>
               <div className="my-3">
-                <h2 className="text-gray-500 text-[13px] font-inter">Expenses</h2>
+                <Link href="/forms/forms3"><h2 className="text-gray-500 text-[13px] font-inter">Expenses</h2></Link>
               </div>
               <Image src="/images/Line 117.png" width={1} height={20} alt="line"></Image>
               <div className="my-3">
-                <h2 className="text-gray-500 text-[13px] font-inter">Wants</h2>
+                <Link href="/forms/forms4"><h2 className="text-gray-500 text-[13px] font-inter">Wants</h2></Link>
               </div>
               <Image src="/images/Line 117.png" width={1} height={20} alt="line"></Image>
               <div className="bg-green-100 rounded-md py-3 px-10 my-3">
-                <h2 className="text-black text-[13px] font-inter font-semibold">Preferences</h2>
+                <Link href="/forms/lastpage"><h2 className="text-black text-[13px] font-inter font-semibold">Preferences</h2></Link>
               </div>
             </div>
           {/* forms */}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { VictoryPie, VictoryTooltip } from "victory";
 import CustomTooltip from "./CustomTooltip";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const CustomPieChart = (props: any) => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -13,13 +14,13 @@ const CustomPieChart = (props: any) => {
                     width={800}
                     height={800}
                     data={props.data}
-                    innerRadius={145}
-                    radius={({ datum }) => datum.radius}
+                    innerRadius={160}
+                    radius={({ datum }) => datum.radius }
                     style={{
                         data: {
                             fill: ({ datum }) => datum.color,
                             strokeWidth: 2,
-                            filter: "drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5))",
+                            filter: "drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.4))",
                         },
                         parent: {
                             position: "absolute",
@@ -59,12 +60,12 @@ const CustomPieChart = (props: any) => {
                     height={800}
                     data={props.data}
                     innerRadius={({ datum }) => datum.radius}
-                    radius={({ datum }) => datum.radius + Math.sqrt(datum.y/sum) * 80 }
+                    radius={({ datum }) => datum.radius + Math.sqrt(datum.y/sum) * 84 }
                     style={{
                         data: {
                             fill: ({ datum }) => datum.borderColor,
                             strokeWidth: 2,
-                            filter: "drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.5))",
+                            filter: "drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.4))",
                         },
                         parent: {
                             position: "absolute",
