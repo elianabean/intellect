@@ -86,7 +86,7 @@ export default function RankingForm() {
           <div className="flex flex-row h-full gap-10 ml-[25vw] mr-[100px] min-h-[100vh] mt-[100px] mb-[100px] justify-start">
             <div className="flex flex-col items-center h-screen w-[15vw] pt-[22vh]">
               <div className="mb-3">
-                <h1 className="text-gray-500 text-[13px] font-inter">Your Info</h1>
+                <Link href="/forms/forms1"><h1 className="text-gray-500 text-[13px] font-inter">Your Info</h1></Link>
               </div>
               <Image src="/images/Line 117.png" width={1} height={20} alt="line"></Image>
               <div className="my-3">
