@@ -2,35 +2,39 @@
 
 import Sidebar from "../components/Sidebar";
 import Profile from "../components/Profile";
-import PieChart from "../components/PieChartBig";
-import MyRadarChart from "../components/RadarChart";
-import Image from "next/image";
-import { useEffect, useState, useRef, AwaitedReactNode, JSXElementConstructor, ReactElement, ReactNode, ReactPortal } from "react";
-import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import { Backdrop, Box, Button, CircularProgress, Slider, SliderTrack, StyledEngineProvider, styled, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Slider, Box, Typography, styled, Button } from "@mui/material";
 import BoltIcon from '@mui/icons-material/Bolt';
-import React from "react";
+
 export default function Homepage2() {
   const [walletInfo, setWalletInfo] = useState(null);
-  const [daysFollowed, setDaysFollowed] = React.useState<number>(1);
-  const [svgScore, setSvgScore] = React.useState<number>(0);
+  const [daysFollowed, setDaysFollowed] = useState<number>(1);
+  const [svgScore, setSvgScore] = useState<number>(0);
+  const [monthlyExpense, setMonthlyExpenses] = useState<number>(0);
+  const [dailyExpense, setDailyExpenses] = useState<number>(0);
+  const [dailyLimit, setDailyLimit] = useState<number>(0); // State for dailyLimit
 
-  
-  const [open, setOpen] = React.useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  
+  const FunButton = styled(Button)(() => ({
+    backgroundColor: "#04BF30",
+    height: "35px",
+    width: "350px",
+  }));
+
   const UltraFancySlider = () => {
-    const [value, setValue] = React.useState<number>(5);
+    const [value, setValue] = useState<number>(5);
 
+    // Function to determine the multiplier based on the slider value
+    const getMultiplier = (value: number) => {
+      if (value <= 3) return 1;
+      if (value <= 6) return 0.9;
+      return 0.8;
+    };
+
+    // Update dailyLimit whenever slider value changes
     const handleChange = (event: Event, newValue: number | number[]) => {
       if (typeof newValue === 'number') {
         setValue(newValue);
+        setDailyLimit(dailyExpense * getMultiplier(newValue)); // Calculate and set dailyLimit
       }
     };
 
@@ -38,40 +42,33 @@ export default function Homepage2() {
       color: "#eae6e6",
       height: "12px",
       width: "80%",
-      
-    }))
+    }));
+
     function valueLabelFormat(value: number) {
-      if(value<=3){
-    
-      }
-      switch (true){
-        case (value<=3):
-            return "Low";
-            break;
-        case (value<=6):
-            return "Moderate";
-            break; 
+      switch (true) {
+        case value <= 3:
+          return "Low";
+        case value <= 6:
+          return "Moderate";
         default:
-            return "High"
+          return "High";
       }
-      
     }
-    
 
     return (
-        <Box>
+      <Box>
         <div id="non-linear-slider" className="text-[#515251] translate-x-[10px] ml-[15vw]">
           <Typography id="discrete-slider" gutterBottom>
-              <h3 className="h5 font-lato font-semibold text-black">
-                    <span className="text-sm">Willingness to Save: </span>
-                    <span className="text-base font-bold ">{valueLabelFormat(value)}</span>
-            </h3>
+            
+              <span className="text-sm">Willingness to Save: </span>
+              <span className="text-base font-bold ">{valueLabelFormat(value)}</span>
+            
           </Typography>
-        </div> 
-        <div  className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] h-[70px] w-[800px] translate-y-[20%] ml-[15vw]" >
+        </div>
+        <div className="[background:rgba(252,251,255,0.80)] shadow-[5px_4px_10px_0px_rgba(0,0,0,0.25)] rounded-[10px] border-b border-solid border-b-[#516958] h-[70px] w-[800px] translate-y-[20%] ml-[15vw]">
           <FunSlider
             className="translate-x-[10%] translate-y-[40%]"
-            slotProps={{ thumb: { className: 'rounded-sm bg-[#16C045] h-[30px] w-[23px]' }}}
+            slotProps={{ thumb: { className: 'rounded-sm bg-[#16C045] h-[30px] w-[23px]' } }}
             value={value}
             min={1}
             step={1}
@@ -83,17 +80,9 @@ export default function Homepage2() {
             aria-labelledby="non-linear-slider"
           />
         </div>
-        </Box>
-      
+      </Box>
     );
   };
-  const FunButton = styled(Button)(() => ({
-    backgroundColor: "#04BF30",
-    height: "35px",
-    width: "350px"
-  }))
-
-
 
   useEffect(() => {
     // Fetch data from the API
@@ -102,7 +91,18 @@ export default function Homepage2() {
         const response = await fetch('/api/getWalletBreakdown');
         if (!response.ok) throw new Error('Failed to fetch data');
         const data = await response.json();
+        console.log(data);
         setWalletInfo(data);
+        const monthly = data.expenses_details.food_expenses +
+          data.expenses_details.transportation_expenses +
+          data.wants_details.ec_expenses +
+          data.wants_details.entertainment_expenses +
+          data.wants_details.subscription_expenses +
+          data.wants_details.clothing_expenses;
+        const daily = monthly / 30.0;
+        setMonthlyExpenses(monthly);
+        setDailyExpenses(daily);
+        setDailyLimit(daily); // Initialize dailyLimit with dailyExpense
       } catch (error) {
         console.error('Error fetching wallet breakdown:', error);
       }
@@ -110,7 +110,6 @@ export default function Homepage2() {
 
     fetchData();
   }, []);
-
   return (
     <div className="relative">
       <Sidebar></Sidebar>
@@ -126,7 +125,7 @@ export default function Homepage2() {
                   <div className="absolute score-circle">{progressSemiCircle(svgScore, true)}</div>
                 </div>
                 <div className=" score-value ">
-                  <div className="score-number text-black text-center text-6xl font-inter">${Math.round(svgScore)}</div>
+                  <div className="score-number text-black text-center text-6xl font-inter">${dailyLimit}</div>
                   <div className=" score-name text-[#8F8F8F] text-m translate-y-[25px]">Daily Purchase Limit</div>
                 </div>
               </div>
