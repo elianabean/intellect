@@ -51,9 +51,9 @@ export default function Sidebar() {
         </div>
         </Link>
         <Link href="/forms/forms1">
-        <div className={currentPath === "/forms/forms1" ? "bg-[#E0FFE0] text-black pr-7 pl-2 py-4 rounded-xl flex flex-row gap-5 items-center justify-start mt-[3vh]" : "text-[#8A8A8A] pl-2 flex flex-row gap-5 items-center justify-start mt-[6vh]"}>
+        <div className={currentPath === "/forms/forms1" || currentPath === "/forms/forms2" || currentPath === "/forms/forms3" || currentPath === "/forms/forms4" || currentPath === "/forms/lastpage" ? "bg-[#E0FFE0] text-black pr-7 pl-2 py-4 rounded-xl flex flex-row gap-5 items-center justify-start mt-[3vh]" : "text-[#8A8A8A] pl-2 flex flex-row gap-5 items-center justify-start mt-[6vh]"}>
         <Image
-              src={currentPath === "/forms/forms1" ? "/images/Setting-icon-green.svg" : "/images/Setting-icon-grey.svg"}
+              src={currentPath === "/forms/forms1" || currentPath === "/forms/forms2" || currentPath === "/forms/forms3" || currentPath === "/forms/forms4" || currentPath === "/forms/lastpage" ? "/images/Setting-icon-green.svg" : "/images/Setting-icon-grey.svg"}
               alt="Settings"
               className="dark:invert"
               width={31}
