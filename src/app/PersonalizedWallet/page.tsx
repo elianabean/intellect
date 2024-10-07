@@ -9,6 +9,7 @@ import CustomPieChart from "../components/LayeredPieChart";
 import Image from "next/image";
 import {Progress} from "@nextui-org/react";
 import CircleIcon from '@mui/icons-material/Circle';
+import Cookies from 'js-cookie';
 import { useEffect, useState, useRef, AwaitedReactNode, JSXElementConstructor, ReactElement, ReactNode, ReactPortal } from "react";
 import { CircularProgressbar, CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -44,6 +45,32 @@ export default function Homepage2() {
 
   //   fetchData();
   // }, []);
+
+  useEffect(() => {
+    try {
+      fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            window.location.href="/Login";
+        }
+      })
+      .then(data => {
+        if (!data.data) {
+          window.location.href="/Login";
+        }
+      })
+    } catch (e) {
+      console.log("No login detected");
+    }
+  });
 
   return (
     <div className="relative">

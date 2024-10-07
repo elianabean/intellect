@@ -4,6 +4,7 @@ import Image from "next/image";
 
 
 interface OverviewProps {
+    setOptimizationFunction: any;
     necessity: number;
     school: number;
     discretionary: number;
@@ -11,7 +12,11 @@ interface OverviewProps {
     strategiesError: boolean;
 }
 
-export default function OptimizationOverview({ necessity, school, discretionary, strategies, strategiesError }: OverviewProps) {
+export default function OptimizationOverview({ setOptimizationFunction, necessity, school, discretionary, strategies, strategiesError }: OverviewProps) {
+    const regenerate = () => {
+        setOptimizationFunction();
+    }
+
     let barColor = (percent: number) => {
         if (percent <= 25) return "[background:rgba(250,34,75,0.80)]";
         else if (percent <= 70) return "[background:#FFE073]";
@@ -34,7 +39,7 @@ export default function OptimizationOverview({ necessity, school, discretionary,
                 <Progress value={discretionary} size="lg" classNames={{indicator: barColor(discretionary), track:"bg-[#FEFEFF] border-[1px] border-solid border-[#C4D8C4] h-[25px]", base:"w-[275px]"}} aria-label="percentage bar"/>
 
                 <div className=" flex flex-row gap-2 mt-9 font-inter bg-[rgba(4,191,48,0.70)] px-[80px] justify-center py-1 rounded-lg ">
-                    <button className="text-[16px]">Regenerate</button>
+                    <button className="text-[16px]" onClick={regenerate}>Regenerate</button>
                     <span className="mt-1"><Image src="images/lightning-bolt.svg" alt="LightingingBolt" width={20} height={20}></Image></span>
                 </div>
                 {/* needs functionality */}

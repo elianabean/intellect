@@ -5,6 +5,7 @@ import Profile from "../components/Profile";
 import EdOpCard from "../components/OptimizationCard";
 import OptimizationOverview from "../components/OptimizationOverview"
 import Image from 'next/image';
+import Cookies from "js-cookie";
 
 import { useEffect, useState, useRef } from "react";
 
@@ -137,6 +138,30 @@ export default function EducationalOptimization() {
   // useEffect b/c page should only fetch once on start of render
   useEffect(() => {
     setWalletBreakdown();
+
+    try {
+      fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            window.location.href="/Login";
+        }
+      })
+      .then(data => {
+        if (!data.data) {
+          window.location.href="/Login";
+        }
+      })
+    } catch (e) {
+      console.log("No login detected");
+    }
   }, []);
 
   const runFlag = useRef(false);
@@ -153,6 +178,12 @@ export default function EducationalOptimization() {
       setOptimizationStrats(walletInfo);
       runFlag.current = true;
     }
+  }
+
+  const regenerate = () => {
+    console.log("Hello!");
+    setMessage([]);
+    setOptimizationStrats(walletInfo);
   }
 
   return (
@@ -180,7 +211,7 @@ export default function EducationalOptimization() {
         </div>
 
         <div className="flex justify-center w-full z-50">
-          <OptimizationOverview necessity={necessity} school={school} discretionary={discretionary} strategies={message} strategiesError={strategiesError}/>
+          <OptimizationOverview setOptimizationFunction={regenerate} necessity={necessity} school={school} discretionary={discretionary} strategies={message} strategiesError={strategiesError}/>
         </div>
 
         <Image src="/images/ellipse-34.svg" width={1524.261} height={486.942} alt="background" className="absolute bottom-0"></Image>

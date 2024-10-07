@@ -5,6 +5,7 @@ import Profile from "../components/Profile";
 import { useEffect, useState } from "react";
 import { Slider, Box, Typography, styled, Button } from "@mui/material";
 import BoltIcon from '@mui/icons-material/Bolt';
+import Cookies from "js-cookie";
 
 export default function Homepage2() {
   const [walletInfo, setWalletInfo] = useState(null);
@@ -13,6 +14,32 @@ export default function Homepage2() {
   const [monthlyExpense, setMonthlyExpenses] = useState<number>(0);
   const [dailyExpense, setDailyExpenses] = useState<number>(0);
   const [dailyLimit, setDailyLimit] = useState<number>(0); // State for dailyLimit
+
+  useEffect(() => {
+    try {
+      fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            window.location.href="/Login";
+        }
+      })
+      .then(data => {
+        if (!data.data) {
+          window.location.href="/Login";
+        }
+      })
+    } catch (e) {
+      console.log("No login detected");
+    }
+  });
 
   const FunButton = styled(Button)(() => ({
     backgroundColor: "#04BF30",
@@ -71,7 +98,6 @@ export default function Homepage2() {
             slotProps={{ thumb: { className: 'rounded-sm bg-[#16C045] h-[30px] w-[23px]' } }}
             value={value}
             min={1}
-            step={1}
             max={10}
             getAriaValueText={valueLabelFormat}
             valueLabelFormat={valueLabelFormat}
@@ -88,7 +114,13 @@ export default function Homepage2() {
     // Fetch data from the API
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/getWalletBreakdown');
+        const response = await fetch(process.env.NEXT_PUBLIC_URL + '/api/getWalletBreakdown', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'jwt-token': Cookies.get("access_token") as string
+          }
+        })
         if (!response.ok) throw new Error('Failed to fetch data');
         const data = await response.json();
         console.log(data);
@@ -125,7 +157,7 @@ export default function Homepage2() {
                   <div className="absolute score-circle">{progressSemiCircle(svgScore, true)}</div>
                 </div>
                 <div className=" score-value ">
-                  <div className="score-number text-black text-center text-6xl font-inter">${dailyLimit}</div>
+                  <div className="score-number text-black text-center text-6xl font-inter">${Math.round(dailyLimit)}</div>
                   <div className=" score-name text-[#8F8F8F] text-m translate-y-[25px]">Daily Purchase Limit</div>
                 </div>
               </div>

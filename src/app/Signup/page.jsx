@@ -1,62 +1,76 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import Link from "next/link";
 
 function SignupPage () {
     const [FullName, setFullName] = useState("");
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [redirect, setRedirect] = useState(false);
 
-    const router = useRouter();
+    async function handleSubmit(event) {
+        event.preventDefault()
+        const form = event.currentTarget
+        const formElements = form.elements
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        switch (name) {
-        case 'FullName':
-            setFullName(value);
-            break;
-        case 'Email':
-            setEmail(value);
-            break;
-        case 'Password':
-            setPassword(value);
-            break;
-        default:
-            break;
+        if (formElements.name.value === "") {
+            setError("Error! Name cannot be empty");
+        } else if (formElements.password.value.length < 8) {
+            setError("Error! Password must contain atleast 8 characters");
+        } else if (!formElements.email.value.
+            toLowerCase()
+            // email regex :)
+            .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )) {
+            setError("Error! Email invalid");
+        } else {
+            setError("");
+
+            let request = await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({FullName: formElements.name.value, Email: formElements.email.value, Password: formElements.password.value})
+            });
+        
+            if (request.ok) {
+                setRedirect(true);
+            } else if (request.status == 409) {
+                setError("Error! Email already exists");
+            } else if (request.status == 500) {
+                setError("Unknown Error Occurred");
+            }
         }
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const userData = {
-          FullName,
-          Email,
-          Password,
-        };
+    function redirectHome() {
+        window.location.href = '/';
+    }
 
-
-    
+    useEffect(() => {
         try {
-            const { error } = await supabase.auth.signUp({
-                fullname: userData.FullName,
-                email: userData.Email,
-                password: userData.Password,
-              });
-              
+            fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'jwt-token': Cookies.get("access_token")
+            }
+            })
+            .then(response => {
             if (response.ok) {
-                console.log('Data successfully sent to backend');
-                router.push('/PersonalizedWallet'); // Redirect to the next page
-              } else {
-                console.error('Failed to send data to backend');
-              }
-        } catch (error) {
-            console.error('Error:', error);
+                redirectHome();
+            }
+            })
+        } catch (e) {
+            console.log("No login detected");
         }
-    };
+    });
 
     return(
         <div className="relative">
@@ -80,11 +94,10 @@ function SignupPage () {
                     <input
                         type="fullName"
                         id="fullName"
-                        name="FullName"
+                        name="name"
                         className="shadow appearance-none border rounded-[8px] w-[38vw] max-w-[600px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Type your full name here"
-                        value={FullName}
-                        onChange={handleChange}
+                        onChange={(e) => setFullName(e.target.value)}
                     />
                     </div>
                     <div className="mb-5">
@@ -94,11 +107,10 @@ function SignupPage () {
                     <input
                         type="email"
                         id="email"
-                        name="Email"
+                        name="email"
                         className="shadow appearance-none border rounded-[8px] w-[38vw] max-w-[600px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Type your email here"
-                        value={Email}
-                        onChange={handleChange}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     </div>
                     <div className="mb-8">
@@ -108,20 +120,42 @@ function SignupPage () {
                     <input
                         type="password"
                         id="password"
-                        name="Password"
+                        name="password"
                         className="shadow appearance-none border rounded-[8px] w-[38vw] max-w-[600px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Type your password here"
-                        value={Password}
-                        onChange={handleChange}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     </div>
-                    <button
-                    type="submit"
-                    className="hover:bg-[#04bf30bd] bg-gray-100 hover:text-white text-black text-[14px] font-normal font-inter py-1 px-8 rounded-[20px]"
-                    >
-                    Sign Up
-                    </button>
+
+                    {
+                        (redirect) && (
+                            <p className="text-black mb-6 text-sm font-inter font-medium">Success! <a className="underline" href="/Login">Login</a></p>
+                        )
+                    }
+
+                    {
+                        (error) && (
+                            <p className="mb-6 text-sm font-inter font-medium text-red-500">{error}</p>
+                        )
+                    }
+
+                    {(redirect) ? (
+                        <button
+                            disabled
+                            className="cursor-not-allowed bg-gray-100 text-black text-[14px] font-normal font-inter py-1 px-8 rounded-[20px]"
+                        >
+                            Sign Up
+                        </button>
+                    ) : (
+                        <button
+                            type="submit"
+                            className="hover:bg-[#04bf30bd] bg-gray-100 hover:text-white text-black text-[14px] font-normal font-inter py-1 px-8 rounded-[20px]"
+                        >
+                            Sign Up
+                        </button>
+                    )}
                 </form>
+                <Link href="/Login" className="text-gray-400 text-xs mt-2 ml-2">Already have an account?</Link>
                 </div>
 
                 <div className="translate-x-16">

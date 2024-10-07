@@ -2,7 +2,8 @@
 
 import Profile from "../../components/Profile";
 import Image from "next/image";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Cookies from "js-cookie";
 import { useRouter } from 'next/navigation';
 import Sidebar from "@/app/components/Sidebar";
 import Link from 'next/link'
@@ -73,6 +74,32 @@ export default function Forms() {
         console.error('Error:', error);
     }
   };
+
+  useEffect(() => {
+    try {
+      fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            window.location.href="/Login";
+        }
+      })
+      .then(data => {
+        if (!data.data) {
+          window.location.href="/Login";
+        }
+      })
+    } catch (e) {
+      console.log("No login detected");
+    }
+  });
 
   return (
     <div className="relative">

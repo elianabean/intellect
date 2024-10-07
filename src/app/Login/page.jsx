@@ -2,57 +2,64 @@
 
 import React from "react";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 import Link from "next/link";
 
 function LoginPage () {
-    const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    let data;
 
-    const router = useRouter();
+    async function handleSubmit(event) {
+        event.preventDefault()
+        const form = event.currentTarget
+        const formElements = form.elements
+        console.log(formElements);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        switch (name) {
-        case 'Email':
-            setEmail(value);
-            break;
-        case 'Password':
-            setPassword(value);
-            break;
-        default:
-            break;
-        }
+        let request = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({Email: formElements.email.value, Password: formElements.password.value})
+        });
+        data = await request.json();
+
+        if (request.ok) setCookies(data.token);
+        else if (request.status === 401) setError("Incorrect Email/Password. Please try again.");
+        else setError("Could Not Find User");
     }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const userData = {
-          Email,
-          Password,
-        };
-
-
     
+    function setCookies(token) {
+        Cookies.set('access_token', token, { expires: 7, secure: true });
+        redirect();
+    }
+    
+    function redirect() {
+        window.location.href = '/PersonalizedWallet';
+    }
+    
+    useEffect(() => {
         try {
-            const { error } = await supabase.auth.signUp({
-                email: userData.Email,
-                password: userData.Password,
-              });
-              
+            fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'jwt-token': Cookies.get("access_token")
+            }
+            })
+            .then(response => {
             if (response.ok) {
-                console.log('Data successfully sent to backend');
-                router.push('/PersonalizedWallet'); // Redirect to the next page
-              } else {
-                console.error('Failed to send data to backend');
-              }
-        } catch (error) {
-            console.error('Error:', error);
+                redirect();
+            }
+            })
+        } catch (e) {
+            console.log("No login detected");
         }
-    };
+    });
 
-    return(
+    return (
         <div className="relative">
             <div className="flex flex-row items-center justify-center max-h-screen pl-20 pt-10 overflow-hidden" style={{backgroundColor:"#FFFFFF"}}>
                 <div className="flex flex-row absolute top-6 left-6">
@@ -70,11 +77,9 @@ function LoginPage () {
                     <input
                         type="email"
                         id="email"
-                        name="Email"
+                        name="email"
                         className="shadow appearance-none border rounded-[8px] w-[38vw] max-w-[600px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Type your email here"
-                        value={Email}
-                        onChange={handleChange}
                     />
                     </div>
                     <div className="mb-8">
@@ -84,18 +89,23 @@ function LoginPage () {
                     <input
                         type="password"
                         id="password"
-                        name="Password"
+                        name="password"
                         className="shadow appearance-none border rounded-[8px] w-[38vw] max-w-[600px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Type your password here"
-                        value={Password}
-                        onChange={handleChange}
                     />
                     </div>
+
+                    {
+                        (error) && (
+                            <p className="mb-6 text-sm font-inter font-medium text-red-500">{error}</p>
+                        )
+                    }
+
                     <button
-                    type="submit"
-                    className="hover:bg-[#04bf30bd] bg-gray-100 hover:text-white text-black text-[14px] font-normal font-inter py-1 px-8 rounded-[20px]"
+                        type="submit"
+                        className="hover:bg-[#04bf30bd] bg-gray-100 hover:text-white text-black text-[14px] font-normal font-inter py-1 px-8 rounded-[20px]"
                     >
-                    Sign In
+                        Sign In
                     </button>
                 </form>
                 <Link href="/Signup" className="text-gray-400 text-xs mt-2 ml-2">New to Intellect?</Link>
