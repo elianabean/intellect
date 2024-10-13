@@ -181,7 +181,6 @@ export default function EducationalOptimization() {
   }
 
   const regenerate = () => {
-    console.log("Hello!");
     setMessage([]);
     setOptimizationStrats(walletInfo);
   }
