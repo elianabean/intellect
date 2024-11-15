@@ -63,8 +63,8 @@ function LoginPage () {
         <div className="relative">
             <div className="flex flex-row items-center justify-center max-h-screen pl-20 pt-10 overflow-hidden" style={{backgroundColor:"#FFFFFF"}}>
                 <div className="flex flex-row absolute top-6 left-6">
-                    <Image src="/images/logo.png" alt="logo" width={60} height={60} className="-translate-y-3"/>
-                    <p className="text-[#00A727] text-[30px] font-style: italic font-inter font-extrabold" >Intellect</p>
+                    <Link href="/"> <Image src="/images/logo.png" alt="logo" width={60} height={60} className="-translate-y-3"/> </Link>
+                    <Link href="/"> <p className="text-[#00A727] text-[30px] font-style: italic font-inter font-extrabold" >Intellect</p> </Link>
                 </div>
                 <div className="w-[45vw] flex flex-col items-start z-10 pl-20">
                 <h1 className="text-[#04bf30bd] text-4xl font-inter font-bold mb-4">Hello Again!</h1>
