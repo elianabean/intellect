@@ -63,7 +63,7 @@ export default function Sidebar() {
         </div>
         </Link>
 
-        <Image src={"/images/askAlumni.png"} alt="ask alumni" className="mt-[50%] ml-2" width={100} height={100}></Image>
+        <Link href="https://wenxiaoyou.com/en/enOurServices?fbclid=IwZXh0bgNhZW0CMTAAAR2IGTN_mEhp9nzDRrn4f01SXmayZyjBUzLU1NWpTsRAqGPTk1gb36ZGQuU_aem_hH9pbjDwIae4Ri8MQb3f2Q"><Image src={"/images/askAlumni.png"} alt="ask alumni" className="mt-[50%] ml-2" width={200} height={200}></Image></Link>
       </div>
     );
   }
