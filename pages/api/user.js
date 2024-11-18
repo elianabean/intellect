@@ -8,7 +8,6 @@ export default async function handler(req, res) {
     try {
       const verified = jwt.verify(token, jwtSecretKey)
       if (verified) {
-        console.log(verified.email);
         const user = await supabase.from('users').select('*').eq('email', verified.email).single();
         if (user.error) throw new Error();
 

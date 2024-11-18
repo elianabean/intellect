@@ -3,7 +3,8 @@ import Sidebar from "../components/Sidebar";
 import Profile from "../components/Profile";
 import FileUpload from "../components/FileUpload";
 import {Textarea} from "@nextui-org/react";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
 export default function SsScanning() {
   const [text, setText] = useState<string>('');
@@ -51,7 +52,7 @@ export default function SsScanning() {
                   <p className="text-[#2A3A28] font-raleway text-lg font-bold leading-[150%] mb-2">
                     {day} ({formatDate(weekDates[index])})
                   </p>
-                  <FileUpload day={day} date={weekDates[index]} userId="f46ad135-f439-418e-b383-459a1ea78edb" />
+                  <FileUpload day={day} date={weekDates[index]} accessToken={Cookies.get("access_token")} />
                 </React.Fragment>
               ))}
             </div>

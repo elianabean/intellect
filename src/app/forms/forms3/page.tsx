@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Sidebar from "@/app/components/Sidebar";
+import Cookies from "js-cookie";
 import Link from 'next/link'
 
 export default function Forms() {
@@ -64,6 +65,7 @@ export default function Forms() {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json',
+         'jwt-token': Cookies.get("access_token") as string
        },
        body: JSON.stringify(userData),
      });

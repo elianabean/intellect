@@ -32,6 +32,7 @@ export default function EducationalOptimization() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
         }
       })
       .then(response => response.json())

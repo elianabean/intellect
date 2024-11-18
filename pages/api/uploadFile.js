@@ -3,7 +3,17 @@ import supabase from '../../lib/supabaseClient';
 export default async function handler(req, res) {
     
   if (req.method === 'POST') {
-    const { userId, day, date, fileName, fileContent } = req.body;
+    const { day, date, fileName, fileContent } = req.body;
+
+    const userId = await fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'jwt-token': req.headers['jwt-token']
+      }
+    })
+    .then(response => response.json())
+    .then(data => data.data.id)
 
     try {
       // Convert base64 to buffer

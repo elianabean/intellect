@@ -5,7 +5,15 @@ export default async function handler(req, res) {
     const { HousingExpenses, HousingType, FoodExpenses, Groceries, TransportationExpenses, InsuranceExpenses, InsuranceType} = req.body;
 
     try {
-      const userId = "f46ad135-f439-418e-b383-459a1ea78edb";
+      const userId = await fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'jwt-token': req.headers['jwt-token']
+        }
+      })
+      .then(response => response.json())
+      .then(data => data.data.id)
 
       const { data, error } = await supabase
         .from('expenses_details')

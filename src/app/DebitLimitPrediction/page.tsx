@@ -10,10 +10,12 @@ import Cookies from "js-cookie";
 export default function Homepage2() {
   const [walletInfo, setWalletInfo] = useState(null);
   const [daysFollowed, setDaysFollowed] = useState<number>(1);
+  const [daysFollowedTemp, setDaysFollowedTemp] = useState<number>(1);
   const [svgScore, setSvgScore] = useState<number>(0);
   const [monthlyExpense, setMonthlyExpenses] = useState<number>(0);
   const [dailyExpense, setDailyExpenses] = useState<number>(0);
   const [dailyLimit, setDailyLimit] = useState<number>(0); // State for dailyLimit
+  const [dailyLimitReal, setDailyLimitReal] = useState<number>(0);
 
   useEffect(() => {
     try {
@@ -61,7 +63,9 @@ export default function Homepage2() {
     const handleChange = (event: Event, newValue: number | number[]) => {
       if (typeof newValue === 'number') {
         setValue(newValue);
-        setDailyLimit(dailyExpense * getMultiplier(newValue)); // Calculate and set dailyLimit
+        console.log(newValue);
+        setDailyLimit(dailyExpense * (1.0/(newValue) + 1)); // Calculate and set dailyLimit
+        setDaysFollowedTemp(Math.min(Math.max(Math.round(newValue * (1.0/(6.0))), 1), 7))
       }
     };
 
@@ -134,7 +138,9 @@ export default function Homepage2() {
         const daily = monthly / 30.0;
         setMonthlyExpenses(monthly);
         setDailyExpenses(daily);
-        setDailyLimit(daily); // Initialize dailyLimit with dailyExpense
+        setDailyLimit(daily * (1.0/(5.0) + 1)); // Initialize dailyLimit with dailyExpense
+        setDailyLimitReal(daily * (1.0/(5.0) + 1));
+        setDaysFollowed(Math.min(Math.max(Math.round(daily * (1.0/(6.0))), 1), 7))
       } catch (error) {
         console.error('Error fetching wallet breakdown:', error);
       }
@@ -157,7 +163,7 @@ export default function Homepage2() {
                   <div className="absolute score-circle">{progressSemiCircle(svgScore, true)}</div>
                 </div>
                 <div className=" score-value ">
-                  <div className="score-number text-black text-center text-6xl font-inter">${Math.round(dailyLimit)}</div>
+                  <div className="score-number text-black text-center text-6xl font-inter">${Math.round(dailyLimitReal)}</div>
                   <div className=" score-name text-[#8F8F8F] text-m translate-y-[25px]">Daily Purchase Limit</div>
                 </div>
               </div>
@@ -181,7 +187,7 @@ export default function Homepage2() {
           
         </div>
         <UltraFancySlider/>
-        <FunButton style={{marginTop: "100px", marginLeft: "15vw"}} variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setSvgScore(svgScore+1); console.log("huh");}}>
+        <FunButton style={{marginTop: "100px", marginLeft: "15vw"}} variant="contained" color="success"  endIcon={<BoltIcon/>} onClick={() => {setDailyLimitReal(dailyLimit); setDaysFollowed(daysFollowedTemp)}}>
         Regenerate 
       </FunButton> 
       </div>

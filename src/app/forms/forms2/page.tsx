@@ -2,9 +2,10 @@
 
 import Profile from "../../components/Profile";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Sidebar from "@/app/components/Sidebar";
+import Cookies from "js-cookie";
 import Link from 'next/link'
 
 export default function Forms() {
@@ -14,6 +15,13 @@ export default function Forms() {
   const [JobType, setJobType] = useState("");
   const [ParentalSupport, setParentalSupport] = useState("");
   const [Tuition, setTuition] = useState("");
+
+  const [income, setUserIncome] = useState(-1) as any;
+  const [aid, setUserAid] = useState(-1) as any;
+  const [scholarships, setUserScholarships] = useState(-1) as any;
+  const [jobType, setUserJobType] = useState("");
+  const [parentalSupport, setUserParentalSupport] = useState(-1) as any;
+  const [tuition, setUserTuition] = useState(-1) as any;
 
   const router = useRouter();
 
@@ -59,6 +67,7 @@ export default function Forms() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
         },
         body: JSON.stringify(userData),
       });
@@ -74,6 +83,56 @@ export default function Forms() {
       console.error('Error:', error);
     }
   };
+
+  useEffect(() => {
+    try {
+      fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          window.location.href="/Login";
+        }
+      })
+      .then(data => {
+        if (!data.data) {
+          window.location.href="/Login";
+        } else {
+          console.log(data);
+        }
+      })
+    } catch (e) {
+      console.log("No login detected");
+    }
+
+    try {
+      fetch('/api/getWalletBreakdown', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'jwt-token': Cookies.get("access_token") as string
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setUserIncome(data.financial_details.income);
+        setUserScholarships(data.financial_details.scholarship);
+        setUserAid(data.financial_details.financial_aid);
+        setUserJobType(data.financial_details.job_type);
+        setUserParentalSupport(data.financial_details.parent_support);
+        setUserTuition(data.financial_details.tuition);
+      });
+    } catch (error) {
+      console.error('Error: ', error);
+    }
+  }, []);
 
   return (
     <div className="relative">
@@ -117,7 +176,7 @@ export default function Forms() {
                   value={Income}
                   onChange={handleChange}
                   className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={income == -1 ? "xxx" : income}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -128,7 +187,7 @@ export default function Forms() {
                   value={Aid}
                   onChange={handleChange}
                   className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={aid == -1 ? 'xxx' : aid}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -139,7 +198,7 @@ export default function Forms() {
                   value={Scholarships}
                   onChange={handleChange}
                   className="border-1 max-w-[45vw] rounded-lg border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={scholarships == -1 ? "xxx" : scholarships}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -150,7 +209,7 @@ export default function Forms() {
                   value={JobType}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="Full-time"
+                  placeholder={jobType ? jobType : "Full-Time"}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -161,7 +220,7 @@ export default function Forms() {
                   value={ParentalSupport}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={parentalSupport == -1 ? "xxx" : parentalSupport}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -172,7 +231,7 @@ export default function Forms() {
                   value={Tuition}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={tuition == -1 ? "xxx" : tuition}
                 />
               </div>
               <div className="flex justify-start mt-6">
