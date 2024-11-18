@@ -2,7 +2,7 @@
 
 import Profile from "../../components/Profile";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Sidebar from "@/app/components/Sidebar";
 import Cookies from "js-cookie";
@@ -16,6 +16,14 @@ export default function Forms() {
  const [TransportationExpenses, setTransportationExpenses] = useState("");
  const [InsuranceExpenses, setInsuranceExpenses] = useState("");
  const [InsuranceType, setInsuranceType] = useState("");
+
+ const [housingExpenses, setUserHousingExpenses] = useState(-1) as any;
+ const [housingType, setUserHousingType] = useState("");
+ const [foodExpenses, setUserFoodExpenses] = useState(-1) as any;
+ const [groceries, setUserGroceries] = useState("");
+ const [transportationExpenses, setUserTransportationExpenses] = useState(-1) as any;
+ const [insuranceExpenses, setUserInsuranceExpenses] = useState(-1) as any;
+ const [insuranceType, setUserInsuranceType] = useState("");
 
  const router = useRouter();
 
@@ -81,6 +89,57 @@ export default function Forms() {
    }
  };
 
+ useEffect(() => {
+  try {
+    fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'jwt-token': Cookies.get("access_token") as string
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        window.location.href="/Login";
+      }
+    })
+    .then(data => {
+      if (!data.data) {
+        window.location.href="/Login";
+      } else {
+        console.log(data);
+      }
+    })
+  } catch (e) {
+    console.log("No login detected");
+  }
+
+  try {
+    fetch('/api/getWalletBreakdown', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'jwt-token': Cookies.get("access_token") as string
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setUserFoodExpenses(data.expenses_details.food_expenses);
+      setUserGroceries(data.expenses_details.groceries);
+      setUserHousingExpenses(data.expenses_details.housing_expenses);
+      setUserHousingType(data.expenses_details.housing_type);
+      setUserInsuranceExpenses(data.expenses_details.insurance_expenses);
+      setUserInsuranceType(data.expenses_details.insurance_type);
+      setUserTransportationExpenses(data.expenses_details.transportation_expenses);
+    });
+  } catch (error) {
+    console.error('Error: ', error);
+  }
+ }, []);
+
  return (
       <div className="relative">
       <Sidebar/>
@@ -123,7 +182,7 @@ export default function Forms() {
                   value={HousingExpenses}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={housingExpenses !== -1 ? housingExpenses : "xxx"}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -134,7 +193,7 @@ export default function Forms() {
                   value={HousingType}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="Dorms"
+                  placeholder={housingType ? housingType : "Apartment"}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -145,7 +204,7 @@ export default function Forms() {
                   value={FoodExpenses}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] order-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={foodExpenses !== -1 ? foodExpenses : "xxx"}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -156,7 +215,7 @@ export default function Forms() {
                   value={Groceries}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="Costco"
+                  placeholder={groceries ? groceries : "Costco"}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -167,7 +226,7 @@ export default function Forms() {
                   value={TransportationExpenses}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={transportationExpenses !== -1 ? transportationExpenses : "xxx"}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -178,7 +237,7 @@ export default function Forms() {
                   value={InsuranceExpenses}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="xxx$"
+                  placeholder={insuranceExpenses !== -1 ? insuranceExpenses : "xxx"}
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -189,7 +248,7 @@ export default function Forms() {
                   value={InsuranceType}
                   onChange={handleChange}
                   className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-                  placeholder="Blue Cross Blue Shield"
+                  placeholder={insuranceType ? insuranceType : "Blue Cross Blue Shield"}
                 />
               </div>
               <div className="flex justify-start mt-6">

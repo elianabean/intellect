@@ -2,7 +2,7 @@
 
 import Profile from "../../components/Profile";
 import Image from "next/image";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Sidebar from "@/app/components/Sidebar";
 import Cookies from "js-cookie";
@@ -16,6 +16,14 @@ export default function Forms() {
  const [SubscriptionType, setSubscriptionType] = useState("");
  const [EntertainmentExpenses, setEntertainmentExpenses] = useState("");
  const [EntertainmentType, setEntertainmentType] = useState("");
+
+ const [UserECExpenses, setUserECExpenses] = useState(-1) as any;
+ const [UserClothingExpenses, setUserClothingExpenses] = useState(-1) as any;
+ const [UserClothingType, setUserClothingType] = useState("");
+ const [UserSubscriptionExpenses, setUserSubscriptionExpenses] = useState(-1) as any;
+ const [UserSubscriptionType, setUserSubscriptionType] = useState("");
+ const [UserEntertainmentExpenses, setUserEntertainmentExpenses] = useState(-1) as any;
+ const [UserEntertainmentType, setUserEntertainmentType] = useState("");
 
  const router = useRouter();
 
@@ -81,6 +89,57 @@ export default function Forms() {
    }
  };
 
+ useEffect(() => {
+  try {
+    fetch(process.env.NEXT_PUBLIC_URL + '/api/user', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'jwt-token': Cookies.get("access_token") as string
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        window.location.href="/Login";
+      }
+    })
+    .then(data => {
+      if (!data.data) {
+        window.location.href="/Login";
+      } else {
+        console.log(data);
+      }
+    })
+  } catch (e) {
+    console.log("No login detected");
+  }
+
+  try {
+    fetch('/api/getWalletBreakdown', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'jwt-token': Cookies.get("access_token") as string
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setUserClothingExpenses(data.wants_details.clothing_expenses);
+      setUserClothingType(data.wants_details.clothing_type);
+      setUserECExpenses(data.wants_details.ec_expenses);
+      setUserEntertainmentExpenses(data.wants_details.entertainment_expenses);
+      setUserEntertainmentType(data.wants_details.entertainment_type);
+      setUserSubscriptionExpenses(data.wants_details.subscription_expenses);
+      setUserSubscriptionType(data.wants_details.subscription_type);
+    });
+  } catch (error) {
+    console.error('Error: ', error);
+  }
+ }, []);
+
  return (
   <div className="relative">
   <Sidebar/>
@@ -123,7 +182,7 @@ export default function Forms() {
               value={ECExpenses}
               onChange={handleChange}
               className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-              placeholder="xxx$"
+              placeholder={UserECExpenses !== -1 ? UserECExpenses : "xxx"}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -134,7 +193,7 @@ export default function Forms() {
               value={ClothingExpenses}
               onChange={handleChange}
               className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-              placeholder="xxx$"
+              placeholder={UserClothingExpenses !== -1 ? UserClothingExpenses : "xxx"}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -145,7 +204,7 @@ export default function Forms() {
               value={ClothingType}
               onChange={handleChange}
               className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-              placeholder="Abercrombie & Fitch, Nike"
+              placeholder={UserClothingType ? UserClothingType : "Abercrombie & Fitch, Nike"}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -156,7 +215,7 @@ export default function Forms() {
               value={SubscriptionExpenses}
               onChange={handleChange}
               className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-              placeholder="xxx$"
+              placeholder={UserSubscriptionExpenses !== -1 ? UserSubscriptionExpenses : "xxx"}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -167,7 +226,7 @@ export default function Forms() {
               value={SubscriptionType}
               onChange={handleChange}
               className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-              placeholder="Netflix, Spotify"
+              placeholder={UserSubscriptionType ? UserSubscriptionType : "Netflix, Spotify"}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -178,7 +237,7 @@ export default function Forms() {
               value={EntertainmentExpenses}
               onChange={handleChange}
               className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-              placeholder="xxx$"
+              placeholder={UserEntertainmentExpenses !== -1 ? UserEntertainmentExpenses : "xxx"}
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -189,7 +248,7 @@ export default function Forms() {
               value={EntertainmentType}
               onChange={handleChange}
               className="border-1 rounded-lg max-w-[45vw] border-rgba(172, 189, 201, 0.60) bg-white text-[#888888] text-[16px] font-normal px-5 font-['Inter'] leading-[45px] outline-none"
-              placeholder="Go Out"
+              placeholder={UserEntertainmentType ? UserEntertainmentType : "Go Out"}
             />
           </div>
           <div className="flex justify-start mt-6">
